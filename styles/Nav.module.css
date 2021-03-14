@@ -1,0 +1,30 @@
+.nav {
+	background-color: transparent;
+}
+
+.upper_nav {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+}
+
+.upper_nav_svgs {
+	display: flex;
+	justify-content: space-between;
+}
+
+.upper_nav_svgs svg {
+	margin: 0 10px;
+}
+
+.lower_nav {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	border-top: 2px solid black;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 40px;
+	margin: 0 auto;
+}
+
