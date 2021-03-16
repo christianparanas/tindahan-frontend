@@ -19,7 +19,7 @@ export default function Nav() {
 	return (
 		<div className="nav">
 			<div className="upper_nav">
-				<div class="logo">TINDAHAN</div>
+				<div className="logo">TINDAHAN</div>
 				<div className="upper_nav_svgs">
 					<svg aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-search" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"></path></svg>
         	<svg onClick={openOverlay} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-hamburger" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M7 15h51M7 32h43M7 49h51"></path></svg>
@@ -43,7 +43,18 @@ export default function Nav() {
 			</div>
 
       <div onClick={closeOverlay} className={navOverlayClickOutside}></div>
-      <div className={navOverlay}></div>
+      <div className={navOverlay}>
+        <div onClick={closeOverlay} className="closeNavBtn">
+          <svg aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-close" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M19 17.61l27.12 27.13m0-27.12L19 44.74"></path></svg>
+        </div>
+        <div className="navOptions">
+          <div className="navOp collections">Collections</div>
+          <div className="navOp men">Men</div>
+          <div className="navOp women">Women</div>
+          <div className="navOp innerwear">Innerwear</div>
+          <div className="navOp sale">Sale</div>
+        </div>
+      </div>
     </div>
 	)
 }

@@ -44,7 +44,7 @@
 }
 
 .navOverlay-clickOutside {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   height: 100vh;
@@ -59,17 +59,38 @@
 }
 
 .navOverlay-sidebar {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   height: 100vh;
   width: 0;
   opacity: 1;
   background-color: white;
-  padding-top: 100px;
-  transition: width .5s ease;
+  transition: all .5s ease;
+
+  .closeNavBtn {
+    width: 100%;
+    display: grid;
+    place-items: end;
+
+    .cls-1{
+      fill:none;
+      stroke:#000;
+      stroke-miterlimit:10;
+      stroke-width:2px
+    }
+  }
+
+  .navOptions {
+    margin-top: 30px;
+
+    .navOp {
+      padding: 10px;
+    }
+  }
 }
 
 .sidebarShow {
   width: 300px;
+  padding: 20px 10px;
 }
