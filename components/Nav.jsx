@@ -9,6 +9,7 @@ export default function Nav() {
   const searchInput = useRef(null);
   const [searchOverlay, setSearchOverlay] = useState('searchWrapper')
   const [navOverlay, setNavOverlay] = useState('navOverlay-sidebar')
+  const [cartOverlay, setCartOverlay] = useState('cartOverlay')
   const [navOverlayClickOutside, setNavOverlayClickOutside] = useState('navOverlay-clickOutside')
 
   const openOverlay = () => {
@@ -20,6 +21,7 @@ export default function Nav() {
     setNavOverlay('navOverlay-sidebar')
     setNavOverlayClickOutside('navOverlay-clickOutside')
     setSearchOverlay('searchWrapper')
+    setCartOverlay('cartOverlay')
   }
 
   const openSearchOverlay = () => {
@@ -28,6 +30,12 @@ export default function Nav() {
     searchInput.current.focus();
   }
 
+  const openCartOverlay = () => {
+    setNavOverlayClickOutside('navOverlay-clickOutside clickOutsideShow')
+    setCartOverlay('cartOverlay showCartOverlay')
+  }
+
+
 	return (
 		<div className="nav">
 			<div className="upper_nav">
@@ -35,7 +43,7 @@ export default function Nav() {
 				<div className="upper_nav_svgs">
 					<svg onClick={openSearchOverlay} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-search" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"></path></svg>
         	<svg onClick={openOverlay} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-hamburger" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M7 15h51M7 32h43M7 49h51"></path></svg>
-        	<svg aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-cart" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M14 17.44h46.79l-7.94 25.61H20.96l-9.65-35.1H3"></path><circle cx="27" cy="53" r="2"></circle><circle cx="47" cy="53" r="2"></circle></svg>
+        	<svg onClick={openCartOverlay} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-cart" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M14 17.44h46.79l-7.94 25.61H20.96l-9.65-35.1H3"></path><circle cx="27" cy="53" r="2"></circle><circle cx="47" cy="53" r="2"></circle></svg>
 				</div>
 			</div>
 
@@ -61,6 +69,7 @@ export default function Nav() {
       </div>
 
       <div onClick={closeOverlay} className={navOverlayClickOutside}></div>
+
       <div className={navOverlay}>
         <div onClick={closeOverlay} className="closeNavBtn">
           <svg aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-close" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M19 17.61l27.12 27.13m0-27.12L19 44.74"></path></svg>
@@ -73,6 +82,21 @@ export default function Nav() {
           <div className="navOp sale">Sale</div>
         </div>
       </div>
+
+      <div className={cartOverlay}>
+        <div className="closeCartOverlayBtn">
+          Cart
+          <svg onClick={closeOverlay} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-close" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M19 17.61l27.12 27.13m0-27.12L19 44.74"></path></svg>
+        </div>
+        <hr />
+        <div className="cartItems">
+          <div className="item">
+            Your cart is currently empty
+          </div>
+        </div>
+      </div>
+
+      
     </div>
 	)
 }
