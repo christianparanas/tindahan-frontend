@@ -1,8 +1,12 @@
 import { useState } from 'react' 
 
+// libs
 import Icon from "awesome-react-icons";
 
+// components
+
 export default function Nav() {
+  const [searchOverlay, setSearchOverlay] = useState('searchWrapper')
   const [navOverlay, setNavOverlay] = useState('navOverlay-sidebar')
   const [navOverlayClickOutside, setNavOverlayClickOutside] = useState('navOverlay-clickOutside')
 
@@ -14,6 +18,12 @@ export default function Nav() {
   const closeOverlay = () => {
     setNavOverlay('navOverlay-sidebar')
     setNavOverlayClickOutside('navOverlay-clickOutside')
+    setSearchOverlay('searchWrapper')
+  }
+
+  const openSearchOverlay = () => {
+    setNavOverlayClickOutside('navOverlay-clickOutside clickOutsideShow')
+    setSearchOverlay('searchWrapper showSearch')
   }
 
 	return (
@@ -21,7 +31,7 @@ export default function Nav() {
 			<div className="upper_nav">
 				<div className="logo">TINDAHAN</div>
 				<div className="upper_nav_svgs">
-					<svg aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-search" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"></path></svg>
+					<svg onClick={openSearchOverlay} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-search" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"></path></svg>
         	<svg onClick={openOverlay} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-hamburger" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M7 15h51M7 32h43M7 49h51"></path></svg>
         	<svg aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-cart" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M14 17.44h46.79l-7.94 25.61H20.96l-9.65-35.1H3"></path><circle cx="27" cy="53" r="2"></circle><circle cx="47" cy="53" r="2"></circle></svg>
 				</div>
@@ -41,6 +51,11 @@ export default function Nav() {
         	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle fill="none" cx="12" cy="7" r="3"></circle><path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5S14.757 2 12 2zM12 10c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3S13.654 10 12 10zM21 21v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h2v-1c0-2.757 2.243-5 5-5h4c2.757 0 5 2.243 5 5v1H21z"></path></svg>
         </div>
 			</div>
+
+      <div className={searchOverlay}>
+        <svg aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-search" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"></path></svg>
+        <input type="search" name="search" placeholder="Search our store" />
+      </div>
 
       <div onClick={closeOverlay} className={navOverlayClickOutside}></div>
       <div className={navOverlay}>

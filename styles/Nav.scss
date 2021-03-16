@@ -45,6 +45,7 @@
 
 .navOverlay-clickOutside {
   position: fixed;
+  z-index: 4;
   top: 0;
   right: 0;
   height: 100vh;
@@ -59,6 +60,7 @@
 }
 
 .navOverlay-sidebar {
+  z-index: 5;
   position: fixed;
   top: 0;
   right: 0;
@@ -86,6 +88,7 @@
 
     .navOp {
       padding: 10px;
+      margin-bottom: 5px;
     }
   }
 }
@@ -93,4 +96,37 @@
 .sidebarShow {
   width: 300px;
   padding: 20px 10px;
+}
+
+
+// seach component
+.searchWrapper {
+  z-index: 5;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  top: -100px;
+  padding: 20px;
+  display: flex;
+  transition: all .3s ease;
+
+  .icon .cls-1, circle {
+    fill:none;
+    stroke:#000;
+    stroke-miterlimit:10;
+    stroke-width:2px
+  }
+
+  input {
+    outline: 0;
+    border: 0;
+    width: 100%;
+    font-size: 16px;
+    margin-left: 10px;
+    padding-top: 3px ;
+  }
+}
+
+.showSearch {
+  top: 0;
 }
