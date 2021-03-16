@@ -1,4 +1,4 @@
-import { useState } from 'react' 
+import { useState, useRef } from 'react' 
 
 // libs
 import Icon from "awesome-react-icons";
@@ -6,6 +6,7 @@ import Icon from "awesome-react-icons";
 // components
 
 export default function Nav() {
+  const searchInput = useRef(null);
   const [searchOverlay, setSearchOverlay] = useState('searchWrapper')
   const [navOverlay, setNavOverlay] = useState('navOverlay-sidebar')
   const [navOverlayClickOutside, setNavOverlayClickOutside] = useState('navOverlay-clickOutside')
@@ -24,6 +25,7 @@ export default function Nav() {
   const openSearchOverlay = () => {
     setNavOverlayClickOutside('navOverlay-clickOutside clickOutsideShow')
     setSearchOverlay('searchWrapper showSearch')
+    searchInput.current.focus();
   }
 
 	return (
@@ -54,7 +56,8 @@ export default function Nav() {
 
       <div className={searchOverlay}>
         <svg aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-search" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"></path></svg>
-        <input type="search" name="search" placeholder="Search our store" />
+        <input type="search" ref={searchInput} id="search" name="search" placeholder="Search our store" />
+        <svg onClick={closeOverlay} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-close" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M19 17.61l27.12 27.13m0-27.12L19 44.74"></path></svg>
       </div>
 
       <div onClick={closeOverlay} className={navOverlayClickOutside}></div>

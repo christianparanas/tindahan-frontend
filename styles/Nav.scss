@@ -125,6 +125,10 @@
     margin-left: 10px;
     padding-top: 3px ;
   }
+
+  #search::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+  }
 }
 
 .showSearch {
