@@ -8,12 +8,15 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Tindahan</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <Nav />
+      <main className={styles.mainWrapper}>
+        <div className={styles.hero}>
+          <Nav />
+        </div>
+
       </main>
     </div>
   )

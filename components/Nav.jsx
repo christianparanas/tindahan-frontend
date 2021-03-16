@@ -1,12 +1,14 @@
 import styles from '../styles/Nav.module.css'
 
+import Icon from "awesome-react-icons";
+
 export default function Nav() {
 	return (
 		<div className={styles.nav}>
 			<div className={styles.upper_nav}>
-				<div>TINDAHAN</div>
+				<div class={styles.logo}>TINDAHAN</div>
 				<div className={styles.upper_nav_svgs}>
-					<svg aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-search" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"></path></svg>
+					<svg aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="" className="icon icon-search" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"></path></svg>
         	<svg aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-hamburger" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M7 15h51M7 32h43M7 49h51"></path></svg>
         	<svg aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-cart" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M14 17.44h46.79l-7.94 25.61H20.96l-9.65-35.1H3"></path><circle cx="27" cy="53" r="2"></circle><circle cx="47" cy="53" r="2"></circle></svg>
 				</div>

@@ -2,10 +2,15 @@
 	background-color: transparent;
 }
 
+.logo {
+	color: white;
+}
+
 .upper_nav {
 	display: flex;
 	justify-content: space-between;
 	padding: 20px;
+
 }
 
 .upper_nav_svgs {
@@ -26,5 +31,13 @@
 	justify-content: space-between;
 	padding: 10px 40px;
 	margin: 0 auto;
+	background-color: white;
 }
 
+.navOverlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: white;
+	padding-top: 100px;
+}
