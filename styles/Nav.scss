@@ -1,0 +1,75 @@
+/* navigation */
+
+.nav {
+  background-color: transparent;
+}
+
+.logo {
+  color: white;
+}
+
+.upper_nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+
+  .upper_nav_svgs {
+    display: flex;
+    justify-content: space-between;
+
+    svg {
+      margin: 0 10px;
+    }
+
+    .icon .cls-1, circle {
+      fill:none;
+      stroke:#fff;
+      stroke-miterlimit:10;
+      stroke-width:2px
+    }
+  }
+
+}
+
+.lower_nav {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  border-top: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.navOverlay-clickOutside {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 0;
+  opacity: .5;
+  background-color: #000;
+  padding-top: 100px;
+}
+
+.clickOutsideShow {
+  width: 100%;
+}
+
+.navOverlay-sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 0;
+  opacity: 1;
+  background-color: white;
+  padding-top: 100px;
+  transition: width .5s ease;
+}
+
+.sidebarShow {
+  width: 300px;
+}

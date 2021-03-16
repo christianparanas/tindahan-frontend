@@ -1,3 +1,5 @@
+
+
 html,
 body {
   padding: 0;
@@ -17,9 +19,3 @@ a {
 
 
 
-.icon .cls-1, circle {
-  fill:none;
-  stroke:#fff;
-  stroke-miterlimit:10;
-  stroke-width:2px
-}
