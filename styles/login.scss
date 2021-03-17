@@ -1,0 +1,91 @@
+
+.loginFormWrapper {
+
+
+	.nav {
+		position: fixed;
+		width: 100%;
+
+		.upper_nav {
+			border-bottom: 1px solid #e8e8e1;
+
+			.logo {
+				font-weight: 700;
+			  color: red;
+			}
+
+			.upper_nav_svgs {
+
+		    .cls-1, circle {
+		      fill:none;
+		      stroke:#000;
+		      stroke-miterlimit:10;
+		      stroke-width:2px
+		    }
+		  }
+		}
+	}
+
+	.loginContentWrapper {
+		padding: 90px 20px 80px;
+		height: fit-content;
+
+		h1 {
+			font-size: 1.5625em;
+			margin-top: 0;
+		}
+
+
+		form {
+
+			.terms {
+				font-size: 13px;
+				margin-bottom: 30px;
+			}
+
+			.loginSignIpBtn {
+				width: 100%;
+				color: #fff;
+				background: #f01737;
+				padding: 11px 20px;
+		    font-size: 1em;
+		    outline: 0;
+		    border: 0;
+		    border-radius: 0;
+		    font-weight: 700;
+    		letter-spacing: 0.025em;
+    		margin-bottom: 30px;
+			}
+
+			.loginEmailWrapper {
+				display: grid;
+
+				label {
+					margin-bottom: 10px;
+					font-size: 0.75em;
+				}
+
+				input {
+					width: 100%;
+					border: 1px solid #e8e8e1;
+			    max-width: 100%;
+			    padding: 8px 10px;
+			    font-size: 16px;
+			    outline: 0;
+			    margin-bottom: 30px;
+			    border-radius: 0;
+				}
+
+				input:focus {
+					border-color: black; 
+				}
+
+
+				.loginPassOptions {
+					display: flex;
+					justify-content: space-between;
+				}
+			}
+		}
+	}
+}

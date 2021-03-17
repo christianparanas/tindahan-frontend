@@ -39,7 +39,9 @@ export default function Nav() {
 	return (
 		<div className="nav">
 			<div className="upper_nav">
-				<div className="logo">TINDAHAN</div>
+				<div className="logo">
+          <img className="medium-up--hide" src="//cdn.shopify.com/s/files/1/2282/7539/files/Penshoppe-Logo_5d6ee642-f0b7-410e-a84b-ea40f824b99d_150x.png?v=1609750000" srcSet="//cdn.shopify.com/s/files/1/2282/7539/files/Penshoppe-Logo_5d6ee642-f0b7-410e-a84b-ea40f824b99d_150x.png?v=1609750000 1x, //cdn.shopify.com/s/files/1/2282/7539/files/Penshoppe-Logo_5d6ee642-f0b7-410e-a84b-ea40f824b99d_150x@2x.png?v=1609750000 2x" alt="PENSHOPPE" />
+        </div>
 				<div className="upper_nav_svgs">
 					<svg onClick={openSearchOverlay} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-search" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"></path></svg>
         	<svg onClick={openOverlay} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-hamburger" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M7 15h51M7 32h43M7 49h51"></path></svg>
