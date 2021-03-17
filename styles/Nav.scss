@@ -6,6 +6,10 @@
 
 .logo {
   color: white;
+
+  img {
+    cursor: pointer;
+  }
 }
 
 .upper_nav {
@@ -19,6 +23,7 @@
 
     svg {
       margin: 0 10px;
+      cursor: pointer;
     }
 
     .icon .cls-1, circle {
@@ -41,6 +46,10 @@
   padding: 10px 40px;
   margin: 0 auto;
   background-color: white;
+
+  svg {
+    cursor: pointer;
+  }
 }
 
 .navOverlay-clickOutside {

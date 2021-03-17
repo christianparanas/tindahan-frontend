@@ -44,9 +44,14 @@
 			.terms {
 				font-size: 13px;
 				margin-bottom: 30px;
+
+				input {
+					cursor: pointer;
+				}
 			}
 
 			.loginSignIpBtn {
+				cursor: pointer;
 				width: 100%;
 				color: #fff;
 				background: #f01737;
