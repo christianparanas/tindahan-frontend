@@ -1,4 +1,5 @@
 import Nav from '../../components/Nav'
+import Link from 'next/link'
 
 function register() {
 		return (
@@ -29,7 +30,7 @@ function register() {
 	               By ticking this box, you confirm that you have read, understood and agreed to our Terms and Conditions and the collection, use, storage of your data in accordance with our Privacy Policy
 	          </label>
           </div>
-					<input type="submit" value="Sign Up" className="loginSignIpBtn" />
+					<input type="submit" value="Create" className="loginSignIpBtn" />
 				</form>
 			</div>
 		</div>

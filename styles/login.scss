@@ -5,6 +5,8 @@
 	.nav {
 		position: fixed;
 		width: 100%;
+		background-color: white;
+		z-index: 5;
 
 		.upper_nav {
 			border-bottom: 1px solid #e8e8e1;
@@ -27,6 +29,7 @@
 	}
 
 	.loginContentWrapper {
+		z-index: 4;
 		padding: 90px 20px 80px;
 		height: fit-content;
 

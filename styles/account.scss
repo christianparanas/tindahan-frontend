@@ -1,0 +1,33 @@
+
+.account {
+
+	.nav {
+		position: fixed;
+		width: 100%;
+		background-color: white;
+		z-index: 5;
+
+		.upper_nav {
+			border-bottom: 1px solid #e8e8e1;
+
+			.logo {
+				font-weight: 700;
+			  color: red;
+			}
+
+			.upper_nav_svgs {
+
+		    .cls-1, circle {
+		      fill:none;
+		      stroke:#000;
+		      stroke-miterlimit:10;
+		      stroke-width:2px
+		    }
+		  }
+		}
+  }
+
+  .accountWrapper {
+  	padding: 90px 20px;
+  }
+}

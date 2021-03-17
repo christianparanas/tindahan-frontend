@@ -1,5 +1,6 @@
 
 import Nav from '../../components/Nav'
+import Link from 'next/link'
 
 
 function login() {
@@ -21,7 +22,9 @@ function login() {
 						<input type="password" id="loginPassword" name="LoginPassword" />
 					</div>
 					<input type="submit" value="Sign In" className="loginSignIpBtn" />
-					<div className="createAcctBtn">Create account</div>
+					<Link href="/account/register">
+						<div className="createAcctBtn">Create account</div>
+					</Link>
 				</form>
 			</div>
 		</div>
