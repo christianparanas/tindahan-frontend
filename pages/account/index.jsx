@@ -7,7 +7,7 @@ function account() {
 			<Nav />
 			<div className="accountWrapper">
 				<Link href="/account/login">
-					Login
+					Login here
 				</Link>
 			</div>
 		</div>
