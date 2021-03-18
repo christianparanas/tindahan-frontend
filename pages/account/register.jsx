@@ -6,7 +6,7 @@ function register() {
 		<div className="loginFormWrapper">
 			<Nav />
 			<div className="loginContentWrapper">
-				<h1 className="header">Create Account</h1>
+				<h1 className="header">CREATE ACCOUNT</h1>
 				<form action="">
 					<div className="loginEmailWrapper">
 						<label htmlFor="regfirstname">FIRST NAME</label>
@@ -30,7 +30,7 @@ function register() {
 	               By ticking this box, you confirm that you have read, understood and agreed to our Terms and Conditions and the collection, use, storage of your data in accordance with our Privacy Policy
 	          </label>
           </div>
-					<input type="submit" value="Create" className="loginSignIpBtn" />
+					<input type="submit" value="CREATE" className="loginSignIpBtn" />
 				</form>
 			</div>
 		</div>

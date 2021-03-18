@@ -34,9 +34,47 @@
 		height: fit-content;
 
 		h1 {
-			font-size: 1.5625em;
+			font-size: 1.3em;
 			margin-top: 0;
 		}
+
+		.loginWithGoogle {
+			display: flex;
+			position: relative;
+			border: 1px solid #e8e8e1;
+			padding: 10px 12px;
+
+
+			svg {
+				height: 20px; 
+				width: 20px; 
+				display: block;
+				position: absolute;
+				left: 12px;
+			}
+
+			.text {
+				width: 100%;
+				display: grid;
+				place-items: center;
+			}
+		}
+
+		.orSep {
+			display: grid;
+			grid-template-columns: 1fr 50px 1fr;
+			margin-bottom: 20px;
+
+			.or {
+				text-align: center;
+			}
+
+			span {
+				border-bottom: 1px solid #e8e8e1;
+				margin-bottom: 6px;
+			}
+		}
+
 
 
 		form {
@@ -48,6 +86,10 @@
 				input {
 					cursor: pointer;
 				}
+			}
+
+			.createAcctBtn {
+				font-size: 0.75em;
 			}
 
 			.loginSignIpBtn {
@@ -71,6 +113,7 @@
 				label {
 					margin-bottom: 10px;
 					font-size: 0.75em;
+
 				}
 
 				input {
@@ -92,6 +135,10 @@
 				.loginPassOptions {
 					display: flex;
 					justify-content: space-between;
+
+					.ForgotPass {
+						font-size: 0.75em;
+					}
 				}
 			}
 		}
