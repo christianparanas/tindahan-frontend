@@ -1,5 +1,7 @@
 
 .account {
+	position: relative;
+	padding-bottom: 45px;
 
 	.nav {
 		position: fixed;
@@ -29,5 +31,6 @@
 
   .accountWrapper {
   	padding: 90px 20px;
+  	height: 500px;
   }
 }

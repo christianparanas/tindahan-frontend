@@ -1,4 +1,5 @@
 import Nav from '../../components/Nav'
+import Footer from '../../components/Footer'
 import Link from 'next/link'
 
 function account() {
@@ -10,6 +11,7 @@ function account() {
 					Login here
 				</Link>
 			</div>
+			<Footer />
 		</div>
 	)
 }

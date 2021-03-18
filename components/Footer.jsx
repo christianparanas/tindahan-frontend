@@ -14,7 +14,7 @@ const Footer = () => {
         <div>christiannparanas@gmail.com</div>
       </Collapsible>
       <Collapsible trigger="SUBSCRIBE">
-        <svg aria-hidden="true" focusable="false" role="presentation" width="24" height="24" className="icon icon-email" viewBox="0 0 64 64"><defs></defs><path class="cls-1" d="M63 52H1V12h62zM1 12l25.68 24h9.72L63 12M21.82 31.68L1.56 51.16m60.78.78L41.27 31.68"></path></svg>
+        <svg aria-hidden="true" focusable="false" role="presentation" width="24" height="24" className="icon icon-email" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M63 52H1V12h62zM1 12l25.68 24h9.72L63 12M21.82 31.68L1.56 51.16m60.78.78L41.27 31.68"></path></svg>
         <input type="text" placeholder="Enter your email" />
       </Collapsible>
       <div className="footIcons">

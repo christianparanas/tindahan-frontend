@@ -1,3 +1,4 @@
+import Footer from '../../components/Footer'
 import Nav from '../../components/Nav'
 import Link from 'next/link'
 
@@ -33,6 +34,7 @@ function register() {
 					<input type="submit" value="CREATE" className="loginSignIpBtn" />
 				</form>
 			</div>
+			<Footer />
 		</div>
 	)
 }
