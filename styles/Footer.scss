@@ -1,5 +1,49 @@
-.Collapsible {
+.footer {
 	color: white;
-	background-color: black;
+	background-color: #252a2b;
+}
+
+.Collapsible {
+	margin: 0 20px;
+	padding: 20px 0;
+	border-bottom: 1px solid #e8e8e1;
+}
+
+.Collapsible__contentInner {
+	padding: 20px 0 0;
+	position: relative;
+
+	input {
+		padding: 10px 20px 10px 40px;
+		border: 1px solid #e8e8e1;
+		background-color: #252a2b;
+		outline: 0;
+		color: white;
+		border-radius: 0;
+	}
+
+	input::placeholder {
+		color: #e8e8e1;
+	}
+
+	.cls-1{fill:none;
+		stroke:#e8e8e1;
+		stroke-miterlimit:10;
+		stroke-width:2px;
+	}
+
+	.icon-email {
+		position: absolute;
+		top: 26px;
+		left: 10px;
+	}
+}
+
+.footIcons {
+	text-align: right;
 	padding: 20px;
+
+	svg {
+		margin: 0 10px;
+	}
 }
