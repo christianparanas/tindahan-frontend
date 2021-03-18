@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react' 
+import { useState, useRef, useEffect } from 'react' 
 import Link from 'next/link'
 
 // libs
@@ -7,17 +7,37 @@ import Icon from "awesome-react-icons";
 // components
 
 export default function Nav() {
+  // for changing upper nav bg color on scroll
+  const [upperNav, setUpperNav] = useState('upper_nav')
+  // this is used to focus input on click on the search icon in the home page
   const searchInput = useRef(null);
   const [searchOverlay, setSearchOverlay] = useState('searchWrapper')
   const [navOverlay, setNavOverlay] = useState('navOverlay-sidebar')
   const [cartOverlay, setCartOverlay] = useState('cartOverlay')
+
+  // this is for grey overlay, when you click at it, it will close all the overlay that open
   const [navOverlayClickOutside, setNavOverlayClickOutside] = useState('navOverlay-clickOutside')
 
+  // open overlay for sidebar by adding a css classname, also the grey overlay
   const openOverlay = () => {
     setNavOverlay('navOverlay-sidebar sidebarShow')
     setNavOverlayClickOutside('navOverlay-clickOutside clickOutsideShow')
   }
 
+  // open search overlay when the search icon click, also the grey overlay and set auto focus for the input in the search bar
+  const openSearchOverlay = () => {
+    setNavOverlayClickOutside('navOverlay-clickOutside clickOutsideShow')
+    setSearchOverlay('searchWrapper showSearch')
+    searchInput.current.focus();
+  }
+
+  // open cart overlay, and also the grey overlay
+  const openCartOverlay = () => {
+    setNavOverlayClickOutside('navOverlay-clickOutside clickOutsideShow')
+    setCartOverlay('cartOverlay showCartOverlay')
+  }
+
+    // this will close all the overlay in the nav, I put all the close function here to get rid of duplicate functions
   const closeOverlay = () => {
     setNavOverlay('navOverlay-sidebar')
     setNavOverlayClickOutside('navOverlay-clickOutside')
@@ -25,21 +45,22 @@ export default function Nav() {
     setCartOverlay('cartOverlay')
   }
 
-  const openSearchOverlay = () => {
-    setNavOverlayClickOutside('navOverlay-clickOutside clickOutsideShow')
-    setSearchOverlay('searchWrapper showSearch')
-    searchInput.current.focus();
+  // change bg color for upper nav if a specific scroll coor met
+  const listenScrollEvent = () => {
+    window.scrollY > 350
+      ? setUpperNav("upper_nav navChangeUpperNavBgOnScroll")
+      : setUpperNav("upper_nav")
   }
 
-  const openCartOverlay = () => {
-    setNavOverlayClickOutside('navOverlay-clickOutside clickOutsideShow')
-    setCartOverlay('cartOverlay showCartOverlay')
-  }
+  // listen first for scroll and put it into a listenScrollEvent
+  useEffect(() => {
+    window.addEventListener("scroll", listenScrollEvent)
+  }, [])
 
 
 	return (
 		<div className="nav">
-			<div className="upper_nav">
+			<div className={upperNav}>
 				<div className="logo">
           <Link href="/">
             TINDAHAN NI THEA
