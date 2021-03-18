@@ -6,6 +6,7 @@ import { Carousel } from 'react-responsive-carousel';
 
 // components
 import Nav from '../components/Nav'
+import HomeProductContainer from '../components/HomeProductContainer'
 
 export default function Home() {
   const carouselItems = [
@@ -43,6 +44,20 @@ export default function Home() {
               })}  
             </Carousel>
           </div>
+        </div>
+        <div className="mainContentWrapper">
+         <div className="freshDrops_horizontalDisplay">
+          <h2>Fresh Drops</h2>
+           <div className="itemSlider">
+            <HomeProductContainer />
+            <HomeProductContainer />
+            <HomeProductContainer />
+            <HomeProductContainer />
+            <div className="FreshDrops_viewAllProducts">
+              <div className="content">View all 256 products</div>
+            </div>
+           </div>
+         </div>
         </div>
 
       </main>

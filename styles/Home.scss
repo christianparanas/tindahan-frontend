@@ -29,3 +29,33 @@
 		}
 	}
 }
+
+.mainContentWrapper {
+	padding: 20px 20px 100px;
+
+
+	.freshDrops_horizontalDisplay {
+
+		.itemSlider {
+			margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(8, 250px);
+      grid-column-gap: 20px;
+      overflow-x: scroll;
+      padding-bottom: 20px;
+
+      .FreshDrops_viewAllProducts {
+      	width: 250px;
+      	height: 375px;
+      	display: grid;
+      	place-items: center;
+
+      	.content {
+      		border: 1px solid #e3e3e3;
+      		padding: 20px;
+      	}
+      	
+      }
+		}
+	}
+}
