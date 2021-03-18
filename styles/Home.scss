@@ -1,0 +1,31 @@
+.mainWrapper {
+  position: relative;
+}
+
+.hero {
+   position: relative;
+   height: 100vh;
+
+   	.nav {
+		position: fixed;
+		width: 100%;
+		z-index: 5;
+
+		.upper_nav {
+
+			.logo {
+			  color: #000;
+			}
+
+			.upper_nav_svgs {
+
+		    .cls-1, circle {
+		      fill:none;
+		      stroke:#000;
+		      stroke-miterlimit:10;
+		      stroke-width:2px
+		    }
+		  }
+		}
+	}
+}
