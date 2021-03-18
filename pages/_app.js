@@ -3,6 +3,7 @@ import '../styles/login.scss'
 import '../styles/account.scss'
 import '../styles/Home.scss'
 import '../styles/homeProductContainer.scss'
+import '../styles/Footer.scss'
 
 
 
