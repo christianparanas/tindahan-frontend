@@ -62,7 +62,6 @@ export default function Home() {
          </div>
          <div className="contentSales">
           <img src="https://cdn.shopify.com/s/files/1/2282/7539/files/COLLECTION_PAGE_2380x1000_5a02a576-69c9-4feb-833d-4c4028c8bd27_540x.jpg?v=1615980138" alt="" />
-          <img src="https://cdn.shopify.com/s/files/1/2282/7539/files/COLLECTION-HIGHLIGHT_2380x1000px_540x.jpg?v=1615864168" alt="" />
           <img src="https://cdn.shopify.com/s/files/1/2282/7539/files/DOTCOM_COLLECTION_HIGHLIGHT_2380x1000px_TIME_TO_EXPLORE.jpg?v=1613383288" alt="" />
           <img src="https://cdn.shopify.com/s/files/1/2282/7539/files/POSITIVITEES_HOMEPAGE_w_2380_h_1000.jpg?v=1611536283" alt="" />
          </div>
