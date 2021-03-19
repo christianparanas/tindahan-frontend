@@ -19,7 +19,7 @@ function register() {
 		});
 
   	const onSubmit = (data, e) => {
-  		axios.post("http://localhost:3001/api/register", {
+  		axios.post("https://tindahan-mern.herokuapp.com/api/register", {
 				name: data.name,
 				email: data.email,
 				password: data.password,
