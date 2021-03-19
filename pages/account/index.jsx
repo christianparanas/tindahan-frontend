@@ -5,13 +5,17 @@ import Link from 'next/link'
 import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 
+import { signIn, signOut, useSession } from 'next-auth/client'
+
 
 function account() {
 	const router = useRouter()
 	const [userAuth, setUserAuth] = useState(false)
+	const [ session, loading ] = useSession()
+
 
 	useEffect(() => {
-		if(!userAuth) {
+		if(!session) {
 			router.push("/account/login")
 		}
 	}, [])
@@ -20,9 +24,7 @@ function account() {
 		<div className="account">
 			<Nav />
 			<div className="accountWrapper">
-				<Link href="/account/login">
-					Login here
-				</Link>
+				<button onClick={() => signOut()}>Log out</button>
 			</div>
 			<Footer />
 		</div>
