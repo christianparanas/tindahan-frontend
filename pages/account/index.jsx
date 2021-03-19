@@ -10,21 +10,24 @@ import { signIn, signOut, useSession } from 'next-auth/client'
 
 function account() {
 	const router = useRouter()
-	const [userAuth, setUserAuth] = useState(false)
 	const [ session, loading ] = useSession()
 
 
 	useEffect(() => {
+		console.log(session)
 		if(!session) {
 			router.push("/account/login")
 		}
-	}, [])
+	}, [session])
 
 	return (
 		<div className="account">
 			<Nav />
 			<div className="accountWrapper">
-				<button onClick={() => signOut()}>Log out</button>
+				{session && <>
+      		Signed in as {session.user.email} <br/>
+      		<button onClick={() => signOut()}>Sign out</button>
+    		</>}
 			</div>
 			<Footer />
 		</div>
