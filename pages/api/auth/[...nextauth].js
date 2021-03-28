@@ -13,6 +13,11 @@ export default NextAuth({
     // ...add more providers here
   ],
 
-  // A database is optional, but required to persist accounts in a database
-  // database: 'mysql://sql5400010:G2LmlUw2kF@sql5.freemysqlhosting.net:3306/sql5400010',
+  session: {
+    jwt: true,
+  },
+
+  callbacks: {
+    async session(session, token) { return session },
+  },
 })

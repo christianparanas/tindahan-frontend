@@ -18,6 +18,7 @@
     "react-collapsible": "^2.8.3",
     "react-dom": "17.0.1",
     "react-hook-form": "^6.15.5",
+    "react-jwt": "^1.1.2",
     "react-minimal-side-navigation": "^1.8.0",
     "react-responsive-carousel": "^3.2.15",
     "react-toastify": "^7.0.3"

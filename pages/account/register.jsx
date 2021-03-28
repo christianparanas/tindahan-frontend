@@ -19,16 +19,18 @@ function register() {
 		});
 
   	const onSubmit = (data, e) => {
-  		axios.post("https://tindahan-mern.herokuapp.com/api/register", {
+  		axios.post("http://localhost:3001/register", {
 				name: data.name,
 				email: data.email,
 				password: data.password,
-			})
-
-  		// show toast
-  		notify()
-  		// clear inputs after submit
-			e.target.reset();
+			}).then(data => {
+				// show toast
+	  		notify()
+	  		// clear inputs after submit
+				e.target.reset();
+				}).catch((error) => {
+	        console.log(error.response.data) //Logs a string: Error: Request failed with status code 404
+	    })
   	}
 
 
