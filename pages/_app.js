@@ -5,10 +5,16 @@ import '../styles/Home.scss'
 import '../styles/homeProductContainer.scss'
 import '../styles/Footer.scss'
 
+import { AuthContext } from '../Context/AuthContext'
+import { useState } from 'react'
+import { CookiesProvider } from 'react-cookie';
 
 function MyApp({ Component, pageProps }) {
+
   return (
+  	<CookiesProvider>
       <Component {...pageProps} />
+    </CookiesProvider>
   )
 }
 

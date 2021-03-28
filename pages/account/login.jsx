@@ -2,17 +2,22 @@ import Footer from '../../components/Footer'
 import Nav from '../../components/Nav'
 import Link from 'next/link'
 
-import { useEffect } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { useRouter } from 'next/router'
 
 import axios from 'axios' 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from "react-hook-form";
+import { useCookies } from 'react-cookie';
 
 
 function login() {
 	const router = useRouter()
+	const [auth, setAuth] = useState(false)
+	
+	// use context
+	const [cookies, setCookie, removeCookie] = useCookies(['user']);
 
 	// react hool form
 	const { register, handleSubmit, watch, errors } = useForm();
@@ -20,15 +25,19 @@ function login() {
 	const failLog = () => toast.error("Password or Email is Incorrect!", { autoClose: 3000 });
 
 	const onSubmit = (data, e) => {
-		axios.post("http://localhost:3001/login", {
+		axios.post("https://tindahan-mern.herokuapp.com/login", {
 			email: data.email,
 			password: data.password,
 		}).then(res => {
 				console.log(res)
-				// show toast
-	  		succLog()
+			
+	  		// save user info to context
+	  		setCookie('user', JSON.stringify(res.data), { path: '/' })
+
 	  		// clear inputs after submit
 				e.target.reset();
+				// show toast
+				succLog()	
 				
 		}).catch((error) => {
 			failLog()
@@ -36,15 +45,14 @@ function login() {
   	})
 	}
 
-	// useEffect(() => {
-	// 	if(session) {
-	// 		router.push("/account/")
-	// 		console.log(session)
-	// 	}
-	// }, [session])
+	useEffect(() => {
+		if(cookies.user) {
+			window.location.href = "/account"
+		}
+	}, [cookies])
 
-	// // When rendering client side don't display anything until loading is complete
-	// if (typeof window !== 'undefined' && loading) return null
+
+
 
 	return (
 		<div className="loginFormWrapper">

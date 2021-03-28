@@ -1,33 +1,37 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
+import { useCookies } from 'react-cookie';
 
-import { signIn, signOut, useSession } from 'next-auth/client'
 
 
 function account() {
+	const [cookies, setCookie, removeCookie] = useCookies(['user']);
 	const router = useRouter()
-	const [ session, loading ] = useSession()
+	const [auth, setAuth] = useState(false)
 
-
+	
 	useEffect(() => {
-		console.log(session)
-		if(!session) {
+		if(!cookies.user) {
 			router.push("/account/login")
+		} else {
+			console.log(cookies.user)
 		}
-	}, [session])
+	}, [cookies])
+
+
+	const logout = () => {
+		removeCookie('user')
+	}
 
 	return (
 		<div className="account">
 			<Nav />
 			<div className="accountWrapper">
-				{session && <>
-      		Signed in as {session.user.email} <br/>
-      		<button onClick={() => signOut()}>Sign out</button>
-    		</>}
+      			<button onClick={logout}>Sign out</button>
 			</div>
 			<Footer />
 		</div>

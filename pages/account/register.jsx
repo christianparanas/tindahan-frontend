@@ -5,13 +5,19 @@ import Link from 'next/link'
 import axios from 'axios' 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useState, useEffect, useContext } from 'react'
 
 import { useForm } from "react-hook-form";
+import { useRouter } from 'next/router'
 
+import { useCookies } from 'react-cookie';
 
 function register() {
 		// react hool form
+		const router = useRouter()
 		const { register, handleSubmit, watch, errors } = useForm();
+		const [cookies, setCookie, removeCookie] = useCookies(['user']);
+
 
 		//  toast config
 		const notify = () => toast.success("Registered Successfully!", {
@@ -19,7 +25,7 @@ function register() {
 		});
 
   	const onSubmit = (data, e) => {
-  		axios.post("http://localhost:3001/register", {
+  		axios.post("https://tindahan-mern.herokuapp.com/register", {
 				name: data.name,
 				email: data.email,
 				password: data.password,
@@ -32,6 +38,12 @@ function register() {
 	        console.log(error.response.data) //Logs a string: Error: Request failed with status code 404
 	    })
   	}
+
+  	useEffect(() => {
+		if(cookies.user) {
+			window.location.href = "/account"
+		}
+	}, [cookies])
 
 
 
