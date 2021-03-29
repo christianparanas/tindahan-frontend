@@ -25,7 +25,7 @@ function login() {
 	const failLog = () => toast.error("Password or Email is Incorrect!", { autoClose: 3000 });
 
 	const onSubmit = (data, e) => {
-		axios.post("https://tindahan-mern.herokuapp.com/login", {
+		axios.post("http://localhost:3001/login", {
 			email: data.email,
 			password: data.password,
 		}).then(res => {
@@ -59,7 +59,7 @@ function login() {
 		<ToastContainer />
 			<Nav />
 			<div className="loginContentWrapper">
-				<h1 className="header">Log in</h1>
+				<h1 className="header">LOGIN</h1>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<div className="loginEmailWrapper">
 						<label htmlFor="email">EMAIL</label>

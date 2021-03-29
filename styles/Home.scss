@@ -7,6 +7,10 @@
    position: relative;
    height: 100vh;
 
+   .landDesk {
+   	display: none;
+   }
+
    	.nav {
 		position: fixed;
 		width: 100%;
@@ -34,6 +38,14 @@
 .mainContentWrapper {
 	padding: 20px 0 100px;
 
+	.freshDrops {
+		display: flex;
+		justify-content: space-between;
+
+		.viewAll {
+			display: none;
+		}
+	}
 
 	.freshDrops_horizontalDisplay {
 		 padding: 20px 0 20px 20px;
@@ -68,5 +80,93 @@
 		img {
 			width: 100%;
 		}
+	}
+}
+
+
+
+@media only screen and (min-width: 452px) {
+  
+	.mainWrapper {
+	  position: relative;
+	  padding-bottom: 0;
+	}
+
+	.hero {
+	   position: relative;
+	   height: 100vh;
+
+	   .landDesk {
+	   	position: relative;
+	   	display: inline-block;
+
+	   		img {
+	   			width: 100%;
+	   			height: 100vh;
+	   		}
+	   }
+
+	   	.nav {
+				position: fixed;
+				width: 100%;
+				z-index: 5;
+
+			.upper_nav {
+
+				.logo {
+				  color: #000;
+				}
+
+				.upper_nav_svgs {
+
+			    .cls-1, circle {
+			      fill:none;
+			      stroke:#000;
+			      stroke-miterlimit:10;
+			      stroke-width:2px
+			    }
+			  }
+			}
+		}
+
+		.carousel {
+			display: none;
+		}
+	}
+
+	.mainContentWrapper {
+		padding: 20px 0 100px;
+
+		.freshDrops {
+
+				.viewAll {
+					display: block;
+				}
+			}
+
+		.freshDrops_horizontalDisplay {
+			 padding: 20px 40px;
+
+			 .itemSlider::-webkit-scrollbar {
+				  display: none;
+				}
+
+			.itemSlider {
+				margin-top: 10px;
+	      display: grid;
+	      grid-template-columns: repeat(4, 1fr);
+	      grid-column-gap: 20px;
+	      overflow-x: scroll;
+	      padding-bottom: 20px;
+	     -ms-overflow-style: none;  /* IE and Edge */
+  			scrollbar-width: none;  /* Firefox */
+
+	      .FreshDrops_viewAllProducts {
+	      	display: none;
+	      	
+	      }
+			}
+		}
+
 	}
 }

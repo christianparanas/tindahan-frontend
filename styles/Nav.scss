@@ -32,9 +32,15 @@
       stroke-miterlimit:10;
       stroke-width:2px
     }
+
+    .icon-user {
+      display: none;
+    }
   }
 
 }
+
+
 
 .navChangeUpperNavBgOnScroll {
     background-color: white;
@@ -191,4 +197,25 @@
 .showCartOverlay {
   width: 300px;
   padding: 20px 10px;
+}
+
+@media only screen and (min-width: 452px) {
+  .nav {
+
+    .upper_nav {
+      
+
+      .upper_nav_svgs {
+
+        .icon-user {
+          display: block;
+        }
+      }
+
+    }
+
+    .lower_nav {
+      display: none;
+    }
+  }
 }

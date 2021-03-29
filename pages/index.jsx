@@ -29,6 +29,9 @@ export default function Home() {
       <main className="mainWrapper">
         <div className="hero">
           <Nav />
+          <div className="landDesk">
+            <img src="/landingDesk.jpg" alt="homeImg" />
+          </div>
           <div className="carousel">
             <Carousel 
               autoPlay 
@@ -49,7 +52,10 @@ export default function Home() {
         </div>
         <div className="mainContentWrapper">
          <div className="freshDrops_horizontalDisplay">
-          <h2>Fresh Drops</h2>
+          <div className="freshDrops">
+            <h3>Fresh Drops</h3>
+            <h3 className="viewAll">View all products</h3>
+          </div>
            <div className="itemSlider">
             <HomeProductContainer />
             <HomeProductContainer />

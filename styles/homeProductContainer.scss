@@ -9,4 +9,25 @@
 	.itemDescription {
 		font-size: 16px; 
 	}
+
+}
+
+.itemImg:hover {
+	cursor: pointer;
+}
+
+
+@media only screen and (min-width: 452px) {
+	.homeProductContainer {
+		width: 100%;
+
+		.itemImg {
+			width: 100%;
+		}
+
+		.itemDescription {
+			font-size: 16px; 
+		}
+
+	}
 }

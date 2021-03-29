@@ -173,3 +173,19 @@
 		}
 	}
 }
+
+
+@media only screen and (min-width: 452px) {
+	.loginFormWrapper {
+		padding-bottom: 0;
+	}
+
+	.loginContentWrapper {
+		z-index: 4;
+		padding: 100px 20px 80px;
+		height: fit-content;
+		width: 400px;
+		margin: 0 auto;
+	}
+
+}

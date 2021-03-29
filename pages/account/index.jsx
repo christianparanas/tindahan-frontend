@@ -22,7 +22,7 @@ function account() {
 		}
 	}, [cookies])
 
-
+ 
 	const logout = () => {
 		removeCookie('user')
 	}
