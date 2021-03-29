@@ -23,6 +23,7 @@ function register() {
 		const notify = () => toast.success("Registered Successfully!", {
 			autoClose: 3000,
 		});
+		const failLog = () => toast.error("Email already exists!", { autoClose: 3000 });
 
   	const onSubmit = (data, e) => {
   		axios.post("http://localhost:3001/register", {
@@ -32,9 +33,11 @@ function register() {
 			}).then(data => {
 				// show toast
 	  		notify()
+	  		setTimeout(function(){ window.location.href = "/account/login" }, 3000);
 	  		// clear inputs after submit
 				e.target.reset();
 				}).catch((error) => {
+					failLog()
 	        console.log(error.response.data) //Logs a string: Error: Request failed with status code 404
 	    })
   	}

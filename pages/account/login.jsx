@@ -22,7 +22,7 @@ function login() {
 	// react hool form
 	const { register, handleSubmit, watch, errors } = useForm();
 	const succLog = () => toast.success("Logging In..", { autoClose: 3000 });
-	const failLog = () => toast.error("Password or Email is Incorrect!", { autoClose: 3000 });
+	const failLog = () => toast.error("Invalid Email or Password!", { autoClose: 3000 });
 
 	const onSubmit = (data, e) => {
 		axios.post("http://localhost:3001/login", {
@@ -30,15 +30,14 @@ function login() {
 			password: data.password,
 		}).then(res => {
 				console.log(res)
+				// show success toast
+				succLog()	
 			
-	  		// save user info to context
-	  		setCookie('user', JSON.stringify(res.data), { path: '/' })
+				// save user info to context
+				setTimeout(function(){ setCookie('user', JSON.stringify(res.data), { path: '/' }) }, 3000);	  		
 
 	  		// clear inputs after submit
-				e.target.reset();
-				// show toast
-				succLog()	
-				
+				e.target.reset();				
 		}).catch((error) => {
 			failLog()
       console.log(error.response)

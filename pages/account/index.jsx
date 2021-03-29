@@ -11,7 +11,6 @@ import { useCookies } from 'react-cookie';
 function account() {
 	const [cookies, setCookie, removeCookie] = useCookies(['user']);
 	const router = useRouter()
-	const [auth, setAuth] = useState(false)
 
 	
 	useEffect(() => {
