@@ -32,14 +32,16 @@
   .accountWrapper {
   	padding: 90px 20px;
   	height: 500px;
+  	display: grid;
+  	grid-gap: 20px;
 
-  	h1 {
+  	h2 {
   		margin: 0 0 20px 0;
   	}
 
   	.accountDetails {
   		border: 1px solid #e3e3e3;
-  		padding: 10px 10px 40px;
+  		padding: 10px 10px 60px;
   		position: relative;
   		border-radius: 6px;
 
@@ -48,11 +50,98 @@
   			background: #d73a49;
   			position: absolute;
   			right: 10px;
+  			bottom: 10px;
   			color: white;
   			padding: 5px 16px;
   			border-radius: inherit;
   			font-size: 14px;
   		}
   	}
+
+  	.orderDetails {
+  	  border: 1px solid #e3e3e3;
+  		padding: 10px 10px 40px;
+  		position: relative;
+  		border-radius: 6px;
+  	}
   }
+}
+
+
+
+@media only screen and (min-width: 452px) {
+	.account {
+		position: relative;
+		padding-bottom: 0;
+
+		.nav {
+			position: fixed;
+			width: 100%;
+			background-color: white;
+			z-index: 5;
+
+			.upper_nav {
+				border-bottom: 1px solid #e8e8e1;
+
+				.logo {
+					font-weight: 700;
+				  color: #000;
+				}
+
+				.upper_nav_svgs {
+
+			    .cls-1, circle {
+			      fill:none;
+			      stroke:#000;
+			      stroke-miterlimit:10;
+			      stroke-width:2px
+			    }
+			  }
+			}
+	  }
+
+	  .accountWrapper {
+	  	padding: 90px 20px;
+	  	height: 500px;
+	  	display: grid;
+	  	grid-template-columns: 1fr 1fr;
+
+	  	h2 {
+	  		margin: 0 0 20px 0;
+	  	}
+
+	  	.accountDetails {
+	  		grid-column-start: 2;
+	  		border: 1px solid #e3e3e3;
+	  		padding: 20px 20px 60px;
+	  		position: relative;
+	  		border-radius: 6px;
+	  		height: fit-content;
+	  		max-width: 400px;
+
+	  		button {
+	  			border: 1px solid #fafbfc;
+	  			background: #d73a49;
+	  			position: absolute;
+	  			right: 20px;
+	  			bottom: 20px;
+	  			color: white;
+	  			padding: 5px 16px;
+	  			border-radius: inherit;
+	  			font-size: 14px;
+	  		}
+	  	}
+
+	  	.orderDetails {
+	  		
+	  		max-width: 400px;
+	  		grid-column-start: 1;
+	  		grid-row-start: 1;
+	  		border: 1px solid #e3e3e3;
+	  		padding: 20px 20px 40px;
+	  		position: relative;
+	  		border-radius: 6px;
+	  	}
+	  }
+	}
 }

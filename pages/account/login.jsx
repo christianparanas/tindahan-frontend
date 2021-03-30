@@ -26,7 +26,7 @@ function login() {
 	const failLog = () => toast.error("Invalid Email or Password!", { autoClose: 2000 });
 
 	const onSubmit = (data, e) => {
-		axios.post("https://tindahan-mern.herokuapp.com/login", {
+		axios.post("http://localhost:3001/login", {
 			email: data.email,
 			password: data.password,
 		}).then(res => {
@@ -35,7 +35,7 @@ function login() {
 				succLog()	
 			
 				// save user info to context
-				setTimeout(function(){ setCookie('user', res.data, { path: '/' }) }, 3000);	  		
+				setTimeout(function(){ setCookie('user', res.data, { path: '/' }) }, 2000);	  		
 
 	  		// clear inputs after submit
 				e.target.reset();				

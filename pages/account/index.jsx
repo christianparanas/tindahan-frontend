@@ -41,14 +41,21 @@ function account() {
 		<div className="account">
 			<Nav />
 			<div className="accountWrapper">
-			{user && 
 				<div className="accountDetails">
-					<h1>Account</h1>
+				{user && <>
+					<h2>Account</h2>
 					<div>{ user.result.name }</div>
 					<div>{ user.result.email }</div>		
       		<button onClick={logout}>Log out</button>
+      		</>
+      	}
 				</div>
-			}
+			
+
+				<div className="orderDetails">
+					<h2>Order History</h2>
+					<div>You haven't placed any orders yet.</div>
+				</div>
 			</div>
 			<Footer />
 		</div>
