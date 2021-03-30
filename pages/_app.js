@@ -9,6 +9,7 @@ import { AuthContext } from '../Context/AuthContext'
 import { useState } from 'react'
 import { CookiesProvider } from 'react-cookie';
 
+
 function MyApp({ Component, pageProps }) {
 
   return (

@@ -10,6 +10,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from "react-hook-form";
 import { useCookies } from 'react-cookie';
+import { isExpired, decodeToken } from "react-jwt";
 
 
 function login() {
@@ -44,10 +45,16 @@ function login() {
   	})
 	}
 
-	useEffect(() => {
+	useEffect( async () => {
 		if(cookies.user) {
-			window.location.href = "/account"
-		}
+			// verify token if valid or not expired
+			const isMyTokenExpired = await isExpired(cookies.user.token);
+			console.log(isMyTokenExpired)
+
+			if(isMyTokenExpired == false) {
+				window.location.href = "/account"
+			}
+		} 
 	}, [cookies])
 
 

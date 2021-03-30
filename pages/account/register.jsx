@@ -9,8 +9,8 @@ import { useState, useEffect, useContext } from 'react'
 
 import { useForm } from "react-hook-form";
 import { useRouter } from 'next/router'
-
 import { useCookies } from 'react-cookie';
+import { isExpired, decodeToken } from "react-jwt";
 
 function register() {
 		// react hool form
@@ -42,10 +42,20 @@ function register() {
 	    })
   	}
 
-  	useEffect(() => {
-		if(cookies.user) {
-			window.location.href = "/account"
-		}
+  	useEffect( async () => {
+			// check if have a user cookie
+			if(!cookies.user) {
+				router.push("/account/register")
+			} else {
+				// verify token if valid or not expired
+				const isMyTokenExpired = await isExpired(cookies.user.token);
+				console.log(isMyTokenExpired)
+
+				// if !expired, redirect to acct page
+				if(isMyTokenExpired != true) {
+					window.location.href = "/account/"
+				} 
+			}
 	}, [cookies])
 
 

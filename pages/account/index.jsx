@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 import { useCookies } from 'react-cookie';
+import { isExpired, decodeToken } from "react-jwt";
 
 
 
@@ -13,11 +14,19 @@ function account() {
 	const router = useRouter()
 
 	
-	useEffect(() => {
+	useEffect( async () => {
+		// check if have a user cookie
 		if(!cookies.user) {
 			router.push("/account/login")
 		} else {
-			console.log(cookies.user)
+			// verify token if valid or not expired
+			const isMyTokenExpired = await isExpired(cookies.user.token);
+			console.log(isMyTokenExpired)
+
+			// if expired, redirect to login page
+			if(isMyTokenExpired == true) {
+				window.location.href = "/account/login"
+			}
 		}
 	}, [cookies])
 
