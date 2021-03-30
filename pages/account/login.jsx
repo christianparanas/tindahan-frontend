@@ -22,8 +22,8 @@ function login() {
 
 	// react hool form
 	const { register, handleSubmit, watch, errors } = useForm();
-	const succLog = () => toast.success("Logging In..", { autoClose: 3000 });
-	const failLog = () => toast.error("Invalid Email or Password!", { autoClose: 3000 });
+	const succLog = () => toast.success("Logging In..", { autoClose: 2000 });
+	const failLog = () => toast.error("Invalid Email or Password!", { autoClose: 2000 });
 
 	const onSubmit = (data, e) => {
 		axios.post("http://localhost:3001/login", {
@@ -35,7 +35,7 @@ function login() {
 				succLog()	
 			
 				// save user info to context
-				setTimeout(function(){ setCookie('user', JSON.stringify(res.data), { path: '/' }) }, 3000);	  		
+				setTimeout(function(){ setCookie('user', res.data, { path: '/' }) }, 3000);	  		
 
 	  		// clear inputs after submit
 				e.target.reset();				
@@ -49,7 +49,7 @@ function login() {
 		if(cookies.user) {
 			// verify token if valid or not expired
 			const isMyTokenExpired = await isExpired(cookies.user.token);
-			console.log(isMyTokenExpired)
+			console.log(`is token expired? - ${isMyTokenExpired}`)
 
 			if(isMyTokenExpired == false) {
 				window.location.href = "/account"

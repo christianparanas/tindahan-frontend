@@ -11,6 +11,7 @@ import { isExpired, decodeToken } from "react-jwt";
 
 function account() {
 	const [cookies, setCookie, removeCookie] = useCookies(['user']);
+	const [ user, setUser ] = useState(cookies.user)
 	const router = useRouter()
 
 	
@@ -21,7 +22,8 @@ function account() {
 		} else {
 			// verify token if valid or not expired
 			const isMyTokenExpired = await isExpired(cookies.user.token);
-			console.log(isMyTokenExpired)
+			console.log(`is token expired? - ${isMyTokenExpired}`)
+			console.log(user)
 
 			// if expired, redirect to login page
 			if(isMyTokenExpired == true) {
@@ -30,7 +32,7 @@ function account() {
 		}
 	}, [cookies])
 
- 
+
 	const logout = () => {
 		removeCookie('user')
 	}
@@ -39,7 +41,14 @@ function account() {
 		<div className="account">
 			<Nav />
 			<div className="accountWrapper">
-      			<button onClick={logout}>Sign out</button>
+			{user && 
+				<div className="accountDetails">
+					<h1>Account</h1>
+					<div>{ user.result.name }</div>
+					<div>{ user.result.email }</div>		
+      		<button onClick={logout}>Log out</button>
+				</div>
+			}
 			</div>
 			<Footer />
 		</div>

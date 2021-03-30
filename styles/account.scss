@@ -32,5 +32,27 @@
   .accountWrapper {
   	padding: 90px 20px;
   	height: 500px;
+
+  	h1 {
+  		margin: 0 0 20px 0;
+  	}
+
+  	.accountDetails {
+  		border: 1px solid #e3e3e3;
+  		padding: 10px 10px 40px;
+  		position: relative;
+  		border-radius: 6px;
+
+  		button {
+  			border: 1px solid #fafbfc;
+  			background: #d73a49;
+  			position: absolute;
+  			right: 10px;
+  			color: white;
+  			padding: 5px 16px;
+  			border-radius: inherit;
+  			font-size: 14px;
+  		}
+  	}
   }
 }
