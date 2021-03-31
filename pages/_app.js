@@ -6,6 +6,9 @@ import '../styles/homeProductContainer.scss'
 import '../styles/Footer.scss'
 import '../styles/adminAuth.scss'
 import '../styles/admin.scss'
+import '../styles/adminnav.scss'
+import '../styles/Nav.scss'
+
 
 import { AuthContext } from '../Context/AuthContext'
 import { useState } from 'react'

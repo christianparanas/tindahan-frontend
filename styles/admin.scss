@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+
+.admin {
+	font-family: 'Roboto', sans-serif;
+
+	.admin_dashboard {
+		padding: 40px 20px;
+		background: #0A2540;
+		color: white;
+		height: 100vh;
+
+		.info_containers {
+			display: grid;
+			grid-gap: 10px;
+
+			.wrapper {
+				padding: 20px;
+				max-width: 400px;
+				background: #0C2E4E;
+				border-radius: 8px;
+
+				span {
+					position: relative;
+					top: -5px;
+					left: 10px;
+				}
+			}
+		}
+	}
+}

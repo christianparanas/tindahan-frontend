@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+
+.admin_nav {
+
+	.icon_container {
+		display: flex;
+		justify-content: space-between;
+		padding: 20px;
+				background: #0A2540;
+
+		.logo {
+			position: relative;
+			bottom: -5px;
+
+			a {
+				color: white;
+				font-family: 'Fredoka One', cursive;
+			}
+		}
+
+		svg {
+			margin: 0 10px;
+      cursor: pointer;
+		}
+
+		.icon .cls-1, circle {
+      fill:none;
+      stroke:#fff;
+      stroke-miterlimit:10;
+      stroke-width:2px
+    }
+
+
+    .navOverlay-clickOutside {
+		  position: fixed;
+		  z-index: 4;
+		  top: 0;
+		  right: 0;
+		  height: 100vh;
+		  width: 0;
+		  opacity: .5;
+		  background-color: #000;
+		  padding-top: 100px;
+		}
+
+		.clickOutsideShow {
+		  width: 100%;
+		}
+
+		.navOverlay-sidebar {
+		  z-index: 5;
+		  position: fixed;
+		  top: 0;
+		  right: 0;
+		  height: 100vh;
+		  width: 0;
+		  opacity: 1;
+		  background-color: black ;
+		  transition: all .5s ease;
+
+		  .closeNavBtn {
+		    width: 100%;
+		    display: grid;
+		    place-items: end;
+
+		    .cls-1{
+		      fill:none;
+		      stroke:#000;
+		      stroke-miterlimit:10;
+		      stroke-width:2px
+		    }
+		  }
+
+		  .navOptions {
+		    margin-top: 30px;
+
+		    .navOp {
+		      padding: 10px;
+		      margin-bottom: 5px;
+		    }
+		  }
+		}
+
+	}
+}

@@ -16,7 +16,7 @@ export default function auth() {
 	const failLog = () => toast.error("Invalid Email or Password!", { autoClose: 2000 });
 
 	const onSubmit = (data, e) => {
-  	axios.post("http://localhost:3001/adminlogin", {
+  	axios.post("https://tindahan-mern.herokuapp.com/adminlogin", {
 			username: data.username,
 			password: data.password,
 		}).then(res => {
@@ -51,11 +51,11 @@ export default function auth() {
 		<div className="admin_auth">
 			<ToastContainer />
 			<div className="auth_form_container">
-				<h1 className="header">LOGIN</h1>
+				<h1 className="header">MODERATOR</h1>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<input name="username" placeholder="Username or Email" ref={register({ required: true })} type="text" id="admin_auth_username" />
 					<input name="password" placeholder="Password"  ref={register({ required: true })} type="password" id="admin_auth_password" />
-          <input type="submit" value="Log in" className="admin_auth_loginBtn" />
+          <input type="submit" value="LOGIN" className="admin_auth_loginBtn" />
 				</form>
 			</div>
 		</div>

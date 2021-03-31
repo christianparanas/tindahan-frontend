@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
 .admin_auth {
+	font-family: 'Roboto', sans-serif;
+	height: 100vh;
+	padding-top: 80px;
 
 	.Toastify__toast--success {
 		width: 80%;
@@ -28,8 +33,16 @@
 
 	.auth_form_container {
 		width: 380px;
-		margin: 70px auto;
+		margin: 0 auto;
 		padding: 20px;
+		font-size: 12px;
+
+		.header {
+			width: fit-content;
+			margin: 20px auto;
+			font-family: 'Fredoka One', cursive;
+			font-size: 30px;
+		}
 
 		form {
 
@@ -37,9 +50,16 @@
 				width: 100%;
 				border: 1px solid #e3e3e3;
 				border-radius: 0;
-				padding: 10px;
+				padding: 15px;
 				margin-bottom: 10px;
 				outline: 0;
+				border-radius: 4px;
+			}
+
+			.admin_auth_loginBtn {
+				font-family: 'Fredoka One', cursive;
+				background: #0A2540;
+				color: white;
 			}
 		}
 	}
