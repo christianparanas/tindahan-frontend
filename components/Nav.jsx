@@ -63,7 +63,7 @@ export default function Nav() {
 			<div className={upperNav}>
 				<div className="logo">
           <Link href="/">
-            DAWN - ALARIC 
+            <img src="/logo.png" alt="" />
            </Link>
         </div>
 				<div className="upper_nav_svgs">
