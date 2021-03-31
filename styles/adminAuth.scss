@@ -1,0 +1,46 @@
+
+.admin_auth {
+
+	.Toastify__toast--success {
+		width: 80%;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		padding: 5px;
+		border-radius: 6px;
+		background: #6b21a8;
+	}
+
+	.Toastify__toast--error {
+		width: 80%;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		padding: 5px;
+		border-radius: 6px;
+	}
+
+	.Toastify__toast-body {
+		padding: 5px 15px;
+
+	}
+
+
+	.auth_form_container {
+		width: 380px;
+		margin: 70px auto;
+		padding: 20px;
+
+		form {
+
+			input {
+				width: 100%;
+				border: 1px solid #e3e3e3;
+				border-radius: 0;
+				padding: 10px;
+				margin-bottom: 10px;
+				outline: 0;
+			}
+		}
+	}
+}

@@ -4,6 +4,8 @@ import '../styles/account.scss'
 import '../styles/Home.scss'
 import '../styles/homeProductContainer.scss'
 import '../styles/Footer.scss'
+import '../styles/adminAuth.scss'
+import '../styles/admin.scss'
 
 import { AuthContext } from '../Context/AuthContext'
 import { useState } from 'react'
