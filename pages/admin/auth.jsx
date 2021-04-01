@@ -16,7 +16,7 @@ export default function auth() {
 	const failLog = () => toast.error("Invalid Email or Password!", { autoClose: 2000 });
 
 	const onSubmit = (data, e) => {
-  	axios.post("https://tindahan-mern.herokuapp.com/adminlogin", {
+  	axios.post("http://localhost:3001/adminlogin", {
 			username: data.username,
 			password: data.password,
 		}).then(res => {

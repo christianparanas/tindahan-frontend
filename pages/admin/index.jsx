@@ -8,6 +8,8 @@ import { useRouter } from 'next/router'
 export default function admin() {
 	const [cookies, setCookie, removeCookie] = useCookies(['admin']);
 	const router = useRouter()
+	const [loading, setLoading] = useState(false)
+
 
 
 	useEffect( async () => {
@@ -22,11 +24,15 @@ export default function admin() {
 			// if expired, redirect to login page
 			if(isMyTokenExpired == true) {
 				window.location.href = "/admin/auth"
+			} else {
+				setLoading(true)
 			}
 		}
 	}, [cookies])
 
 	return (
+		<>
+		{ loading && (
 		<div className="admin">
 			<Adminnav />
 			
@@ -48,6 +54,9 @@ export default function admin() {
 
 				</div>
 			</div>
+			
 		</div>
+		)}
+		</>
 	)
 }

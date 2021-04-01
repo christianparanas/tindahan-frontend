@@ -26,7 +26,7 @@ function register() {
 		const failLog = () => toast.error("Email already exists!", { autoClose: 2000 });
 
   	const onSubmit = (data, e) => {
-  		axios.post("https://tindahan-mern.herokuapp.com/register", {
+  		axios.post("http://localhost:3001/register", {
 				name: data.name,
 				email: data.email,
 				password: data.password,

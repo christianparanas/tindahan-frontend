@@ -13,6 +13,7 @@ function account() {
 	const [cookies, setCookie, removeCookie] = useCookies(['user']);
 	const [ user, setUser ] = useState(cookies.user)
 	const router = useRouter()
+	const [loading, setLoading] = useState(false)
 
 	
 	useEffect( async () => {
@@ -28,6 +29,8 @@ function account() {
 			// if expired, redirect to login page
 			if(isMyTokenExpired == true) {
 				window.location.href = "/account/login"
+			} else {
+				setLoading(true)
 			}
 		}
 	}, [cookies])
@@ -38,6 +41,8 @@ function account() {
 	}
 
 	return (
+		<>
+		{ loading && (
 		<div className="account">
 			<Nav />
 			<div className="accountWrapper">
@@ -59,6 +64,8 @@ function account() {
 			</div>
 			<Footer />
 		</div>
+		)}
+		</>
 	)
 }
 
