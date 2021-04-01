@@ -63,7 +63,7 @@ export default function Nav() {
 			<div className={upperNav}>
 				<div className="logo">
           <Link href="/">
-            TINDAHAN NI THEA
+            <img src="/logo.png" alt="" />
            </Link>
         </div>
 				<div className="upper_nav_svgs">
