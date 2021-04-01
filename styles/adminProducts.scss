@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+
+
+.admin_products {
+	position: relative;
+	width: 100%;
+	font-family: 'Roboto', sans-serif;
+
+	.admin_headers {
+		display: flex;
+		justify-content: space-between;
+		padding: 10px;
+		margin: 30px 0 10px;
+		font-family: 'Fredoka One', cursive;
+
+		h3 {
+			margin: 0;
+			position: relative;
+			top: 10px;
+		}
+
+		.addNew {
+			cursor: pointer;
+			background: #0A2540;
+			color: white;
+			padding: 5px 15px;
+
+			span {
+				position: relative;
+				top: -5px;
+				left: -3px;
+			}
+
+			svg {
+				padding-top: 3px;
+			}
+		}
+	}
+
+	.admin_products_wrapper {
+		margin-top: 20px;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 10px;
+		padding: 10px;
+
+
+		.admin_product {
+			border: 1px solid #e3e3e3; 
+			width: 100%;
+			display: grid;
+			grid-template-columns: repeat(7, 1fr);
+			grid-gap: 10px;
+			place-items: center;
+			padding: 5px 0;
+
+			img {
+				width: 60px;
+				height: 60px;
+			}
+		}
+
+		.p_head {
+			border: none;
+			font-size: 12px;
+			padding: 10px 0;
+		}
+
+	}
+
+}
+
+
+.admin_addproduct_modal {
+	margin-top: 20px;
+		background: white;
+		height: fit-content;
+		padding: 20px;
+		border-radius: 11px;
+
+		h2 {
+			font-family: 'Fredoka One', cursive;
+			margin: 0 0 20px 0;
+		}
+
+
+		form {
+
+			.input_wrapper {
+				display: grid;
+				margin-bottom: 15px;
+
+				label {
+					margin-bottom: 5px;
+				}
+
+				input {
+					padding: 10px;
+					border-radius: 0;
+					outline: 0;
+					border: 1px solid #e3e3e3;
+				}
+			}
+
+			.addproduct_btn {
+				margin-top: 10px;
+				width: 100%;
+				padding: 10px;
+				color: white;
+				font-family: 'Fredoka One', cursive;
+				background: #6b21a8;
+			}
+		}
+	}

@@ -8,6 +8,7 @@ import '../styles/adminAuth.scss'
 import '../styles/admin.scss'
 import '../styles/adminnav.scss'
 import '../styles/Nav.scss'
+import '../styles/adminProducts.scss'
 
 
 import { AuthContext } from '../Context/AuthContext'

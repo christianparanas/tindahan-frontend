@@ -6,6 +6,7 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 import { useCookies } from 'react-cookie';
 import { isExpired, decodeToken } from "react-jwt";
+import { motion } from "framer-motion"
 
 
 
@@ -55,8 +56,7 @@ function account() {
       		</>
       	}
 				</div>
-			
-
+				
 				<div className="orderDetails">
 					<h2>Order History</h2>
 					<div>You haven't placed any orders yet.</div>

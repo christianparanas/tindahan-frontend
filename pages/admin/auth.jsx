@@ -16,7 +16,7 @@ export default function auth() {
 	const failLog = () => toast.error("Invalid Email or Password!", { autoClose: 2000 });
 
 	const onSubmit = (data, e) => {
-  	axios.post("http://localhost:3001/adminlogin", {
+  	axios.post("https://tindahan-mern.herokuapp.com/adminlogin", {
 			username: data.username,
 			password: data.password,
 		}).then(res => {
@@ -25,7 +25,7 @@ export default function auth() {
 				succLog()	
 			
 				// save admin info to cookie
-				setTimeout(function(){ setCookie('admin', res.data, { path: '/' }) }, 2000);	  		
+				setTimeout(function(){ setCookie('admin', res.data, { path: '/' }) }, 1800);	  		
 
 	  		// clear inputs after submit
 				e.target.reset();				

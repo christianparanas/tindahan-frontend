@@ -43,11 +43,11 @@ export default function adminNav() {
           <svg aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-close" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M19 17.61l27.12 27.13m0-27.12L19 44.74"></path></svg>
         </div>
         <div className="navOptions">
-          <div className="navOp">Dashboard</div>
+          <Link href="/admin"><div className="navOp">Dashboard</div></Link>
           <div className="navOp">Customer</div>
+          <Link href="/admin/products/"><div className="navOp">Products</div></Link>
           <div className="navOp">Orders Pending</div>
           <div className="navOp">Orders Complete</div>
-          <div className="navOp">Products</div>
           <div className="navOp">Administrators</div>
         </div>
         <div onClick={logout} className="admin_logout">Log out</div>
