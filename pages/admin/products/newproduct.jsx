@@ -8,15 +8,17 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function NewProductModal() {
 	const { register, handleSubmit, watch, errors } = useForm();
+	const [previewImg, setPreviewImg] = useState(false)
 
 	const notify = () => toast.success("Item Successfully Added!", {
 			autoClose: 3000,
 		});
 		const failLog = () => toast.error("Something went wrong!", { autoClose: 2000 });
 
-	const onSubmit = (data, e) => {
+	const onSubmit = async (data, e) => {
+		
 		console.log(data)
-		axios.post("https://tindahan-mern.herokuapp.com/newproduct", {
+		axios.post(process.env.BACKEND_BASEURL + "/newproduct", {
 			name: data.name,
 			// save the image name to db, so it can be used to retrive the image from cloudianry
 			image: data.image[0].name,
@@ -26,6 +28,7 @@ export default function NewProductModal() {
 				const formData = new FormData()
 				// getting the form image
 				formData.append('file', data.image[0])
+
 				// setting up a  upload preset for cloudinary and the directory of the file
 				formData.append('upload_preset', 'oujxfvjk')
 				axios.post("https://api.cloudinary.com/v1_1/christianparanas/upload", formData)
@@ -33,10 +36,15 @@ export default function NewProductModal() {
 				notify()
 
 				e.target.reset();
+				setPreviewImg(false)
 		}).catch((error) => {
 			failLog()
       console.log(error.response)
     })
+  }
+
+  const previewImage = (e) => {
+  	setPreviewImg(URL.createObjectURL(e.target.files[0]))
   }
 
 	return (
@@ -53,7 +61,8 @@ export default function NewProductModal() {
 				</div>
 				<div className="input_wrapper">
 					<label htmlFor="">Image</label>
-					<input name="image" type="file" accept='image/*' ref={register({ required: true })} />
+					<input name="image" type="file" onChange={previewImage} accept='image/*' ref={register({ required: true })} />
+					{previewImg && ( <img className="previewImg" src={previewImg} /> )}
 				</div>
 				<div className="input_wrapper">
 					<label htmlFor="">Price</label>

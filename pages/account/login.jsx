@@ -26,7 +26,7 @@ function login() {
 	const failLog = () => toast.error("Invalid Email or Password!", { autoClose: 2000 });
 
 	const onSubmit = (data, e) => {
-		axios.post("https://tindahan-mern.herokuapp.com/login", {
+		axios.post(process.env.BACKEND_BASEURL + "/login", {
 			email: data.email,
 			password: data.password,
 		}).then(res => {

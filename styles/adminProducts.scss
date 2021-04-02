@@ -23,15 +23,11 @@
 
 		.addNew {
 			cursor: pointer;
-			background: #0A2540;
-			color: white;
+			border-radius: 3px;
+			width: fit-content;
+			color: black;
 			padding: 5px 15px;
-
-			span {
-				position: relative;
-				top: -5px;
-				left: -3px;
-			}
+			box-shadow: 0 10px 40px -10px RGB(0 64 128 / 20%);
 
 			svg {
 				padding-top: 3px;
@@ -43,31 +39,43 @@
 		margin-top: 20px;
 		display: grid;
 		grid-template-columns: 1fr;
-		grid-gap: 10px;
+		grid-gap: 15px;
 		padding: 10px;
 
 
 		.admin_product {
-			border: 1px solid #e3e3e3; 
-			width: 100%;
+			box-shadow: 0 10px 40px -10px RGB(0 64 128 / 20%);
 			display: grid;
-			grid-template-columns: repeat(7, 1fr);
+			grid-template-columns: 130px 1fr;
+			width: 100%;
+			font-size: 14px;
+			border-radius: 6px;
 			grid-gap: 10px;
-			place-items: center;
-			padding: 5px 0;
+			padding: 10px;
+
+			.p_details {
+				padding: 10px;
+				position: relative;
+				display: grid;
+				grid-gap: 0;
+
+				.p_details_op {
+					display: grid;
+					grid-template-columns: 40px 40px;
+					place-items: center;
+					position: absolute;
+
+					right: 0;
+					bottom: 0;
+					
+				}
+			}
 
 			img {
-				width: 60px;
-				height: 60px;
+				width: 120px;
+				height: 120px;
 			}
 		}
-
-		.p_head {
-			border: none;
-			font-size: 12px;
-			padding: 10px 0;
-		}
-
 	}
 
 }
@@ -101,6 +109,11 @@
 					border-radius: 0;
 					outline: 0;
 					border: 1px solid #e3e3e3;
+				}
+
+				.previewImg {
+					width: 100%;
+					margin: 10px auto 0;
 				}
 			}
 
