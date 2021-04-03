@@ -6,7 +6,32 @@
 .admin_products {
 	position: relative;
 	width: 100%;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', sans-serif; 
+
+	.Toastify__toast--success {
+		width: 80%;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		padding: 5px;
+		border-radius: 6px;
+		background: #6b21a8;
+	}
+
+	.Toastify__toast--error {
+		width: 80%;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		padding: 5px;
+		border-radius: 6px;
+	}
+
+	.Toastify__toast-body {
+		padding: 5px 15px;
+
+	}
+
 
 	.admin_headers {
 		display: flex;
@@ -28,9 +53,15 @@
 			color: black;
 			padding: 5px 15px;
 			box-shadow: 0 10px 40px -10px RGB(0 64 128 / 20%);
+			position: relative;
 
 			svg {
 				padding-top: 3px;
+			}
+
+			span {
+				position: relative;
+				top: -4px;
 			}
 		}
 	}
@@ -39,12 +70,17 @@
 		margin-top: 20px;
 		display: grid;
 		grid-template-columns: 1fr;
-		grid-gap: 15px;
+		grid-gap: 10px;
 		padding: 10px;
+
+		.stateDB_msg {
+			width: fit-content;
+			margin: 0 auto;
+		}
 
 
 		.admin_product {
-			box-shadow: 0 10px 40px -10px RGB(0 64 128 / 20%);
+			box-shadow: 0 10px 10px -10px RGB(0 64 128 / 20%);
 			display: grid;
 			grid-template-columns: 130px 1fr;
 			width: 100%;
@@ -58,6 +94,7 @@
 				position: relative;
 				display: grid;
 				grid-gap: 0;
+				font-size: 13px;
 
 				.p_details_op {
 					display: grid;
@@ -87,6 +124,30 @@
 		height: fit-content;
 		padding: 20px;
 		border-radius: 11px;
+
+		.Toastify__toast--success {
+			width: 80%;
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			padding: 5px;
+			border-radius: 6px;
+			background: #6b21a8;
+		}
+
+		.Toastify__toast--error {
+			width: 80%;
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			padding: 5px;
+			border-radius: 6px;
+		}
+
+		.Toastify__toast-body {
+			padding: 5px 15px;
+
+		}
 
 		h2 {
 			font-family: 'Fredoka One', cursive;

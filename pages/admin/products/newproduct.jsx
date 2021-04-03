@@ -4,9 +4,15 @@ import { useForm } from "react-hook-form";
 import Adminnav from '../../../components/Adminnav'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useCookies } from 'react-cookie';
+import { isExpired, decodeToken } from "react-jwt";
+import { useRouter } from 'next/router'
 
 
 export default function NewProductModal() {
+	const [cookies, setCookie, removeCookie] = useCookies(['admin']);
+	const router = useRouter()
+	const [loading, setLoading] = useState(false)
 	const { register, handleSubmit, watch, errors } = useForm();
 	const [previewImg, setPreviewImg] = useState(false)
 
@@ -38,10 +44,34 @@ export default function NewProductModal() {
 				e.target.reset();
 				setPreviewImg(false)
 		}).catch((error) => {
-			failLog()
+			if(!error.status) {
+				toast.error("Network Error!", { autoClose: 2000 });
+			} else if(error.status == 400){
+				toast.error("Server cannot be reached!", { autoClose: 2000 });
+			} else {
+				failLog()
+			}
       console.log(error.response)
     })
   }
+
+  useEffect( async () => {
+		// check if have a user cookie
+		if(!cookies.admin) {
+			router.push("/admin/auth")
+		} else {
+			// verify token if valid or not expired
+			const isMyTokenExpired = await isExpired(cookies.admin.token);
+			console.log(`is token expired? - ${isMyTokenExpired}`)
+
+			// if expired, redirect to login page
+			if(isMyTokenExpired == true) {
+				window.location.href = "/admin/auth"
+			} else {
+				setLoading(true)
+			}
+		}
+	}, [cookies])
 
   const previewImage = (e) => {
   	setPreviewImg(URL.createObjectURL(e.target.files[0]))
@@ -49,9 +79,11 @@ export default function NewProductModal() {
 
 	return (
 		<>
-		 <ToastContainer />
+		{ loading && (
+			<>
 		<Adminnav />
 		<div className="admin_addproduct_modal">
+		<ToastContainer />
 
 			<h2>ADD NEW PRODUCT</h2>
 			<form onSubmit={handleSubmit(onSubmit)}>
@@ -75,6 +107,8 @@ export default function NewProductModal() {
 				<input className="addproduct_btn" type="submit" value="ADD" />
 			</form>
 		</div>
+		</>
+		)}
 		</>
 	)
 }

@@ -30,8 +30,8 @@ export default function auth() {
 	  		// clear inputs after submit
 				e.target.reset();				
 		}).catch((error) => {
-			failLog()
-      console.log(error.response)
+		  	failLog()
+      	console.log(error.response)
     })
   }
 
