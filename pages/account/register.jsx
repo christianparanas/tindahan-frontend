@@ -23,7 +23,7 @@ function register() {
 		const notify = () => toast.success("Registered Successfully!", {
 			autoClose: 3000,
 		});
-		const failLog = () => toast.error("Email already exists!", { autoClose: 2000 });
+		
 
   	const onSubmit = (data, e) => {
   		axios.post(process.env.BACKEND_BASEURL + "/register", {
@@ -31,14 +31,21 @@ function register() {
 				email: data.email,
 				password: data.password,
 			}).then(data => {
-				// show toast
-	  		notify()
-	  		setTimeout(function(){ window.location.href = "/account/login" }, 2000);
-	  		// clear inputs after submit
-				e.target.reset();
-				}).catch((error) => {
-					failLog()
-	        console.log(error.response.data) //Logs a string: Error: Request failed with status code 404
+				if(data.status == 200) {
+						// show toast
+		  		notify()
+		  		setTimeout(function(){ window.location.href = "/account/login" }, 2000);
+		  		// clear inputs after submit
+					e.target.reset();
+				} else if(data.status == 202) {
+					toast.error("Email already exists!", { autoClose: 2000 });
+				}
+
+			}).catch((error) => {
+					if(!error.status) {
+				 		toast.error("Network Error!", { autoClose: 2000 });
+				 		console.log(error)
+				 	}
 	    })
   	}
 

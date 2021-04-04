@@ -30,18 +30,26 @@ function login() {
 			email: data.email,
 			password: data.password,
 		}).then(res => {
-				console.log(res)
-				// show success toast
-				succLog()	
-			
-				// save user info to context
-				setTimeout(function(){ setCookie('user', res.data, { path: '/' }) }, 2000);	  		
+				if(res.status == 200) {
+					console.log(res)
+					// show success toast
+					succLog()	
+				
+					// save user info to context
+					setTimeout(function(){ setCookie('user', res.data, { path: '/' }) }, 2000);	  		
 
-	  		// clear inputs after submit
-				e.target.reset();				
+		  			// clear inputs after submit
+					e.target.reset();
+				} else if(res.status == 202) {
+					toast.error("Invalid Email or Password!", { autoClose: 2000 });
+				} else if(res.status == 204) {
+					toast.error("User didn't exist!", { autoClose: 2000 });
+				}			
 		}).catch((error) => {
-			failLog()
-      console.log(error.response)
+			if(!error.status) {
+		 		toast.error("Network Error!", { autoClose: 2000 });
+		 		console.log(error)
+		 	}
   	})
 	}
 

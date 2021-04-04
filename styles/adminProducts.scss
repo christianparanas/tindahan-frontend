@@ -32,12 +32,71 @@
 
 	}
 
+	.update_product_modal {
+		display: none;
+		box-shadow: 0 10px 40px -10px RGB(0 64 128 / 20%);
+		position: absolute;
+		z-index: 10;
+		top: 20px;
+		left: 20px;
+		background: white;
+		color: black;
+		width: calc(100% - 40px);
+		height: fit-content;
+		padding: 15px 10px;
+		border-radius: 6px;
+
+		.update_head {
+			font-family: 'Fredoka One', cursive;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		form {
+			margin-top: 20px;
+
+			.input_wrapper {
+				display: grid;
+				margin-bottom: 15px;
+
+				label {
+					margin-bottom: 5px;
+				}
+
+				input {
+					padding: 10px;
+					border-radius: 0;
+					outline: 0;
+					border: 1px solid #e3e3e3;
+				}
+
+				.previewImg {
+					width: 100%;
+					margin: 10px auto 0;
+				}
+			}
+
+			.addproduct_btn {
+				margin-top: 10px;
+				width: 100%;
+				padding: 10px;
+				color: white;
+				font-family: 'Fredoka One', cursive;
+				background: #6b21a8;
+			}
+		}
+	}
+
+	.updateModalOpen {
+		display: block;
+	}
+
 
 	.admin_headers {
 		display: flex;
 		justify-content: space-between;
-		padding: 10px;
-		margin: 30px 0 10px;
+		padding: 0 20px;
+		margin: 20px 0 10px;
 		font-family: 'Fredoka One', cursive;
 
 		h3 {
@@ -75,7 +134,7 @@
 
 		.stateDB_msg {
 			width: fit-content;
-			margin: 0 auto;
+			margin: 40px auto;
 		}
 
 
@@ -104,6 +163,10 @@
 
 					right: 0;
 					bottom: 0;
+
+					svg {
+						cursor: pointer;
+					}
 					
 				}
 			}

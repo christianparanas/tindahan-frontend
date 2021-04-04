@@ -13,25 +13,33 @@ export default function auth() {
 	const [cookies, setCookie, removeCookie] = useCookies(['admin']);
 
 	const succLog = () => toast.success("Logging In..", { autoClose: 2000 });
-	const failLog = () => toast.error("Invalid Email or Password!", { autoClose: 2000 });
+
 
 	const onSubmit = (data, e) => {
   	axios.post(process.env.BACKEND_BASEURL + "/adminlogin", {
 			username: data.username,
 			password: data.password,
 		}).then(res => {
-				console.log(res)
+				if(res.status == 200) {
+					console.log(res)
 				// show success toast
-				succLog()	
-			
-				// save admin info to cookie
-				setTimeout(function(){ setCookie('admin', res.data, { path: '/' }) }, 1800);	  		
+					succLog()	
+				
+					// save admin info to cookie
+					setTimeout(function(){ setCookie('admin', res.data, { path: '/' }) }, 1800);	  		
 
-	  		// clear inputs after submit
-				e.target.reset();				
+		  		// clear inputs after submit
+					e.target.reset();	
+				} else if(res.status == 202) {
+					toast.error("Invalid Username or Password!", { autoClose: 2000 });
+				} else if(res.status == 204) {
+					toast.error("User didn't exist!", { autoClose: 2000 });
+				}		
 		}).catch((error) => {
-		  	failLog()
-      	console.log(error.response)
+		 	if(!error.status) {
+		 		toast.error("Network Error!", { autoClose: 2000 });
+		 		console.log(error)
+		 	}
     })
   }
 

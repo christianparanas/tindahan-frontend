@@ -39,10 +39,12 @@ export default function NewProductModal() {
 				formData.append('upload_preset', 'oujxfvjk')
 				axios.post("https://api.cloudinary.com/v1_1/christianparanas/upload", formData)
 				.then(data => { console.log(data)} )
-				notify()
 
 				e.target.reset();
 				setPreviewImg(false)
+
+				notify()
+				setTimeout(function(){ window.location.href = "/admin/products" }, 1800);
 		}).catch((error) => {
 			if(!error.status) {
 				toast.error("Network Error!", { autoClose: 2000 });
@@ -98,11 +100,11 @@ export default function NewProductModal() {
 				</div>
 				<div className="input_wrapper">
 					<label htmlFor="">Price</label>
-					<input name="price" type="text" ref={register({ required: true })} />
+					<input name="price" type="number" ref={register({ required: true })} />
 				</div>
 				<div className="input_wrapper">
 					<label htmlFor="">Quantity</label>
-					<input name="quantity" type="text" ref={register({ required: true })} />
+					<input name="quantity" type="number" ref={register({ required: true })} />
 				</div>
 				<input className="addproduct_btn" type="submit" value="ADD" />
 			</form>
