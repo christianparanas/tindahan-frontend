@@ -62,6 +62,10 @@ export default function customers() {
 		}
 	}
 
+	const dynaUrl = (id) => {
+		return `/admin/customers/${id}`
+	}
+
 
 
 	return (
@@ -76,21 +80,23 @@ export default function customers() {
 					</div>
 
 					<div className="admin_customers_items">
-						<div className="admin_customer admin_h">
-							<div>Id</div>
-							<div>Name</div>
-							<div>Email</div>
-							<div>View</div>
-							 
-						</div>
+
 						{hasCustomerInDB ? 
-							(<>{customers.map((val, key) => {
+							(<>
+								<div className="admin_customer admin_h">
+									<div>Id</div>
+									<div>Name</div>
+									<div>Email</div>
+									<div>View</div>
+								</div>
+
+								{customers.map((val, key) => {
 								return (
 									<div className="admin_customer" key={key}>
 										<div className="ad">{val.id}</div>
 										<div className="ad">{val.name}</div>
 										<div className="ad">{val.email}</div>
-										<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#BCCDDF" className="svg cursor-pointer"><path data-v-62b6ea83="" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+										<Link href={{ pathname: "/admin/customers/" + `${val.id}`}} as={`/admin/customers/${val.id}`}><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#BCCDDF" className="svg cursor-pointer"><path data-v-62b6ea83="" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg></Link>
 									</div>
 								)
 							})}</>) : (<div className="stateDB_msg">{ stateDB }</div>)

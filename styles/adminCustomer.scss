@@ -64,3 +64,56 @@
 		}
 	}
 }
+
+
+
+
+
+// admin specific customer
+.admin_customer {
+
+	.admin_cusprob {
+		padding: 50px 20px;
+		width: 100%;
+		text-align: center;
+
+		.por {
+			span {
+				background: #0A2540;
+				color: white;
+				padding: 5px 10px;
+				border-radius: 4px;
+			}
+		}
+	}
+
+
+	.admin_customer_mainWrapper {
+		padding: 20px;
+
+		h3 {
+			background: #0A2540;
+			color: white;
+			padding: 5px 10px;
+			width: fit-content;
+		}
+
+		.admin_cusRecords {
+			margin-top: 70px;
+
+			.cusDetails {
+				padding: 5px 10px;
+			}
+		}
+
+
+		.admin_cusDetails {
+
+
+			.cusDetails {
+				padding: 5px 10px;
+			}
+
+		}
+	}
+}
