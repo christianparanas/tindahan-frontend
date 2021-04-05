@@ -44,7 +44,7 @@ export default function adminNav() {
         </div>
         <div className="navOptions">
           <Link href="/admin"><div className="navOp">Dashboard</div></Link>
-          <div className="navOp">Customer</div>
+          <Link href="/admin/customers/"><div className="navOp">Customer</div></Link>
           <Link href="/admin/products/"><div className="navOp">Products</div></Link>
           <div className="navOp">Orders Pending</div>
           <div className="navOp">Orders Complete</div>

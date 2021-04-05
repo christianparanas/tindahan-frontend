@@ -1,0 +1,66 @@
+
+
+
+.admin_customers {
+	.Toastify__toast--success {
+	width: 80%;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	padding: 5px;
+	border-radius: 6px;
+	background: #6b21a8;
+}
+
+.Toastify__toast--error {
+	width: 80%;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	padding: 5px;
+	border-radius: 6px;
+}
+
+.Toastify__toast-body {
+	padding: 5px 15px;
+
+}
+
+	.admin_customers_mainWrapper {
+		padding: 20px;
+
+
+
+		.admin_customers_items {
+			display: grid;
+			grid-gap: 3px;
+
+
+			.admin_customer {
+				display: grid;
+				grid-template-columns: 35px 1fr 1fr 25px;
+				font-size: 12px;
+				padding: 10px 20px;
+				place-content: center;
+				border: 1px solid #e3e3e3;
+				align-items: center;
+
+				.ad {
+					padding: 0;
+				}
+
+				svg {
+					position: relative;
+					
+					padding: 0;
+				}
+
+			}
+
+			.admin_h {
+				background: white;
+				border: 1px solid #e3e3e3;
+			}
+		}
+	}
+}
