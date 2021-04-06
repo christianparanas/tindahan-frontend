@@ -1,5 +1,13 @@
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+
+import { useRouter } from 'next/router'
+import { useState, useEffect } from 'react'
+import axios from 'axios' 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useCookies } from 'react-cookie';
+import { isExpired, decodeToken } from "react-jwt";
+import Link from 'next/link'
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
@@ -18,6 +26,36 @@ export default function Home() {
     'https://cdn.shopify.com/s/files/1/2282/7539/products/954350-Light_Gray_1_1800x1800.jpg?v=1609213493'
   ]
 
+  const [cookies, setCookie, removeCookie] = useCookies(['admin']);
+  const [loading, setLoading] = useState(false)
+  const [productArr, setProductArr] = useState([])
+  const [stateDB, setStateDB] = useState('Loading..')
+  const [hasProductInDB, setHasProductInDB] = useState(false)
+  const [remainingproductcount, setRemainingproductcount] = useState(false)
+
+
+  useEffect(() => {
+    axios.get(process.env.BACKEND_BASEURL + '/homefourproducts')
+      .then( async res => {
+          console.log(res.data)
+          setProductArr(res.data.resultfour)
+          setRemainingproductcount(res.data.resultlength)
+          // check if there's a product in db, if none, set the message to no item
+          if(res.status == 202) {
+            setNoUser(true)
+          } else {
+            // if there's a product, show the product map function
+            setHasProductInDB(true)
+          }
+      }).catch((error) => {
+        if(!error.status) {
+          toast.error("Network Error!", { autoClose: 2000 });
+          setStateDB("Network error, Please check your internet connection.")
+        } 
+        console.log(error)
+      })
+
+  }, [])
 
   return (
     <div>
@@ -57,12 +95,15 @@ export default function Home() {
             <h3 className="viewAll">View all products</h3>
           </div>
            <div className="itemSlider">
-            <HomeProductContainer />
-            <HomeProductContainer />
-            <HomeProductContainer />
-            <HomeProductContainer />
+            {productArr.map((val, key) => {
+              return (
+                <div key={key}>
+                  <HomeProductContainer val={val} />
+                </div>
+              )
+            })}
             <div className="FreshDrops_viewAllProducts">
-              <div className="content">View all 256 products</div>
+              <Link href="products"><div className="content">View all { remainingproductcount } products</div></Link>
             </div>
            </div>
          </div>

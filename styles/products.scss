@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+// all products
+
+.products {
+
+
+
+	.nav {
+	  background-color: transparent;
+	}
+
+	.upper_nav {
+	  display: flex;
+	  justify-content: space-between;
+	  padding: 20px;
+	  background-color: white;
+    border-bottom: 1px solid #e8e8e1;
+	}
+
+
+
+	.products_grid {
+		padding: 20px 10px;
+
+		h3 {
+			color: #000;
+		}
+	}
+	
+}
+
+
+// specific product
+.product {
+	padding-bottom: 100px;
+
+
+
+	.nav {
+	  background-color: transparent;
+	}
+
+	.upper_nav {
+	  display: flex;
+	  justify-content: space-between;
+	  padding: 20px;
+	  background-color: white;
+    border-bottom: 1px solid #e8e8e1;
+	}
+
+	.product_contents {
+		width: 100%;
+		padding: 20px 20px;
+
+
+		img {
+			width: 100%;
+			max-height: 400px;
+			margin-bottom: 10px;
+		}
+
+
+		.product_details {
+			h2 {
+				margin: 0 0 10px 0;
+				font-family: 'Roboto', sans-serif;
+			}
+
+			.sp {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 20px;
+				padding-bottom: 15px;
+				border-bottom: 1px solid #e3e3e3;
+
+				.product_price {
+					font-size: 18px;
+				}
+
+				.stock {
+					font-size: 14px;
+				}
+			}
+
+			.operate {
+
+				.addtocart_btn {
+					width: 100%;
+					font-family: 'Fredoka One', cursive;
+					background: #6b21a8;
+					margin-top: 20px;
+					color: white;
+					padding: 10px;
+					text-align: center;
+				}
+
+				.quanlabel {
+					font-size: 14px;
+					width: 112px;
+					text-align: center;
+					margin-bottom: 5px;
+				}
+
+
+				.changequan {
+					border: 1px solid #e3e3e3;
+					width: fit-content;
+					display: grid;
+					grid-template-columns: 30px 30px 30px;
+					place-items: center;
+					align-items: center;
+					padding: 5px 10px;
+
+					div {
+						height: 100%;
+
+					}
+				}
+			}
+
+		}
+	}
+	
+}

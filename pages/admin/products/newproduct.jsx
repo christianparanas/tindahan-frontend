@@ -38,13 +38,19 @@ export default function NewProductModal() {
 				// setting up a  upload preset for cloudinary and the directory of the file
 				formData.append('upload_preset', 'oujxfvjk')
 				axios.post("https://api.cloudinary.com/v1_1/christianparanas/upload", formData)
-				.then(data => { console.log(data)} )
+					.then(data => { 
+						notify()
+						console.log(data)
+						e.target.reset();
+						setPreviewImg(false)
+						setTimeout(function(){ window.location.href = "/admin/products" }, 1800);
+					
+					}).catch((error) => {
+						if(!error.status) {
+							toast.error("Network Error!", { autoClose: 2000 });
+						}
+					})
 
-				e.target.reset();
-				setPreviewImg(false)
-
-				notify()
-				setTimeout(function(){ window.location.href = "/admin/products" }, 1800);
 		}).catch((error) => {
 			if(!error.status) {
 				toast.error("Network Error!", { autoClose: 2000 });

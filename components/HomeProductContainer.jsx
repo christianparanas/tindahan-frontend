@@ -1,13 +1,18 @@
+import Link from 'next/link'
 
 
-export default function HomeProductContainer() {
+export default function HomeProductContainer({ val }) {
 
 
 	return (
-		<div className="homeProductContainer">
-			<img className="itemImg" src="https://cdn.shopify.com/s/files/1/2282/7539/products/954042-Pink_1_360x.jpg?v=1616046548" alt="home product" />
-			<div className="itemDescription">Pink Lily Eau de Toilette for Women 50ML</div>
-			<div className="itemPrice">₱329.00</div>
-		</div>
+		<>
+		<Link href={{ pathname: "/products/" + `${val.product_id}`}} as={`/products/${val.product_id}`}>
+			<div className="homeProductContainer">
+				<img style={{ width: "100%", height: "350px"}} src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.product_image}`} alt="product image" />				
+				<div className="itemDescription">{ val.product_name }</div>
+				<div className="itemPrice">₱ { val.product_price }</div>
+			</div>
+		</Link>
+		</>
 	)
 }
