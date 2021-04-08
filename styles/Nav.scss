@@ -89,7 +89,7 @@
   width: 300px;
   opacity: 1;
   background-color: white;
-  transition: all .5s ease;
+  transition: all .4s;
 
   .closeNavBtn {
     width: 100%;
@@ -175,12 +175,12 @@
   z-index: 5;
   position: fixed;
   top: 0;
-  right: 0;
+  right: -350px;
   height: 100vh;
-  width: 0;
+  width: 300px;
   opacity: 1;
   background-color: white;
-  transition: all .5s ease;
+  transition: all .4s;
 
   .closeCartOverlayBtn {
     width: 100%;
@@ -200,18 +200,87 @@
   }
 
   .cartItems {
-    margin-top: 30px;
-    width: 200px;
-    margin: 30px auto 0;
+    padding: 20px 10px;
+    height: 80%;
+    overflow-y: scroll;
 
-    
+    .empty_lbl {
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    .bucket {
+      position: relative;
+
+      .itemCart {
+        margin-bottom: 20px;
+        display: grid;
+        grid-template-columns: 120px 1fr;
+
+
+        .itemCart_details {
+          padding: 0 10px;
+          position: relative;
+
+          .aa {
+            margin-bottom: 8px;
+          }
+
+          .changequan {
+            position: relative;
+            bottom: -15px;
+            border: 1px solid #e3e3e3;
+            width: fit-content;
+            display: grid;
+            grid-template-columns: 30px 30px 30px;
+            place-items: center;
+            align-items: center;
+            padding: 3px 5px;
+
+            div {
+              height: 100%;
+
+            }
+          }
+        }
+
+        img {
+          width: 100%;
+          height: 100px;
+        }
+      }
+
+      .review_cart {
+        position: fixed;
+        bottom: 20px;
+        width: 65%;
+        border-top: 1px solid #e3e3e3;
+
+        .review_cart_head {
+          display: flex;
+          justify-content: space-between;
+          margin: 10px 0;
+        }
+
+        .review_cartBtn {
+          width: 100%;
+          text-align: center;
+          padding: 10px;
+          color: white;
+          background: #6b21a8;
+        }
+      }
+    }  
   }
 }
 
 .showCartOverlay {
-  width: 300px;
+  right: 0;
   padding: 20px 10px;
 }
+
+
+
 
 @media only screen and (min-width: 452px) {
   .nav {

@@ -20,7 +20,7 @@ export default function products() {
 	const router = useRouter()
 	const { product } = router.query
 
-	const [cookies, setCookie, removeCookie] = useCookies(['admin']);
+	const [cookies, setCookie, removeCookie] = useCookies(['user']);
 	const [loading, setLoading] = useState(false)
 	const [productArr, setProductArr] = useState([])
 	const [stateDB, setStateDB] = useState('Loading..')
@@ -67,6 +67,41 @@ export default function products() {
 		}
 	}
 
+	const addToCart = () => {
+		// check if login or not, if not you will not be able to add to cart item
+		if(cookies.user) {
+			// access endpoint and send customer id, item qty and product id
+			axios.post(process.env.BACKEND_BASEURL + '/addtocart', {
+	      customer_id: cookies.user.result.id,
+	      qty: quan,
+	     	item_id: product
+	    })
+	    .then(res => {
+	    	// res if item not in the cart and successfully added in the cart
+	      if(res.status == 200) {
+	      	toast.success("Item added to cart", { autoClose: 2000 });
+	      	setTimeout(function(){ window.location.reload(false); }, 1800);
+
+	      	// res if item already in the cart
+	      } else if(res.status == 204) {
+	      	toast.success("Item already in the cart", { autoClose: 2000 });
+	      }
+	      
+	    }).catch((error) => {
+				if(!error.status) {
+					toast.error("Network Error!", { autoClose: 2000 });
+					setStateDB("Network error, Please check your internet connection.")
+				} 
+	      console.log(error)
+	    })
+
+
+		} else {
+			// res this to inform user to login
+			toast.success("Please Login!", { autoClose: 2000 });
+		}
+	}
+
 
 	return (
 		<>
@@ -94,7 +129,7 @@ export default function products() {
 											<svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
 										</div>
 									</div>
-									<div className="addtocart_btn">Add to cart</div>
+									<div onClick={addToCart} className="addtocart_btn">Add to cart</div>
 								</div>
 							</div>
 						</div>

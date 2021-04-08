@@ -21,7 +21,8 @@ export default function products() {
 	const router = useRouter()
 
 
-	useEffect(() => {
+	useEffect( async () => {
+		await checkAuth()
 
 		axios.get(process.env.BACKEND_BASEURL + '/adminproducts')
 			.then(res => {
@@ -43,7 +44,26 @@ export default function products() {
 	      console.log(error)
 	    })
 
-	}, [])
+	}, [cookies])
+
+	 const checkAuth = async () => {
+    if(cookies.user) {
+      // verify token if valid or not expired
+      const isMyTokenExpired = await isExpired(cookies.user.token);
+      console.log(`is token expired? - ${isMyTokenExpired}`)
+
+      // if expired, redirect to login page
+      if(isMyTokenExpired == true) {
+        logout()
+      } else {
+        setLoading(true)
+      }
+    }
+  }
+
+  const logout = () => {
+    removeCookie('user')
+  }
 
 
 

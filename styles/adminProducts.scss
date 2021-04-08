@@ -35,7 +35,7 @@
 	.update_product_modal {
 		display: none;
 		box-shadow: 0 10px 40px -10px RGB(0 64 128 / 20%);
-		position: absolute;
+		position: fixed;
 		z-index: 10;
 		top: 20px;
 		left: 20px;

@@ -29,6 +29,7 @@ function account() {
 
 			// if expired, redirect to login page
 			if(isMyTokenExpired == true) {
+				logout()
 				window.location.href = "/account/login"
 			} else {
 				setLoading(true)

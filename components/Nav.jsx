@@ -1,5 +1,9 @@
 import { useState, useRef, useEffect } from 'react' 
 import Link from 'next/link'
+import axios from 'axios'
+import { useCookies } from 'react-cookie';
+import { isExpired, decodeToken } from "react-jwt";
+import { useRouter } from 'next/router'
 
 // libs
 import Icon from "awesome-react-icons";
@@ -7,6 +11,10 @@ import Icon from "awesome-react-icons";
 // components
 
 export default function Nav() {
+  const [cookies, setCookie, removeCookie] = useCookies(['user']);
+  const [cartItems, setCartItems] = useState([])
+  const [hascartItems, setHasCartItems] = useState(false)
+
   // for changing upper nav bg color on scroll
   const [upperNav, setUpperNav] = useState('upper_nav')
   // this is used to focus input on click on the search icon in the home page
@@ -55,7 +63,28 @@ export default function Nav() {
   // listen first for scroll and put it into a listenScrollEvent
   useEffect(() => {
     window.addEventListener("scroll", listenScrollEvent)
+
+    if(cookies.user) {
+      console.log(cookies.user.result.id)
+
+      axios.post(process.env.BACKEND_BASEURL + '/cart', {
+        id: cookies.user.result.id
+      })
+        .then( async res => {
+          if(res.status == 200) {
+            const cart = await res.data.result
+            setCartItems(cart)
+            setHasCartItems(true)
+          }
+
+        })
+    }
   }, [])
+
+
+  const changeQuan = (num) => {
+    console.log('hi')
+  }
 
 
 	return (
@@ -114,6 +143,7 @@ export default function Nav() {
         </div>
       </div>
 
+
       <div className={cartOverlay}>
         <div className="closeCartOverlayBtn">
           Cart
@@ -121,9 +151,42 @@ export default function Nav() {
         </div>
         <hr />
         <div className="cartItems">
-          <div className="item">
-            Your cart is currently empty
-          </div>
+          {hascartItems ? (
+            <div className="bucket">
+              {cartItems.map((val, key) => {
+                return (
+                  <div key={key} className="itemCart">
+                    <img src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.cart_p_image}`} alt="product image" /> 
+                    <div className="itemCart_details">
+                      <div className="aa">{ val.cart_p_name }</div>
+                      <div>₱{ val.cart_p_price }</div>
+                      <div className="changequan">
+                        <div onClick={() => changeQuan(2)} >
+                          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 12H4"></path></svg>
+                        </div>
+                        <div>{ val.cart_qty }</div>
+                        <div onClick={() => changeQuan(1)}>
+                          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+
+              <div className="review_cart">
+                <div className="review_cart_head">
+                  <div>SUBTOTAL</div>
+                  <div>₱329</div>
+                  
+                </div>
+                <div className="review_cartBtn">
+                  Review My Cart
+                </div>
+              </div>
+            </div>
+
+            ) : (<div className="empty_lbl">Cart is empty</div>)}
         </div>
       </div>
 

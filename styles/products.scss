@@ -16,7 +16,7 @@
 	  justify-content: space-between;
 	  padding: 20px;
 	  background-color: white;
-    border-bottom: 1px solid #e8e8e1;
+	border-bottom: 1px solid #e8e8e1;
 	}
 
 
@@ -36,7 +36,29 @@
 .product {
 	padding-bottom: 100px;
 
+	.Toastify__toast--success {
+		width: 80%;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		padding: 5px;
+		border-radius: 6px;
+		background: #6b21a8;
+	}
 
+	.Toastify__toast--error {
+		width: 80%;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		padding: 5px;
+		border-radius: 6px;
+	}
+
+	.Toastify__toast-body {
+		padding: 5px 15px;
+
+	}
 
 	.nav {
 	  background-color: transparent;
@@ -47,7 +69,7 @@
 	  justify-content: space-between;
 	  padding: 20px;
 	  background-color: white;
-    border-bottom: 1px solid #e8e8e1;
+	border-bottom: 1px solid #e8e8e1;
 	}
 
 	.product_contents {

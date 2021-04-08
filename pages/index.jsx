@@ -26,7 +26,7 @@ export default function Home() {
     'https://cdn.shopify.com/s/files/1/2282/7539/products/954350-Light_Gray_1_1800x1800.jpg?v=1609213493'
   ]
 
-  const [cookies, setCookie, removeCookie] = useCookies(['admin']);
+  const [cookies, setCookie, removeCookie] = useCookies(['user']);
   const [loading, setLoading] = useState(false)
   const [productArr, setProductArr] = useState([])
   const [stateDB, setStateDB] = useState('Loading..')
@@ -34,7 +34,9 @@ export default function Home() {
   const [remainingproductcount, setRemainingproductcount] = useState(false)
 
 
-  useEffect(() => {
+  useEffect( async () => {
+    checkAuth();
+
     axios.get(process.env.BACKEND_BASEURL + '/homefourproducts')
       .then( async res => {
           console.log(res.data)
@@ -55,7 +57,27 @@ export default function Home() {
         console.log(error)
       })
 
-  }, [])
+  }, [cookies])
+
+
+  const checkAuth = async () => {
+    if(cookies.user) {
+      // verify token if valid or not expired
+      const isMyTokenExpired = await isExpired(cookies.user.token);
+      console.log(`is token expired? - ${isMyTokenExpired}`)
+
+      // if expired, redirect to login page
+      if(isMyTokenExpired == true) {
+        logout()
+      } else {
+        setLoading(true)
+      }
+    }
+  }
+
+  const logout = () => {
+    removeCookie('user')
+  }
 
   return (
     <div>
@@ -108,9 +130,7 @@ export default function Home() {
            </div>
          </div>
          <div className="contentSales">
-          <img src="https://cdn.shopify.com/s/files/1/2282/7539/files/COLLECTION_PAGE_2380x1000_5a02a576-69c9-4feb-833d-4c4028c8bd27_540x.jpg?v=1615980138" alt="" />
-          <img src="https://cdn.shopify.com/s/files/1/2282/7539/files/DOTCOM_COLLECTION_HIGHLIGHT_2380x1000px_TIME_TO_EXPLORE.jpg?v=1613383288" alt="" />
-          <img src="https://cdn.shopify.com/s/files/1/2282/7539/files/POSITIVITEES_HOMEPAGE_w_2380_h_1000.jpg?v=1611536283" alt="" />
+          Banners 
          </div>
         </div>
 
