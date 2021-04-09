@@ -43,7 +43,16 @@
   		border: 1px solid #e3e3e3;
   		padding: 10px 10px 60px;
   		position: relative;
-  		border-radius: 6px;
+  		border-radius: 0;
+
+  		.ww {
+  			position: relative;
+
+  			svg {
+  				position: relative;
+  				top: 4px; 
+  			}
+  		}
 
   		button {
   			border: 1px solid #fafbfc;
@@ -52,9 +61,9 @@
   			right: 10px;
   			bottom: 10px;
   			color: white;
-  			padding: 5px 16px;
-  			border-radius: inherit;
-  			font-size: 14px;
+  			padding: 8px 10px;
+  			font-size: 12px;
+  			outline: none;
   		}
   	}
 
@@ -62,7 +71,7 @@
   	  border: 1px solid #e3e3e3;
   		padding: 10px 10px 40px;
   		position: relative;
-  		border-radius: 6px;
+  		border-radius: 0;
   	}
   }
 }

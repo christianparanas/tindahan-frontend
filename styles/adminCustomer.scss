@@ -38,15 +38,16 @@
 
 			.admin_customer {
 				display: grid;
-				grid-template-columns: 35px 1fr 1fr 25px;
+				grid-template-columns: 40px 1fr 30px;
 				font-size: 12px;
 				padding: 10px 20px;
 				place-content: center;
-				border: 1px solid #e3e3e3;
+				
 				align-items: center;
 
 				.ad {
 					padding: 0;
+					overflow-x: scroll;
 				}
 
 				svg {
@@ -60,6 +61,7 @@
 			.admin_h {
 				background: white;
 				border: 1px solid #e3e3e3;
+
 			}
 		}
 	}
@@ -112,6 +114,16 @@
 
 			.cusDetails {
 				padding: 5px 10px;
+
+				.qq {
+					position: relative;
+				
+					svg {
+						position: relative;
+						top: 4px;
+						left: -3px;
+					}
+				}
 			}
 
 		}

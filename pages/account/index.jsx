@@ -30,7 +30,6 @@ function account() {
 			// if expired, redirect to login page
 			if(isMyTokenExpired == true) {
 				logout()
-				window.location.href = "/account/login"
 			} else {
 				setLoading(true)
 			}
@@ -40,6 +39,7 @@ function account() {
 
 	const logout = () => {
 		removeCookie('user')
+		window.location.href = "/account/login"
 	}
 
 	return (
@@ -51,9 +51,16 @@ function account() {
 				<div className="accountDetails">
 				{user && <>
 					<h2>Account</h2>
-					<div>{ user.result.name }</div>
-					<div>{ user.result.email }</div>		
-      		<button onClick={logout}>Log out</button>
+					<div className="ww">
+						<svg width="20" height="20" fill="none" stroke="grey" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+						{ user.result.name.replace(/^\w/, (c) => c.toUpperCase()) }</div>
+					<div className="ww">
+						<svg width="20" height="20" fill="none" stroke="grey" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinejoin="round" strokeLinejoin="round" strokeWidth="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path></svg>
+						 { user.result.email }</div>	
+					<div className="ww">
+						<svg width="20" height="20" fill="none" stroke="grey" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+						{ user.result.address }</div>	
+      		<button onClick={logout}>LOGOUT</button>
       		</>
       	}
 				</div>

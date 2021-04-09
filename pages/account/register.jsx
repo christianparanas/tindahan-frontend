@@ -30,6 +30,7 @@ function register() {
 				name: data.name,
 				email: data.email,
 				password: data.password,
+				address: data.address
 			}).then(data => {
 				if(data.status == 200) {
 						// show toast
@@ -77,6 +78,10 @@ function register() {
 					<div className="loginEmailWrapper">
 						<label htmlFor="regfirstname">FULL NAME</label>
 						<input name="name" ref={register({ required: true })} type="text" id="regname" />
+					</div>
+					<div className="loginEmailWrapper">
+						<label htmlFor="regfirstname">ADDRESS</label>
+						<input name="address" ref={register({ required: true })} type="text" id="regadd" />
 					</div>
 					<div className="loginEmailWrapper">
 						<label htmlFor="regemail">EMAIL</label>

@@ -44,13 +44,13 @@ export default function adminNav() {
         </div>
         <div className="navOptions">
           <Link href="/admin"><div className="navOp">Dashboard</div></Link>
-          <Link href="/admin/customers/"><div className="navOp">Customer</div></Link>
+          <Link href="/admin/customers/"><div className="navOp">Customers</div></Link>
           <Link href="/admin/products/"><div className="navOp">Products</div></Link>
           <div className="navOp">Orders Pending</div>
           <div className="navOp">Orders Complete</div>
           <div className="navOp">Administrators</div>
         </div>
-        <div onClick={logout} className="admin_logout">Log out</div>
+        <div onClick={logout} className="admin_logout">LOGOUT</div>
       </div>
 		</div>
 	)

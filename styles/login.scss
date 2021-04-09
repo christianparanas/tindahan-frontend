@@ -64,8 +64,10 @@
 		}
 
 		.loginWithGoogle {
+
 			cursor: pointer;
 			display: flex;
+			display: none;
 			position: relative;
 			border: 1px solid #e8e8e1;
 			padding: 10px 12px;
@@ -88,7 +90,9 @@
 		}
 
 		.orSep {
+
 			display: grid;
+			display: none;
 			grid-template-columns: 1fr 50px 1fr;
 			margin-bottom: 20px;
 
@@ -152,7 +156,7 @@
 			    padding: 8px 10px;
 			    font-size: 16px;
 			    outline: 0;
-			    margin-bottom: 30px;
+			    margin-bottom: 15px;
 			    border-radius: 0;
 				}
 
