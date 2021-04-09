@@ -4,6 +4,8 @@ import axios from 'axios'
 import { useCookies } from 'react-cookie';
 import { isExpired, decodeToken } from "react-jwt";
 import { useRouter } from 'next/router'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // libs
 import Icon from "awesome-react-icons";
@@ -14,6 +16,9 @@ export default function Nav() {
   const [cookies, setCookie, removeCookie] = useCookies(['user']);
   const [cartItems, setCartItems] = useState([])
   const [hascartItems, setHasCartItems] = useState(false)
+
+  const [incOrDec, setIncOrDec] = useState(null)
+
 
   // for changing upper nav bg color on scroll
   const [upperNav, setUpperNav] = useState('upper_nav')
@@ -65,30 +70,82 @@ export default function Nav() {
     window.addEventListener("scroll", listenScrollEvent)
 
     if(cookies.user) {
-      console.log(cookies.user.result.id)
 
+      // get all the cart item of the user
       axios.post(process.env.BACKEND_BASEURL + '/cart', {
         id: cookies.user.result.id
       })
         .then( async res => {
           if(res.status == 200) {
             const cart = await res.data.result
+            console.log(res.data.result)
             setCartItems(cart)
             setHasCartItems(true)
+
+          } else if(res.status == 202) {
+            setHasCartItems(false)
           }
 
         })
     }
-  }, [])
+
+    // dependents, re render useEffect if there's no cart item in db
+  }, [incOrDec, hascartItems])
 
 
-  const changeQuan = (num) => {
-    console.log('hi')
+  const changeQuan = (qty, id, cart_qty, stock) => {
+    // check if increase qty or otherwise
+    if(qty == 1) {
+      // check if the cart item qty exceed in the stock in the product
+      if(cart_qty < stock) {
+          axios.post(process.env.BACKEND_BASEURL + '/updatecartqty', {
+          order: "add",
+          id: id
+        })
+        .then( async res => {
+          if(res.status == 200) {
+            console.log(res.data.message)
+            // this will re render the cart items
+            setIncOrDec(state => ({...incOrDec}))
+          }
+        })
+      } else {
+        toast.success("Out of Stock", { autoClose: 2000 });
+      }
+
+    } else {
+      // check if cart qty greater than 0, else remove the item
+      if(cart_qty <= 1) {
+        axios.post(process.env.BACKEND_BASEURL + '/delcartitem', {
+          id: id
+        })
+        .then( async res => {
+          if(res.status == 200) {
+            console.log(res.data.message)
+            setIncOrDec(state => ({...incOrDec}))
+          }
+        })
+
+      } else {
+        // if greater than or equal to 1, procced in changing the cart item qty
+        axios.post(process.env.BACKEND_BASEURL + '/updatecartqty', {
+          order: "reduce",
+          id: id
+        })
+        .then( async res => {
+          if(res.status == 200) {
+            console.log(res.data.message)
+            setIncOrDec(state => ({...incOrDec}))
+          }
+        })
+      }
+    }
   }
 
 
 	return (
 		<div className="nav">
+    <ToastContainer />
 			<div className={upperNav}>
 				<div className="logo">
           <Link href="/">
@@ -154,6 +211,8 @@ export default function Nav() {
           {hascartItems ? (
             <div className="bucket">
               {cartItems.map((val, key) => {
+
+
                 return (
                   <div key={key} className="itemCart">
                     <img src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.cart_p_image}`} alt="product image" /> 
@@ -161,11 +220,11 @@ export default function Nav() {
                       <div className="aa">{ val.cart_p_name }</div>
                       <div>₱{ val.cart_p_price }</div>
                       <div className="changequan">
-                        <div onClick={() => changeQuan(2)} >
+                        <div onClick={() => changeQuan(2, val.cart_id, val.cart_qty, val.cart_p_stock)} >
                           <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 12H4"></path></svg>
                         </div>
                         <div>{ val.cart_qty }</div>
-                        <div onClick={() => changeQuan(1)}>
+                        <div onClick={() => changeQuan(1, val.cart_id, val.cart_qty, val.cart_p_stock)}>
                           <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                         </div>
                       </div>
