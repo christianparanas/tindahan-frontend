@@ -45,6 +45,7 @@ export default function Home() {
           // check if there's a product in db, if none, set the message to no item
           if(res.status == 202) {
             setNoUser(true)
+            setStateDB('No products')
           } else {
             // if there's a product, show the product map function
             setHasProductInDB(true)
@@ -113,10 +114,11 @@ export default function Home() {
         <div className="mainContentWrapper">
          <div className="freshDrops_horizontalDisplay">
           <div className="freshDrops">
-            <h3>Fresh Drops</h3>
+            <h3>Products</h3>
             <h3 className="viewAll">View all products</h3>
           </div>
            <div className="itemSlider">
+            {hasProductInDB ? (<>
             {productArr.map((val, key) => {
               return (
                 <div key={key}>
@@ -127,6 +129,7 @@ export default function Home() {
             <div className="FreshDrops_viewAllProducts">
               <Link href="products"><div className="content">View all { remainingproductcount } products</div></Link>
             </div>
+            </>) : ( <div>{stateDB}</div> )}
            </div>
          </div>
          <div className="contentSales">
