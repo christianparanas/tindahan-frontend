@@ -27,6 +27,31 @@
       cursor: pointer;
     }
 
+    .cartIcon {
+      position: relative;
+
+      svg {
+        margin: 0 10px;
+        cursor: pointer;
+      }
+
+      .indicator {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 5px;
+        background: #6b21a8;
+        border: 3px solid white;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%; 
+      }
+
+      .showIndicator {
+        display: block;
+      }
+    }
+
     .icon .cls-1, circle {
       fill:none;
       stroke:#000;
@@ -51,6 +76,7 @@
 .lower_nav {
   position: fixed;
   width: 100%;
+  z-index: 3; 
   bottom: 0;
   border-top: 2px solid black;
   display: flex;

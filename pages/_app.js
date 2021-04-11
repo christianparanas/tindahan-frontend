@@ -11,6 +11,7 @@ import '../styles/adminnav.scss'
 import '../styles/Nav.scss'
 import '../styles/adminProducts.scss'
 import '../styles/adminCustomer.scss'
+import '../styles/cart.scss'
 
 
 import { AuthContext } from '../Context/AuthContext'
