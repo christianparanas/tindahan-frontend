@@ -227,8 +227,9 @@
 
   .cartItems {
     padding: 10px 10px 30px;
-    height: 80%;
+    height: 93%;
     overflow-y: scroll;
+    position: relative;
 
     .empty_lbl {
       width: fit-content;
@@ -236,7 +237,7 @@
     }
 
     .bucket {
-      position: relative;
+      
 
       .itemCart {
         margin-bottom: 20px;
@@ -278,9 +279,11 @@
 
       .review_cart {
         background: white;
-        position: fixed;
-        bottom: 30px;
-        width: 65%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        
         border-top: 1px solid #e3e3e3;
 
         .review_cart_head {

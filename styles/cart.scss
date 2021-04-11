@@ -1,6 +1,122 @@
 
 .review_cart {
 
+	.placeOrder_overlay {
+	  position: fixed;
+	  z-index: 20;
+	  top: 0;
+	  right: 0;
+	  height: 100vh;
+	  width: 0;
+	  opacity: .5;
+	  background-color: #000;
+	  padding-top: 100px;
+	}
+
+	.placeOrder_modal {
+		display: none;
+		z-index: 21;
+		position: fixed;
+		width: calc(100% - 40px);
+		margin:0 auto;
+		top: 40px;
+		left: 0;
+		right: 0;
+		height: fit-content;
+		background: white;
+		padding: 10px;
+
+		.placeOrder_modal_head {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.placeOrder_modal_content {
+			margin-top: 20px;
+
+			.orderOverview {
+				border-bottom: 1px solid #e3e3e3;
+				padding: 10px;
+				margin-bottom: 10px;
+
+				.overview {
+					display: flex;
+					justify-content: space-between;
+
+					.aa {
+						font-size: 13px;
+					}
+				}
+			}
+
+			.aa {
+				font-size: 13px;
+				margin-bottom: 5px;
+			}
+
+			select {
+				margin-bottom: 10px;
+				border-radius: 0;
+				width: 100%;
+				background: white;
+				outline: none;
+				border: 1px solid #e3e3e3;
+				-webkit-appearance: none;
+		    -moz-appearance: none;
+		    appearance: none;
+		    padding: 8px 10px;
+				
+				option {
+					width: 80%;
+				}
+			}
+
+			.place_customer {
+				font-size: 13px;
+				margin-top: 5px;
+
+				.cc {
+					position: relative;
+
+					svg {
+						position: relative;
+						top: 3px;
+					}
+				}
+			}
+
+			.total_payment {
+				margin-top: 30px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				.total_lbl {
+					font-size: 13px;
+				}
+
+				.total_lbl_money {
+
+				}
+				
+
+				.placeOrder_modal_content_placeBtn {
+					background: #6b21a8;
+					color: white;
+					padding: 8px 10px;
+				}
+			}
+		}
+	}
+
+	.showplaceOrder_overlay {
+		width: 100%;
+	}
+
+	.showplaceOrder_modal {
+		display: block;
+	}
+
 
 
 	.review_cartItems {

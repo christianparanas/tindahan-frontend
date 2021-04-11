@@ -249,7 +249,7 @@ export default function Nav() {
 
               <div className="review_cart">
                 <div className="review_cart_head">
-                  <div>SUBTOTAL</div>
+                  <div>TOTAL</div>
                   <div>₱{subtotal}</div>
                   
                 </div>

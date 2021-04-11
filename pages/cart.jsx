@@ -18,8 +18,30 @@ export default function cart() {
 	const [hascartItems, setHasCartItems] = useState(false)
   const [incOrDec, setIncOrDec] = useState(null)
   const [subtotal, setSubtotal] = useState(0)
-  const [address, setAddress] = useState('')
+  
   const [dbinfo, setDbinfo] = useState('Loading..')
+
+  // user details
+  const [address, setAddress] = useState('')
+  const [user_name, setUser_name] = useState('')
+
+  // place order options vars
+  const [shippingOp, setShippingOp] = useState('Ninja Van')
+  const [paymentMethod, setPaymentMethod] = useState('Cash on Delivery')
+
+  const [placeOrderOverlay, setplaceOrderOverlay] = useState('placeOrder_overlay')
+  const [placeOrderModal, setplaceOrderModal] = useState('placeOrder_modal')
+
+  // open place order modal
+  const openPlaceOrderModal = () => {
+  	setplaceOrderOverlay('placeOrder_overlay showplaceOrder_overlay')
+  	setplaceOrderModal('placeOrder_modal showplaceOrder_modal')
+  }
+
+  const closePlaceOrderModal = () => {
+  	setplaceOrderOverlay('placeOrder_overlay')
+  	setplaceOrderModal('placeOrder_modal')
+  }
 
 
 
@@ -39,6 +61,7 @@ export default function cart() {
 
             // get user address
             setAddress(res.data.result[0].address)
+            setUser_name(res.data.result[0].customer_name)
 
             // subtotal operations
             setSubtotal(0)
@@ -119,12 +142,72 @@ export default function cart() {
   	
   }
 
+  const placeOrder = () => {
+  	console.log(shippingOp)
+  	console.log(paymentMethod)
+  }
+
 
 	return (
 		<>
 			<div className="review_cart">
 				<ToastContainer />
 				<Nav />
+
+
+				<div onClick={closePlaceOrderModal} className={placeOrderOverlay}></div>
+				<div className={placeOrderModal}>
+					<div className="placeOrder_modal_head">
+						<div>Order</div>
+						<svg onClick={closePlaceOrderModal} width="20" height="20" fill="none" stroke="#000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+					</div>
+
+					<div className="placeOrder_modal_content">
+						<div className="orderOverview">
+							{cartItems.map((val, key) => {
+								return (
+									<div className="overview" key={key}>
+										<div className="aa">₱{val.cart_p_price} - {val.cart_p_name}</div>
+										<div className="aa">x{val.cart_qty}</div>
+									</div>
+									)
+							})}
+						</div>
+						<div className="aa">Shipping Option</div>
+						<select onChange={(e) => setShippingOp(e.target.value)}>
+	            <option value="Ninja Van">Ninja Van</option>
+	            <option value="J&T Expres">J&T Express</option>
+	            <option value="Entrego">Entrego</option>
+	          </select>
+	          <div className="aa">Payment Method</div>
+	          <select>
+	            <option value="Cash on Delivery">Cash on Delivery</option>
+	            <option value="Credit Card">Credit Card</option>
+	          </select>
+	          <div className="place_customer">
+	          	<div className="cc">
+	          		<svg width="18" height="18" fill="none" stroke="grey" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+								{user_name}
+	          	</div>
+	          	<div className="cc">
+	          		<svg width="18" height="18" fill="none" stroke="grey" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+								{address}
+	          	</div>
+	          </div>
+
+	          <div className="total_payment">
+	          	<div>
+	          		<div className="total_lbl">Total Payment</div>
+	          		<div className="total_lbl_money">₱{subtotal}</div>
+	          	</div>
+	          	<div onClick={placeOrder} className="placeOrder_modal_content_placeBtn">
+	          		Place Order
+	          	</div>
+	          </div>
+					</div>
+				</div>
+
+
 
 				<div className="review_cartItems">
 					{hascartItems ? (
@@ -169,7 +252,7 @@ export default function cart() {
             			<svg width="18" height="18" fill="none" stroke="grey" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
             			<span>{address}</span>
             		</div>
-            		<div className="checkout_btn">Check out</div>
+            		<div onClick={openPlaceOrderModal} className="checkout_btn">Check out</div>
             	</div>
 
             </div>
