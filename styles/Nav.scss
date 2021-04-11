@@ -227,7 +227,7 @@
 
   .cartItems {
     padding: 10px 10px 30px;
-    height: 85vh;
+    height: 100%;
     overflow-y: scroll;
     position: relative;
 
@@ -280,7 +280,7 @@
       .review_cart {
         background: white;
         position: absolute;
-        bottom: 0;
+        bottom: 80px;
         left: 0;
         right: 0;
         
