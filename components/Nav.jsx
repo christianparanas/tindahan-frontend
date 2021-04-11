@@ -18,6 +18,7 @@ export default function Nav() {
   const [hascartItems, setHasCartItems] = useState(false)
 
   const [incOrDec, setIncOrDec] = useState(null)
+  const [subtotal, setSubtotal] = useState(0)
 
 
   // for changing upper nav bg color on scroll
@@ -81,6 +82,12 @@ export default function Nav() {
             console.log(res.data.result)
             setCartItems(cart)
             setHasCartItems(true)
+
+            // subtotal operations
+            setSubtotal(0)
+            res.data.result.map((val, key) => {
+              setSubtotal(prev => prev + (val.cart_qty * val.cart_p_price))
+            })
 
           } else if(res.status == 202) {
             setHasCartItems(false)
@@ -212,13 +219,13 @@ export default function Nav() {
             <div className="bucket">
               {cartItems.map((val, key) => {
 
-
                 return (
                   <div key={key} className="itemCart">
                     <img src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.cart_p_image}`} alt="product image" /> 
                     <div className="itemCart_details">
                       <div className="aa">{ val.cart_p_name }</div>
                       <div>₱{ val.cart_p_price }</div>
+
                       <div className="changequan">
                         <div onClick={() => changeQuan(2, val.cart_id, val.cart_qty, val.cart_p_stock)} >
                           <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 12H4"></path></svg>
@@ -236,7 +243,7 @@ export default function Nav() {
               <div className="review_cart">
                 <div className="review_cart_head">
                   <div>SUBTOTAL</div>
-                  <div>₱329</div>
+                  <div>₱{subtotal}</div>
                   
                 </div>
                 <div className="review_cartBtn">

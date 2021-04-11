@@ -1,6 +1,6 @@
 module.exports = {
   env: {
-    BACKEND_BASEURL: "https://tindahan-mern.herokuapp.com",
+    BACKEND_BASEURL: "http://localhost:3001",
   },
 }
 
