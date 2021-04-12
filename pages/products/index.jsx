@@ -26,7 +26,7 @@ export default function products() {
 
 		axios.get(process.env.BACKEND_BASEURL + '/adminproducts')
 			.then(res => {
-					console.log(res)
+					console.log(res.data.result)
 					setProducts(res.data.result)
 
 					// check if there's a product in db, if none, set the message to no item
@@ -80,10 +80,14 @@ export default function products() {
 							<Masonry columnsCount={2} gutter="10px">
 								{products.map((val, key) => {
 									return (
-										<div key={key}>
+										<div className="p_con" key={key}>
 											<Link href={{ pathname: "/products/" + `${val.product_id}`}} as={`/products/${val.product_id}`}>
 												<img  style={{ width: "100%", display: "block" }} src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.product_image}`} alt="product image" />
 											</Link>
+											<div className="qq">
+												<h3>{val.product_name}</h3>
+												<p>₱{val.product_price}</p>
+											</div>
 										</div>
 									)
 							})}

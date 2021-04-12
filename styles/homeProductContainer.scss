@@ -1,17 +1,24 @@
 
 .homeProductContainer {
 	width: 200px;
+	border-radius: 5px;
+	border-color: transparent;
+	box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
+	margin-left: 3px;
+
 	
-	.itemImg {
-		width: 200px;
+	img {
+		width: 100%;
+		border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 	}
 
-	.itemDescription {
-		font-size: 16px; 
-	}
+	.aa {
+		padding: 5px 10px 10px;
 
-	.itemPrice {
-		font-size: 12px;
+		h3, p {
+			margin: 0;
+		}
 	}
 
 }

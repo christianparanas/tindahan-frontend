@@ -173,7 +173,7 @@ export default function Nav() {
         	<svg onClick={openOverlay} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-hamburger" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M7 15h51M7 32h43M7 49h51"></path></svg>
           <div className="cartIcon">
             <svg onClick={openCartOverlay} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-cart" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M14 17.44h46.79l-7.94 25.61H20.96l-9.65-35.1H3"></path><circle cx="27" cy="53" r="2"></circle><circle cx="47" cy="53" r="2"></circle></svg>
-            <div className={cartIndi}>{itemsCountinCart}</div>
+            <div className={cartIndi}></div>
           </div>	
         </div>
 			</div>
