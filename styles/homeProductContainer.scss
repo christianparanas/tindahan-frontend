@@ -1,13 +1,17 @@
 
 .homeProductContainer {
 	width: 200px;
-
+	
 	.itemImg {
 		width: 200px;
 	}
 
 	.itemDescription {
 		font-size: 16px; 
+	}
+
+	.itemPrice {
+		font-size: 12px;
 	}
 
 }

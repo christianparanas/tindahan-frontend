@@ -76,19 +76,19 @@ function register() {
 				<h1 className="header">CREATE ACCOUNT</h1>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<div className="loginEmailWrapper">
-						<label htmlFor="regfirstname">FULL NAME</label>
+						<label htmlFor="regfirstname">Full name</label>
 						<input name="name" ref={register({ required: true })} type="text" id="regname" />
 					</div>
 					<div className="loginEmailWrapper">
-						<label htmlFor="regfirstname">ADDRESS</label>
+						<label htmlFor="regfirstname">Address</label>
 						<input name="address" ref={register({ required: true })} type="text" id="regadd" />
 					</div>
 					<div className="loginEmailWrapper">
-						<label htmlFor="regemail">EMAIL</label>
+						<label htmlFor="regemail">Email</label>
 						<input name="email" ref={register({ required: true })} type="email" id="regemail" />
 					</div>
 					<div className="loginEmailWrapper">
-						<label htmlFor="regpass">PASSWORD</label>
+						<label htmlFor="regpass">Password</label>
 						<input name="password" ref={register({ required: true })} type="password" id="regpass" />
 					</div>
 					<div className="terms">
@@ -97,7 +97,7 @@ function register() {
 	               By ticking this box, you confirm that you have read, understood and agreed to our Terms and Conditions and the collection, use, storage of your data in accordance with our Privacy Policy
 	          </label>
           </div>
-          <input type="submit" value="Create" className="loginSignIpBtn" />
+          <input type="submit" value="CREATE" className="loginSignIpBtn" />
 				</form>
 			</div>
 			<Footer />

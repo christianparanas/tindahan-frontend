@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 
 .loginFormWrapper {
+	font-family: 'Montserrat', sans-serif;
 	position: relative;
 	padding-bottom: 45px;
 
@@ -60,7 +63,7 @@
 
 		h1 {
 			font-size: 1.3em;
-			margin-top: 0;
+			margin: 0 0 30px;
 		}
 
 		.loginWithGoogle {
@@ -92,9 +95,8 @@
 		.orSep {
 
 			display: grid;
-			display: none;
 			grid-template-columns: 1fr 50px 1fr;
-			margin-bottom: 20px;
+			margin: 20px 0;
 
 			.or {
 				text-align: center;
@@ -105,6 +107,27 @@
 				margin-bottom: 6px;
 			}
 		}
+
+			.createAcctBtn {
+				cursor: pointer;
+				width: 100%;
+				color: #6b21a8;
+				text-align: center;
+				background: #fff;
+		    font-size: 1em;
+		    outline: 0;
+		    border: 2px solid #6b21a8;
+		    font-weight: 700;
+    		letter-spacing: 0.025em;
+    		margin-bottom: 30px;
+    		padding: 13px;
+		    height: 56px;
+		    box-sizing: border-box;
+		    border-radius: 8px;
+		    display: flex;
+				align-items: center;
+				justify-content: center;
+			}
 
 
 
@@ -119,12 +142,10 @@
 				}
 			}
 
-			.createAcctBtn {
-				font-size: 0.75em;
-				margin-bottom: 10px;
-			}
-
 			.loginSignIpBtn {
+				display: flex;
+				align-items: center;
+				justify-content: center;
 				cursor: pointer;
 				width: 100%;
 				color: #fff;
@@ -132,11 +153,14 @@
 				padding: 11px 20px;
 		    font-size: 1em;
 		    outline: 0;
-		    border: 0;
-		    border-radius: 0;
 		    font-weight: 700;
     		letter-spacing: 0.025em;
-    		margin-bottom: 30px;
+    		margin-bottom: 10px;
+    		padding: 13px;
+		    height: 56px;
+		    border: 2px solid #f3f4f5;
+		    box-sizing: border-box;
+		    border-radius: 8px;
     		
 			}
 
@@ -145,23 +169,28 @@
 
 				label {
 					margin-bottom: 10px;
-					font-size: 0.75em;
+					font-size: 14px;
+			    font-weight: 300;
+			    line-height: 20px;
+			    color: #000;
+			    clear: both;
+			    margin-bottom: .25em;
 
 				}
 
 				input {
 					width: 100%;
-					border: 1px solid #e8e8e1;
 			    max-width: 100%;
-			    padding: 8px 10px;
-			    font-size: 16px;
 			    outline: 0;
 			    margin-bottom: 15px;
-			    border-radius: 0;
-				}
-
-				input:focus {
-					border-color: black; 
+			    font-size: 14px;
+			    font-weight: 300;
+			    line-height: 20px;
+			    padding: 13px;
+			    height: 56px;
+			    border: 2px solid #f3f4f5;
+			    box-sizing: border-box;
+			    border-radius: 8px;
 				}
 
 
