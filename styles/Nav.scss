@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   padding: 20px;
-
+  
   .upper_nav_svgs {
     display: flex;
     justify-content: space-between;
@@ -70,7 +70,9 @@
 
 .navChangeUpperNavBgOnScroll {
     background-color: white;
-    border-bottom: 1px solid #f3f4f5;
+    border-color: transparent;
+  box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
+
   }
 
 .lower_nav {

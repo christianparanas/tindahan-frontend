@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
 
 .account {
 	position: relative;
 	padding-bottom: 45px;
+	font-family: 'Montserrat', sans-serif;
 
 	.nav {
 		position: fixed;
@@ -10,7 +14,9 @@
 		z-index: 5;
 
 		.upper_nav {
-			border-bottom: 1px solid #e8e8e1;
+			border-color: transparent;
+  			box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
+
 
 			.logo {
 				font-weight: 700;
@@ -30,12 +36,12 @@
   }
 
   .accountWrapper {
-  	padding: 90px 20px;
+  	padding: 100px 20px;
   	height: 500px;
   	display: grid;
   	grid-gap: 20px;
 
-  	h2 {
+  	h3 {
   		margin: 0 0 20px 0;
   	}
 
@@ -43,7 +49,10 @@
   		border: 1px solid #e3e3e3;
   		padding: 10px 10px 60px;
   		position: relative;
-  		border-radius: 0;
+  		border-radius: 8px;
+  		border-color: transparent;
+    	box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
+	
 
   		.ww {
   			position: relative;
@@ -64,6 +73,7 @@
   			padding: 8px 10px;
   			font-size: 12px;
   			outline: none;
+  			border-radius: 8px;
   		}
   	}
 
@@ -72,6 +82,9 @@
   		padding: 10px 10px 40px;
   		position: relative;
   		border-radius: 0;
+  		border-radius: 8px;
+  		border-color: transparent;
+    	box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
   	}
   }
 }

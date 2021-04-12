@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 
 
 
 .admin_products {
 	position: relative;
 	width: 100%;
-	font-family: 'Roboto', sans-serif; 
+	font-family: 'Montserrat', sans-serif; 
 
 	.Toastify__toast--success {
 		width: 80%;
@@ -47,7 +47,6 @@
 		border-radius: 6px;
 
 		.update_head {
-			font-family: 'Fredoka One', cursive;
 			display: flex;
 			justify-content: space-between;
 		}
@@ -81,7 +80,6 @@
 				width: 100%;
 				padding: 10px;
 				color: white;
-				font-family: 'Fredoka One', cursive;
 				background: #6b21a8;
 			}
 		}
@@ -97,7 +95,7 @@
 		justify-content: space-between;
 		padding: 0 20px;
 		margin: 20px 0 10px;
-		font-family: 'Fredoka One', cursive;
+		font-family: 'Montserrat', sans-serif;
 
 		h3 {
 			margin: 0;
@@ -216,8 +214,8 @@
 
 		}
 
-		h2 {
-			font-family: 'Roboto', sans-serif; 
+		h3 {
+			font-family: 'Montserrat', sans-serif;
 			margin: 0 0 20px 0;
 		}
 
@@ -229,6 +227,7 @@
 
 				label {
 					margin-bottom: 5px;
+					font-family: 'Montserrat', sans-serif;
 				}
 
 				input {
@@ -270,7 +269,7 @@
 		    border: 2px solid #f3f4f5;
 		    box-sizing: border-box;
 		    border-radius: 8px;
-				font-family: 'Fredoka One', cursive;
+				font-family: 'Montserrat', sans-serif;
 				background: #6b21a8;
 			}
 		}
