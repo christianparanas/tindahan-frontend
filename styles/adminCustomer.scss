@@ -27,9 +27,15 @@
 }
 
 	.admin_customers_mainWrapper {
+		border-radius: 8px;
 		padding: 20px;
+		margin: 20px;
+		border-color: transparent;
+    box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
 
-
+    h3 {
+    	margin-top: 0;
+    }
 
 		.admin_customers_items {
 			display: grid;
@@ -94,17 +100,21 @@
 		padding: 20px;
 
 		h3 {
-			background: #0A2540;
-			color: white;
-			padding: 5px 10px;
+			margin: 0;
+			color: #000;
+			padding: 0;
 			width: fit-content;
+			margin-bottom: 10px;
 		}
 
 		.admin_cusRecords {
-			margin-top: 70px;
+			margin-top: 40px;
 
 			.cusDetails {
-				padding: 5px 10px;
+				border-radius: 8px;
+				padding: 20px;
+				border-color: transparent;
+    		box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
 			}
 		}
 
@@ -113,7 +123,10 @@
 
 
 			.cusDetails {
-				padding: 5px 10px;
+				border-radius: 8px;
+				padding: 20px;
+				border-color: transparent;
+    		box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
 
 				.qq {
 					position: relative;

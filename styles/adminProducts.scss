@@ -183,11 +183,14 @@
 
 
 .admin_addproduct_modal {
-	margin-top: 20px;
+		margin: 20px;
 		background: white;
 		height: fit-content;
 		padding: 20px;
 		border-radius: 11px;
+		border-color: transparent;
+    box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
+		
 
 		.Toastify__toast--success {
 			width: 80%;
@@ -214,7 +217,7 @@
 		}
 
 		h2 {
-			font-family: 'Fredoka One', cursive;
+			font-family: 'Roboto', sans-serif; 
 			margin: 0 0 20px 0;
 		}
 
@@ -223,17 +226,26 @@
 
 			.input_wrapper {
 				display: grid;
-				margin-bottom: 15px;
 
 				label {
 					margin-bottom: 5px;
 				}
 
 				input {
-					padding: 10px;
-					border-radius: 0;
-					outline: 0;
-					border: 1px solid #e3e3e3;
+					width: 100%;
+			    outline: 0;
+			    margin-bottom: 15px;
+			    font-size: 14px;
+			    font-weight: 300;
+			    line-height: 20px;
+			    padding: 13px;
+			    height: 56px;
+			    border: 2px solid #f3f4f5;
+			    box-sizing: border-box;
+			    border-radius: 8px;
+			    display: flex;
+					align-items: center;
+					justify-content: center;
 				}
 
 				.previewImg {
@@ -243,10 +255,21 @@
 			}
 
 			.addproduct_btn {
-				margin-top: 10px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
 				width: 100%;
-				padding: 10px;
-				color: white;
+				color: #fff;
+		    font-size: 1em;
+		    outline: 0;
+		    font-weight: 700;
+    		letter-spacing: 0.025em;
+    		padding: 13px;
+		    height: 56px;
+		    border: 2px solid #f3f4f5;
+		    box-sizing: border-box;
+		    border-radius: 8px;
 				font-family: 'Fredoka One', cursive;
 				background: #6b21a8;
 			}

@@ -93,7 +93,7 @@ export default function NewProductModal() {
 		<div className="admin_addproduct_modal">
 		<ToastContainer />
 
-			<h2>ADD NEW PRODUCT</h2>
+			<h2>Add new product</h2>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className="input_wrapper">
 					<label htmlFor="">Name</label>

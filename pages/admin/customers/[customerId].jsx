@@ -80,8 +80,8 @@ export default function Customer() {
 						(
 						<div className="admin_customer_mainWrapper">
 							<div className="admin_cusDetails">
-								<h3>Customer details </h3>
 								<div className="cusDetails">
+								<h3>Customer details </h3>
 									<div className="qq">
 										<svg width="20" height="20" fill="none" stroke="grey" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
 										{customer[0].name}
@@ -102,9 +102,9 @@ export default function Customer() {
 							</div>
 
 							<div className="admin_cusRecords">
-								<h3>Transactions </h3>
 								<div className="cusDetails">
-									No transactions!
+								<h3>Transactions </h3>
+									No transactions
 								</div>
 							</div>
 
