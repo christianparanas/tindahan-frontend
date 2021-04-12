@@ -231,7 +231,7 @@ export default function Nav() {
                     <img src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.cart_p_image}`} alt="product image" /> 
                     <div className="itemCart_details">
                       <div className="aa">{ val.cart_p_name }</div>
-                      <div>₱{ val.cart_p_price }</div>
+                      <div className="aa">₱{ val.cart_p_price }</div>
 
                       <div className="changequan">
                         <div onClick={() => changeQuan(2, val.cart_id, val.cart_qty, val.cart_p_stock)} >

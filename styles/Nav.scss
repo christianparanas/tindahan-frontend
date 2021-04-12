@@ -1,7 +1,9 @@
 /* navigation */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 .nav {
   background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .logo {
@@ -253,6 +255,7 @@
 
           .aa {
             margin-bottom: 8px;
+            font-size: 12px;
           }
 
           .changequan {
@@ -265,10 +268,13 @@
             place-items: center;
             align-items: center;
             padding: 3px 5px;
+            font-size: 14px;
 
             div {
-              height: 100%;
-
+              font-size: 14px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
             }
           }
         }
@@ -295,11 +301,24 @@
         }
 
         .review_cartBtn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
           width: 100%;
-          text-align: center;
-          padding: 10px;
-          color: white;
+          color: #fff;
           background: #6b21a8;
+          padding: 11px 20px;
+          font-size: 1em;
+          outline: 0;
+          font-weight: 700;
+          letter-spacing: 0.025em;
+          margin: 20px 0;
+          padding: 13px;
+          height: 56px;
+          border: 2px solid #f3f4f5;
+          box-sizing: border-box;
+          border-radius: 8px;
         }
       }
     }  

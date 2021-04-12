@@ -76,7 +76,7 @@ export default function products() {
 
 				{ hasProductsInDB ? (
 						<div className="products_grid">
-							<h3>PRODUCTS</h3>
+							<h3>Products</h3>
 							<Masonry columnsCount={2} gutter="10px">
 								{products.map((val, key) => {
 									return (
