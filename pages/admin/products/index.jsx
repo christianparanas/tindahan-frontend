@@ -25,6 +25,7 @@ export default function Products() {
 
 	// responsible for opening and closing the update modal
 	const [updateModal, setUpdateModal] = useState('update_product_modal')
+	const [placeOrderOverlay, setplaceOrderOverlay] = useState('placeOrder_overlay')
 
 	// react hook form
 	const { register, handleSubmit, watch, errors } = useForm();
@@ -101,15 +102,6 @@ export default function Products() {
 		} 
 	}
 
-	// update function, setting the specific item value to vaariable to put it in the inputs update
-	const openUpdateModal = (val) => {
-		setUpdateModal('update_product_modal updateModalOpen')
-		setP_id(val.product_id)
-		setP_name(val.product_name)
-		setP_price(val.product_price)
-		setP_quantity(val.product_quantity)
-	}
-
 	// submitting data from update compoennt to update an item
 	const onSubmit = async (data, e) => {
 		console.log(data)
@@ -134,9 +126,22 @@ export default function Products() {
     })
 	}
 
+
+
+	// update function, setting the specific item value to vaariable to put it in the inputs update
+	const openUpdateModal = (val) => {
+		setplaceOrderOverlay('placeOrder_overlay showplaceOrder_overlay')
+		setUpdateModal('update_product_modal updateModalOpen')
+		setP_id(val.product_id)
+		setP_name(val.product_name)
+		setP_price(val.product_price)
+		setP_quantity(val.product_quantity)
+	}
+
 	// close update modal
   const closeUpdateModal = () => {
 		setUpdateModal('update_product_modal')
+		setplaceOrderOverlay('placeOrder_overlay')
 	}
 
 	return (
@@ -145,6 +150,7 @@ export default function Products() {
 			<ToastContainer />
 				<Adminnav />
 
+				<div onClick={closeUpdateModal} className={placeOrderOverlay}></div>
 				<div className={updateModal}>
 					<div className="update_head">
 						<div>Edit product</div>

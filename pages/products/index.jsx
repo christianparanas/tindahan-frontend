@@ -9,7 +9,8 @@ import { useCookies } from 'react-cookie';
 import { isExpired, decodeToken } from "react-jwt";
 import { useRouter } from 'next/router'
 
-import Masonry from 'react-responsive-masonry'
+import Masonry, {ResponsiveMasonry} from 'react-responsive-masonry'
+import { motion } from "framer-motion"
 
 
 export default function products() {
@@ -77,10 +78,13 @@ export default function products() {
 				{ hasProductsInDB ? (
 						<div className="products_grid">
 							<h3>Products</h3>
+							<ResponsiveMasonry
+                columnsCountBreakPoints={{450: 2, 750: 3, 900: 4}}
+            >
 							<Masonry columnsCount={2} gutter="10px">
 								{products.map((val, key) => {
 									return (
-										<div className="p_con" key={key}>
+										<motion.div whileHover={{ scale: 1.1 }} className="p_con" key={key}>
 											<Link href={{ pathname: "/products/" + `${val.product_id}`}} as={`/products/${val.product_id}`}>
 												<img  style={{ width: "100%", display: "block" }} src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.product_image}`} alt="product image" />
 											</Link>
@@ -88,10 +92,11 @@ export default function products() {
 												<h3>{val.product_name}</h3>
 												<p>₱{val.product_price}</p>
 											</div>
-										</div>
+										</motion.div>
 									)
 							})}
 							</Masonry>
+							</ResponsiveMasonry>
 						</div>
 					) : (<div></div>)}
 				

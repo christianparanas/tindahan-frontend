@@ -40,12 +40,12 @@
       .indicator {
         
         position: absolute;
-        top: -3px;
-        right: 4px;
+        top: -2px;
+        right: 6px;
         background: #6b21a8;
         color: white;
-        width: 18px;
-        height: 18px;
+        width: 15px;
+        height: 15px;
         padding: 1px;
         border: 3px solid #fff;
         border-radius: 50%;
@@ -144,6 +144,34 @@
       padding: 10px;
       margin-bottom: 5px;
       cursor: pointer;
+      width: fit-content;
+    }
+
+    .navOp {
+      position: relative;
+      display: block;
+      color: #000;
+      padding: 5px 0;
+      cursor: pointer;
+      margin-right: 3px;
+    }
+
+    .navOp::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #6b21a8;
+      transform-origin: bottom right;
+      transform: scaleX(0);
+      transition: transform 0.5s ease;
+    }
+
+    .navOp:hover::before {
+      transform-origin: bottom left;
+      transform: scaleX(1);
     }
   }
 
@@ -162,7 +190,7 @@
 
 .sidebarShow {
   right: 0;
-  padding: 20px 10px;
+  padding: 20px 20px;
 }
 
 
@@ -241,8 +269,21 @@
       margin: 0 auto;
     }
 
+    .bucket::-webkit-scrollbar {
+      width: 8px;
+    }
+     
+    .bucket::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+     
+    .bucket::-webkit-scrollbar-thumb {
+      background-color: #6b21a8;
+      outline: 1px solid slategrey;
+    }
+
     .bucket {
-      overflow-y: scroll;
+      overflow-y: auto;
       height: 70vh;
       padding: 0 0 70px;
 
@@ -266,12 +307,18 @@
             bottom: -15px;
             border: 1px solid #e3e3e3;
             width: fit-content;
+            height: fit-content;
             display: grid;
             grid-template-columns: 30px 30px 30px;
             place-items: center;
-            align-items: center;
             padding: 3px 5px;
             font-size: 14px;
+
+            .aa {
+              cursor: pointer;
+              position: relative;
+              top: 3px;
+            }
 
             div {
               font-size: 14px;

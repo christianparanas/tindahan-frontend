@@ -5,10 +5,12 @@
 	border-color: transparent;
 	box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
 	margin-left: 3px;
+	cursor: pointer;
 
 	
 	img {
 		width: 100%;
+		height: 210px;
 		border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 	}
@@ -31,14 +33,21 @@
 @media only screen and (min-width: 452px) {
 	.homeProductContainer {
 		width: 100%;
+		height: 263px;
+		margin-left: 0;
 
-		.itemImg {
+		img {
 			width: 100%;
+			height: 210px;
 		}
 
-		.itemDescription {
-			font-size: 16px; 
-		}
+		.aa {
+			padding: 5px 10px 10px;
 
+			h3, p {
+				margin: 0;
+				font-size: 14px;
+			}
+		}
 	}
 }

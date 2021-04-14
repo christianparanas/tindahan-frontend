@@ -145,10 +145,39 @@
 
 		.freshDrops {
 
-				.viewAll {
-					display: block;
-				}
+			h3 {
+				font-size: 15px;
+				display: flex;
+				align-items: center;
 			}
+
+			.viewAll {
+			  position: relative;
+			  display: block;
+				color: #000;
+				padding: 5px 0;
+				cursor: pointer;
+				margin-right: 3px;
+			}
+
+			.viewAll::before {
+			  content: '';
+			  position: absolute;
+			  bottom: 0;
+			  left: 0;
+			  right: 0;
+			  height: 2px;
+			  background-color: #6b21a8;
+			  transform-origin: bottom right;
+			  transform: scaleX(0);
+			  transition: transform 0.5s ease;
+			}
+
+			.viewAll:hover::before {
+			  transform-origin: bottom left;
+			  transform: scaleX(1);
+			}
+		}
 
 		.freshDrops_horizontalDisplay {
 			 padding: 20px 40px;
@@ -158,12 +187,12 @@
 				}
 
 			.itemSlider {
-				margin-top: 10px;
+				margin: 10px 0 0;
 	      display: grid;
 	      grid-template-columns: repeat(4, 1fr);
 	      grid-column-gap: 20px;
-	      overflow-x: scroll;
-	      padding-bottom: 20px;
+	      overflow-x: hidden;
+	      padding: 3px;
 	     -ms-overflow-style: none;  /* IE and Edge */
   			scrollbar-width: none;  /* Firefox */
 

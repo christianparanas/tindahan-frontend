@@ -115,7 +115,7 @@ export default function Home() {
          <div className="freshDrops_horizontalDisplay">
           <div className="freshDrops">
             <h3>Products</h3>
-            <h3 className="viewAll">View all products</h3>
+            <Link href="/products"><h3 className="viewAll">See more</h3></Link>
           </div>
            <div className="itemSlider">
             {hasProductInDB ? (<>

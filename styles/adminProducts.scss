@@ -29,22 +29,37 @@
 
 	.Toastify__toast-body {
 		padding: 5px 15px;
+	}
 
+	.placeOrder_overlay {
+	  position: fixed;
+	  z-index: 19;
+	  top: 0;
+	  right: 0;
+	  height: 100vh;
+	  width: 0;
+	  opacity: .5;
+	  background-color: #000;
+	  padding-top: 100px;
+	}
+
+	.showplaceOrder_overlay {
+		width: 100%;
 	}
 
 	.update_product_modal {
 		display: none;
-		box-shadow: 0 10px 40px -10px RGB(0 64 128 / 20%);
+		z-index: 21;
 		position: fixed;
-		z-index: 10;
-		top: 20px;
-		left: 20px;
-		background: white;
-		color: black;
 		width: calc(100% - 40px);
+		margin:0 auto;
+		top: 40px;
+		left: 0;
+		right: 0;
 		height: fit-content;
-		padding: 15px 10px;
-		border-radius: 6px;
+		background: white;
+		padding: 10px;
+		border-radius: 8px;
 
 		.update_head {
 			display: flex;
@@ -63,10 +78,19 @@
 				}
 
 				input {
-					padding: 10px;
-					border-radius: 0;
 					outline: 0;
-					border: 1px solid #e3e3e3;
+					width: 100%;
+			    font-size: 16px;
+			    outline: 0;
+			    font-size: 14px;
+			    font-weight: 300;
+			    line-height: 20px;
+			    padding: 13px;
+			    height: 56px;
+			    border: 2px solid #f3f4f5;
+			    box-sizing: border-box;
+			    border-radius: 8px;
+			    font-family: 'Montserrat', sans-serif; 
 				}
 
 				.previewImg {
@@ -76,11 +100,26 @@
 			}
 
 			.addproduct_btn {
-				margin-top: 10px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
 				width: 100%;
-				padding: 10px;
-				color: white;
+				color: #fff;
 				background: #6b21a8;
+				padding: 11px 20px;
+		    font-size: 1em;
+		    outline: 0;
+		    font-weight: 700;
+    		letter-spacing: 0.025em;
+    		margin-bottom: 10px;
+    		padding: 13px;
+		    height: 56px;
+		    border: 2px solid #f3f4f5;
+		    box-sizing: border-box;
+		    border-radius: 8px;
+		    font-family: 'Montserrat', sans-serif;
+    		
 			}
 		}
 	}
