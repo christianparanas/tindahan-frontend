@@ -12,7 +12,7 @@ import '../styles/Nav.scss'
 import '../styles/adminProducts.scss'
 import '../styles/adminCustomer.scss'
 import '../styles/cart.scss'
-
+import '../styles/search.scss'
 
 import { AuthContext } from '../Context/AuthContext'
 import { useState } from 'react'

@@ -38,17 +38,14 @@
       }
 
       .indicator {
-        
         position: absolute;
-        top: -2px;
-        right: 6px;
-        background: #6b21a8;
-        color: white;
+        top: 0px;
+        right: 5px;
         width: 15px;
         height: 15px;
-        padding: 1px;
-        border: 3px solid #fff;
+        border: 2px solid white;
         border-radius: 50%;
+        background: #6b21a8;
         display: none;
       }
 
@@ -204,6 +201,8 @@
   padding: 20px;
   display: flex;
   transition: all .3s ease;
+  font-family: 'Montserrat', sans-serif;
+
 
   .icon .cls-1, circle {
     fill:none;
@@ -219,6 +218,8 @@
     font-size: 16px;
     margin-left: 10px;
     padding-top: 3px ;
+    font-family: 'Montserrat', sans-serif;
+
   }
 
   #search::-webkit-search-cancel-button {
