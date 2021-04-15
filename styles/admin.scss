@@ -8,7 +8,7 @@
 		padding: 40px 20px;
 		background: #0A2540;
 		color: white;
-		height: 100vh;
+		height: 100%;
 
 		.info_containers {
 			display: grid;
@@ -26,6 +26,12 @@
 					left: 10px;
 				}
 			}
+		}
+
+		.charts {
+			margin-top: 30px;
+			display: grid;
+			grid-gap: 40px;
 		}
 	}
 }

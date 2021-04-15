@@ -8,6 +8,11 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { Line, defaults } from 'react-chartjs-2';
+
+
+
+
 export default function admin() {
 	const [cookies, setCookie, removeCookie] = useCookies(['admin']);
 	const router = useRouter()
@@ -50,6 +55,36 @@ export default function admin() {
 	    })
 	}
 
+
+	const [chartDataCustomers, setChartDataCustomers] = useState({
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "June"],
+			  datasets: [
+			    {
+			      label: "Customers",
+			      borderColor: "#6b21a8",
+			      backgroundColor: "rgba(107, 33, 168, 0.5)",
+			      fill: true,
+			      smooth: true,
+
+			      data: [10, 100, 33, 400, 120, 33, 12, 103],
+			    },
+			  ],
+    });
+
+		const [chartDataProducts, setChartDataProducts] = useState({
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "June"],
+			  datasets: [
+			    {
+			      label: "Products",
+			      borderColor: "#FF6384",
+			      backgroundColor: "rgba(255, 99, 133, 0.5)",
+			      fill: true,
+			      smooth: true,
+			      data: [19, 33, 22, 20, 45, 33],
+			    },
+			  ],
+    });
+
 	return (
 		<>
 		{ loading && (
@@ -74,6 +109,89 @@ export default function admin() {
 					<span>Total Sales:  0</span></div>
 
 				</div>
+
+				<div className="charts">
+					<Line 
+						data={chartDataCustomers}
+					  width={100}
+					  height={50}
+					  options={{
+					  	legend: {
+                labels: {
+                    fontColor: "white",
+                    fontSize: 12
+                }
+            },
+			       scales: {
+	            xAxes: [{
+	               gridLines: {
+	                  display: false
+	               },
+	               ticks: {
+						        fontColor: "white",
+                    fontSize: 12,
+						    }
+	            }],
+	            yAxes: [{
+	               gridLines: {
+	                  display: false,
+	                  borderWidth: 1,
+	               },
+	               ticks: {
+	               		fontColor: "white",
+                    fontSize: 12,
+                    stepSize: 1,
+                    beginAtZero: true,
+						        autoSkip: true,
+						        maxTicksLimit: 4
+						    }
+	            }]
+			       }
+			    	}}
+					/>
+
+					<Line 
+						data={chartDataProducts}
+					  width={100}
+					  height={50}
+					  options={{
+					  	legend: {
+                labels: {
+                    fontColor: "white",
+                    fontSize: 12,
+
+                }
+            },
+			       scales: {
+	            xAxes: [{
+	               gridLines: {
+	                  display: false,
+	               },
+	               ticks: {
+						        fontColor: "white",
+                    fontSize: 12,
+						    }
+	            }],
+	            yAxes: [{
+	               gridLines: {
+	                  display: false,
+	                  borderWidth: 1,
+	                  fontColor: "white",
+                    fontSize: 12,
+	               },
+	               ticks: {
+						        fontColor: "white",
+                    fontSize: 12,
+                    stepSize: 1,
+                    beginAtZero: true,
+						        autoSkip: true,
+						        maxTicksLimit: 4,
+						    }
+	            }]
+			       }
+			    	}}
+					/>
+				</div>
 			</div>
 			
 		</div>
@@ -81,3 +199,5 @@ export default function admin() {
 		</>
 	)
 }
+
+

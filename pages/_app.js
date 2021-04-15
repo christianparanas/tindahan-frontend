@@ -17,14 +17,24 @@ import '../styles/search.scss'
 import { AuthContext } from '../Context/AuthContext'
 import { useState } from 'react'
 import { CookiesProvider } from 'react-cookie';
+import Head from "next/head";
 
 
 function MyApp({ Component, pageProps }) {
 
   return (
+  	<>
+		<Head>
+		// Responsive meta tag
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+			<link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@bf7775b/css/all.css" rel="stylesheet" type="text/css" />
+		</Head>
+
   	<CookiesProvider>
       <Component {...pageProps} />
     </CookiesProvider>
+    </>
   )
 }
 
