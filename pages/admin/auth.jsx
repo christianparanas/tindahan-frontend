@@ -60,7 +60,7 @@ export default function auth() {
 			<ToastContainer />
 			<div className="auth_form_container">
 				<h1 className="header">ADMIN PANEL</h1>
-				<form onSubmit={handleSubmit(onSubmit)}>
+				<form >
 					<input name="username" placeholder="Username or Email" ref={register({ required: true })} type="text" id="admin_auth_username" />
 					<input name="password" placeholder="Password"  ref={register({ required: true })} type="password" id="admin_auth_password" />
           <input type="submit" value="LOGIN" className="admin_auth_loginBtn" />

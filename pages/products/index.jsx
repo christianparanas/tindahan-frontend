@@ -84,7 +84,7 @@ export default function products() {
 							<Masonry columnsCount={2} gutter="10px">
 								{products.map((val, key) => {
 									return (
-										<motion.div whileHover={{ scale: 1.1 }} className="p_con" key={key}>
+										<motion.div className="p_con" key={key}>
 											<Link href={{ pathname: "/products/" + `${val.product_id}`}} as={`/products/${val.product_id}`}>
 												<img  style={{ width: "100%", display: "block" }} src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.product_image}`} alt="product image" />
 											</Link>

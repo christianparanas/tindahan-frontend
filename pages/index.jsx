@@ -84,6 +84,9 @@ export default function Home() {
   }
 
 
+  // fontawesome
+     // <i className="fad fa-users" style={{fontSize: "40px"}}></i>
+    // <i className="fad fa-chart-bar" style={{fontSize: "40px", '--fa-primary-color': "white", '--fa-secondary-color': ""}}></i>
 
   return (
 
@@ -120,11 +123,6 @@ export default function Home() {
           </div>
         </div>
 
-        
-        	<i className="fad fa-users" style={{fontSize: "40px"}}></i>
-        <i className="fad fa-chart-bar" style={{fontSize: "40px", '--fa-primary-color': "white", '--fa-secondary-color': ""}}></i>
- 
-
         <div className="mainContentWrapper">
          <div className="freshDrops_horizontalDisplay">
           <div className="freshDrops">
@@ -156,3 +154,5 @@ export default function Home() {
     </div>
   )
 }
+
+

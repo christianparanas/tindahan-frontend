@@ -6,13 +6,20 @@ import { isExpired, decodeToken } from "react-jwt";
 import { useRouter } from 'next/router'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Router from 'next/router'
+
+import { useForm } from "react-hook-form";
 
 // libs
 import Icon from "awesome-react-icons";
 
+import { motion } from 'framer-motion'
+
 // components
 
 export default function Nav() {
+  const { register, handleSubmit, watch, errors } = useForm();
+
   const [cookies, setCookie, removeCookie] = useCookies(['user']);
   const [cartItems, setCartItems] = useState([])
   const [hascartItems, setHasCartItems] = useState(false)
@@ -46,7 +53,13 @@ export default function Nav() {
   const openSearchOverlay = () => {
     setNavOverlayClickOutside('navOverlay-clickOutside clickOutsideShow')
     setSearchOverlay('searchWrapper showSearch')
-    searchInput.current.focus();
+
+    // focus search input and for react hook form
+    if (searchInput.current) {
+      register(searchInput.current, { required: true })
+      searchInput.current.focus()
+    }
+
   }
 
   // open cart overlay, and also the grey overlay
@@ -157,6 +170,18 @@ export default function Nav() {
     }
   }
 
+  const onSubmit = (data, e) => {
+
+    Router.push({
+        pathname: '/products/search',
+        query: { search: `${data.search}`},
+    })
+
+    // close search overlay
+    closeOverlay()
+    searchInput.current.value = ""
+  }
+
 
 	return (
 		<div className="nav">
@@ -199,13 +224,15 @@ export default function Nav() {
 
       <div className={searchOverlay}>
         <svg aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-search" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"></path></svg>
-        <input type="search" ref={searchInput} id="search" name="search" placeholder="Search our store" />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input type="search" ref={searchInput} id="search" name="search" placeholder="Search our store" />
+        </form>
         <svg onClick={closeOverlay} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-close" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M19 17.61l27.12 27.13m0-27.12L19 44.74"></path></svg>
       </div>
 
       <div onClick={closeOverlay} className={navOverlayClickOutside}></div>
 
-      <div className={navOverlay}>
+      <motion.div className={navOverlay}>
         <div onClick={closeOverlay} className="closeNavBtn">
           <svg aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-close" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M19 17.61l27.12 27.13m0-27.12L19 44.74"></path></svg>
         </div>
@@ -216,7 +243,7 @@ export default function Nav() {
           <div className="navOp innerwear">Men</div>
           <div className="navOp sale">Sale</div>
         </div>
-      </div>
+      </motion.div>
 
 
       <div className={cartOverlay}>
