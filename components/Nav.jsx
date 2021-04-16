@@ -173,7 +173,7 @@ export default function Nav() {
   const onSubmit = (data, e) => {
 
     Router.push({
-        pathname: '/products/search',
+        pathname: '/search',
         query: { search: `${data.search}`},
     })
 
