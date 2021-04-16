@@ -93,9 +93,11 @@
 				}
 
 				.aa {
+					height: fit-content;
 
 					.itemDescription {
 						font-size: 13px;
+						margin: 0;
 					}
 
 					.itemPrice {
