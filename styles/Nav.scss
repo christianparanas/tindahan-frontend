@@ -19,6 +19,7 @@
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
   
   .upper_nav_svgs {
     display: flex;
@@ -27,6 +28,9 @@
     svg {
       margin: 0 10px;
       cursor: pointer;
+      font-weight: 900;
+      letter-spacing: 0.025em;
+      line-height: 1.1;
     }
 
     .cartIcon {
@@ -35,12 +39,15 @@
       svg {
         margin: 0 10px;
         cursor: pointer;
+        font-weight: 900;
+        letter-spacing: 0.025em;
+        line-height: 1.1;
       }
 
       .indicator {
         position: absolute;
         top: 0px;
-        right: 5px;
+        right: 6px;
         width: 15px;
         height: 15px;
         border: 2px solid white;
@@ -56,9 +63,9 @@
 
     .icon .cls-1, circle {
       fill:none;
-      stroke:#000;
+      stroke:#fff;
       stroke-miterlimit:10;
-      stroke-width:2px
+      stroke-width: 4px
     }
 
     .icon-user {
@@ -73,8 +80,18 @@
 .navChangeUpperNavBgOnScroll {
     background-color: white;
     border-color: transparent;
-  box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
+    box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
+    background: white;
 
+    .upper_nav_svgs {
+
+      .icon .cls-1, circle {
+        fill:none;
+        stroke:#000;
+        stroke-miterlimit:10;
+        stroke-width: 4px
+      }
+    }
   }
 
 .lower_nav {
@@ -302,6 +319,10 @@
           padding: 0 10px;
           position: relative;
 
+          .ab {
+            font-size: 16px;
+          }
+
           .aa {
             margin-bottom: 8px;
             font-size: 12px;
@@ -314,22 +335,24 @@
             width: fit-content;
             height: fit-content;
             display: grid;
-            grid-template-columns: 30px 30px 30px;
+            grid-template-columns: 30px 1fr 30px;
             place-items: center;
-            padding: 3px 5px;
             font-size: 14px;
 
-            .aa {
-              cursor: pointer;
-              position: relative;
-              top: 3px;
+            div {
+              padding: 5px 8px;
+
+              svg {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
             }
 
-            div {
-              font-size: 14px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
+            .numQuan {
+              padding: 8px 15px;
+              border-left: 1px solid #e3e3e3;
+              border-right: 1px solid #e3e3e3;
             }
           }
         }

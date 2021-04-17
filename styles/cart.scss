@@ -9,6 +9,18 @@
 		.upper_nav {
 			border-color: transparent;
   			box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
+				background: white;
+
+			.upper_nav_svgs {
+
+		      .icon .cls-1, circle {
+		        fill:none;
+		        stroke:#000;
+		        stroke-miterlimit:10;
+		        stroke-width: 4px
+		      }
+		    }
+
 		}
 	}
 

@@ -193,11 +193,11 @@ export default function Nav() {
            </Link>
         </div>
 				<div className="upper_nav_svgs">
-          <Link href="/account"><svg width="28" height="28" aria-hidden="true" focusable="false" role="presentation" className="icon icon-user" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M35 39.84v-2.53c3.3-1.91 6-6.66 6-11.41 0-7.63 0-13.82-9-13.82s-9 6.19-9 13.82c0 4.75 2.7 9.51 6 11.41v2.53c-10.18.85-18 6-18 12.16h42c0-6.19-7.82-11.31-18-12.16z"></path></svg></Link>
-					<svg onClick={openSearchOverlay} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-search" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"></path></svg>
-        	<svg onClick={openOverlay} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-hamburger" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M7 15h51M7 32h43M7 49h51"></path></svg>
+          <Link href="/account"><svg width="30" height="30" aria-hidden="true" focusable="false" role="presentation" className="icon icon-user" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M35 39.84v-2.53c3.3-1.91 6-6.66 6-11.41 0-7.63 0-13.82-9-13.82s-9 6.19-9 13.82c0 4.75 2.7 9.51 6 11.41v2.53c-10.18.85-18 6-18 12.16h42c0-6.19-7.82-11.31-18-12.16z"></path></svg></Link>
+					<svg onClick={openSearchOverlay} aria-hidden="true" width="30" height="30" focusable="false" role="presentation" className="icon icon-search" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"></path></svg>
+        	<svg onClick={openOverlay} aria-hidden="true" width="30" height="30" focusable="false" role="presentation" className="icon icon-hamburger" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M7 15h51M7 32h43M7 49h51"></path></svg>
           <div className="cartIcon">
-            <svg onClick={openCartOverlay} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-cart" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M14 17.44h46.79l-7.94 25.61H20.96l-9.65-35.1H3"></path><circle cx="27" cy="53" r="2"></circle><circle cx="47" cy="53" r="2"></circle></svg>
+            <svg onClick={openCartOverlay} aria-hidden="true" width="30" height="30" focusable="false" role="presentation" className="icon icon-cart" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M14 17.44h46.79l-7.94 25.61H20.96l-9.65-35.1H3"></path><circle cx="27" cy="53" r="2"></circle><circle cx="47" cy="53" r="2"></circle></svg>
             <div className={cartIndi}></div>
           </div>	
         </div>
@@ -261,15 +261,15 @@ export default function Nav() {
                   <div key={key} className="itemCart">
                     <img src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.cart_p_image}`} alt="product image" /> 
                     <div className="itemCart_details">
-                      <div className="aa">{ val.cart_p_name }</div>
+                      <div className="ab">{ val.cart_p_name }</div>
                       <div className="aa">₱{ val.cart_p_price }</div>
 
                       <div className="changequan">
-                        <div className="aa" onClick={() => changeQuan(2, val.cart_id, val.cart_qty, val.cart_p_stock)} >
+                        <div className="bb" onClick={() => changeQuan(2, val.cart_id, val.cart_qty, val.cart_p_stock)} >
                           <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 12H4"></path></svg>
                         </div>
-                        <div>{ val.cart_qty }</div>
-                        <div className="aa" onClick={() => changeQuan(1, val.cart_id, val.cart_qty, val.cart_p_stock)}>
+                        <div className="numQuan">{ val.cart_qty }</div>
+                        <div className="bb" onClick={() => changeQuan(1, val.cart_id, val.cart_qty, val.cart_p_stock)}>
                           <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                         </div>
                       </div>

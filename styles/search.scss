@@ -10,6 +10,17 @@
 		.upper_nav {
 			background-color: white;
 			border-bottom: 1px solid #e8e8e1;
+			background: white;
+
+			.upper_nav_svgs {
+
+		      .icon .cls-1, circle {
+		        fill:none;
+		        stroke:#000;
+		        stroke-miterlimit:10;
+		        stroke-width: 4px
+		      }
+		    }
 		}
 	}
 

@@ -15,6 +15,19 @@
 	  padding: 20px;
 	  background-color: white;
 	border-bottom: 1px solid #e8e8e1;
+	    background: white;
+
+    .upper_nav_svgs {
+
+      .icon .cls-1, circle {
+        fill:none;
+        stroke:#000;
+        stroke-miterlimit:10;
+        stroke-width: 4px
+      }
+    }
+
+
 	}
 
 
@@ -29,27 +42,27 @@
 		.p_con {
 			border-radius: 5px;
 			border-color: transparent;
-    	box-shadow: 0 1px 3px rgba(50,50,93,0.15),0 1px 0 rgba(0,0,0,0.02);
-    	img {
-    		border-top-left-radius: 5px;
-    		border-top-right-radius: 5px;
-    	}
+		box-shadow: 0 1px 3px rgba(50,50,93,0.15),0 1px 0 rgba(0,0,0,0.02);
+		img {
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+		}
 
-    	.qq {
-    		padding: 10px;
-    		border-bottom-left-radius: 8px;
-    		border-bottom-right-radius: 8px;
+		.qq {
+			padding: 10px;
+			border-bottom-left-radius: 8px;
+			border-bottom-right-radius: 8px;
 
-    		h3 {
-	    		margin: 0;
-	    		font-size: 15px;
-	    	}
+			h3 {
+				margin: 0;
+				font-size: 14px;
+			}
 
-	    	p {
-	    		margin: 0;
-	    		font-size: 14px;
-	    	}
-    	}
+			p {
+				margin: 0;
+				font-size: 13px;
+			}
+		}
 		}
 	}
 }
@@ -92,9 +105,19 @@
 	  display: flex;
 	  justify-content: space-between;
 	  padding: 20px;
-	  background-color: white;
+	  background: white;
 	border-bottom: 1px solid #e8e8e1;
-	}
+
+	.upper_nav_svgs {
+
+      .icon .cls-1, circle {
+        fill:none;
+        stroke:#000;
+        stroke-miterlimit:10;
+        stroke-width: 4px
+      }
+    }
+		}
 
 	.product_contents {
 		width: 90%;
@@ -102,42 +125,46 @@
 		padding: 0;
 		border-radius: 8px;
 		margin: 20px auto;
-  	border-color: transparent;
-    box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
+	border-color: transparent;
+	box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
 	
 
 
 		img {
 			width: 100%;
 			max-height: 320px;
-			margin-bottom: 10px;
 			border-top-left-radius: 4px;
 			border-top-right-radius: 4px;
 		}
 
 
 		.product_details {
-			padding: 20px;
+			padding: 10px 20px 20px;
 
 			h2 {
-				margin: 0 0 10px 0;
+				margin: 0 0 5px 0;
 				font-family: 'Montserrat', sans-serif;
+				font-size: 20px;
 			}
 
 			.sp {
 				display: flex;
 				justify-content: space-between;
-				margin-bottom: 20px;
-				padding-bottom: 15px;
-				border-bottom: 1px solid #e3e3e3;
+				margin: 0 0 15px 0;
 
 				.product_price {
-					font-size: 18px;
+					font-size: 15px;
 				}
 
 				.stock {
-					font-size: 14px;
+					font-size: 13px;
 				}
+			}
+
+			.description {
+				margin-bottom: 15px;
+				padding-bottom: 10px;
+				border-bottom: 1px solid #e3e3e3;
 			}
 
 			.operate {
@@ -151,21 +178,21 @@
 					color: #fff;
 					background: #6b21a8;
 					padding: 11px 20px;
-			    font-size: 1em;
-			    outline: 0;
-			    font-weight: 700;
-	    		letter-spacing: 0.025em;
-	    		margin: 20px 0 0;
-	    		padding: 13px;
-			    height: 56px;
-			    border: 2px solid #f3f4f5;
-			    box-sizing: border-box;
-			    border-radius: 8px;
+				font-size: 1em;
+				outline: 0;
+				font-weight: 700;
+				letter-spacing: 0.025em;
+				margin: 15px 0 0;
+				padding: 13px;
+				height: 56px;
+				border: 2px solid #f3f4f5;
+				box-sizing: border-box;
+				border-radius: 8px;
 				}
 
 				.quanlabel {
-					font-size: 14px;
-					width: 112px;
+					font-size: 12px;
+					width: 101px;
 					text-align: center;
 					margin-bottom: 5px;
 				}
@@ -175,16 +202,25 @@
 					border: 1px solid #e3e3e3;
 					width: fit-content;
 					display: grid;
-					grid-template-columns: 30px 30px 30px;
+					grid-template-columns: 30px 1fr 30px;
 					place-items: center;
-          align-items: center;
-					padding: 5px 10px;
+		  		align-items: center;
 					font-size: 14px;
 
-
 					div {
-						height: 100%;
+						padding: 5px 5px;
 
+						svg {
+							display: flex;
+							justify-content: center;
+							align-items: center;
+						}
+					}
+
+					.numQuan {
+						padding: 5px 15px;
+						border-left: 1px solid #e3e3e3;
+						border-right: 1px solid #e3e3e3;
 					}
 				}
 			}
@@ -211,28 +247,28 @@
 				transition: all .2s ease-in-out;
 				border-radius: 5px;
 				border-color: transparent;
-	    	box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
+			box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
 			
-	    	img {
-	    		border-top-left-radius: 5px;
-	    		border-top-right-radius: 5px;
-	    		cursor: pointer;
-	    	}
+			img {
+				border-top-left-radius: 5px;
+				border-top-right-radius: 5px;
+				cursor: pointer;
+			}
 
-	    	.qq {
-	    		background: white;
-	    		padding: 10px;
+			.qq {
+				background: white;
+				padding: 10px;
 
-	    		h3 {
-		    		margin: 0;
-		    		font-size: 15px;
-		    	}
+				h3 {
+					margin: 0;
+					font-size: 15px;
+				}
 
-		    	p {
-		    		margin: 0;
-		    		font-size: 14px;
-		    	}
-	    	}
+				p {
+					margin: 0;
+					font-size: 14px;
+				}
+			}
 			}
 		}
 	}
@@ -327,16 +363,16 @@
 						color: #fff;
 						background: #6b21a8;
 						padding: 11px 20px;
-				    font-size: 1em;
-				    outline: 0;
-				    font-weight: 700;
-		    		letter-spacing: 0.025em;
-		    		margin: 20px 0 0;
-		    		padding: 13px;
-				    height: 56px;
-				    border: 2px solid #f3f4f5;
-				    box-sizing: border-box;
-				    border-radius: 8px;
+					font-size: 1em;
+					outline: 0;
+					font-weight: 700;
+					letter-spacing: 0.025em;
+					margin: 20px 0 0;
+					padding: 13px;
+					height: 56px;
+					border: 2px solid #f3f4f5;
+					box-sizing: border-box;
+					border-radius: 8px;
 					}
 
 					.quanlabel {
@@ -353,7 +389,7 @@
 						display: grid;
 						grid-template-columns: 30px 30px 30px;
 						place-items: center;
-	          align-items: center;
+			  align-items: center;
 						padding: 5px 10px;
 						font-size: 14px;
 

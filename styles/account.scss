@@ -16,7 +16,7 @@
 		.upper_nav {
 			border-color: transparent;
   			box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
-
+  			background: white;
 
 			.logo {
 				font-weight: 700;
@@ -25,11 +25,11 @@
 
 			.upper_nav_svgs {
 
-		    .cls-1, circle {
+		    .icon .cls-1, circle {
 		      fill:none;
 		      stroke:#000;
 		      stroke-miterlimit:10;
-		      stroke-width:2px
+		      stroke-width: 4px
 		    }
 		  }
 		}

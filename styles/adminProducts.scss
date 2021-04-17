@@ -77,7 +77,7 @@
 					margin-bottom: 5px;
 				}
 
-				input {
+				input, textarea {
 					outline: 0;
 					width: 100%;
 			    font-size: 16px;
@@ -269,10 +269,10 @@
 					font-family: 'Montserrat', sans-serif;
 				}
 
-				input {
+				input, textarea {
 					width: 100%;
 			    outline: 0;
-			    margin-bottom: 15px;
+			    margin-bottom: 10px;
 			    font-size: 14px;
 			    font-weight: 300;
 			    line-height: 20px;

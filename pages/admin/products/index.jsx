@@ -33,6 +33,7 @@ export default function Products() {
 	// this vars are for updating the items
 	const [p_id, setP_id] = useState('')
 	const [p_name, setP_name] = useState('')
+	const [p_description, setP_description] = useState('')
 	const [p_price, setP_price] = useState('')
 	const [p_quantity, setP_quantity] = useState('')
 
@@ -106,9 +107,11 @@ export default function Products() {
 	const onSubmit = async (data, e) => {
 		console.log(data)
 		console.log(`id: ${p_id}`)
+
 		axios.post(process.env.BACKEND_BASEURL + "/updateproduct", {
 			id: p_id,
 			name: data.name,
+			description: data.description,
 			price: data.price,
 			quantity: data.quantity,
 		}).then(res => {
@@ -134,6 +137,7 @@ export default function Products() {
 		setUpdateModal('update_product_modal updateModalOpen')
 		setP_id(val.product_id)
 		setP_name(val.product_name)
+		setP_description(val.product_description)
 		setP_price(val.product_price)
 		setP_quantity(val.product_quantity)
 	}
@@ -162,6 +166,10 @@ export default function Products() {
 						<div className="input_wrapper">
 							<label htmlFor="">Name</label>
 							<input name="name" type="text" onChange={e => setP_name(e.target.value)} value={p_name} ref={register({ required: true })} />
+						</div>
+						<div className="input_wrapper">
+							<label htmlFor="">Description</label>
+							<textarea name="description" type="text" onChange={e => setP_description(e.target.value)} value={p_description} ref={register({ required: true })} />
 						</div>
 						<div className="input_wrapper">
 							<label htmlFor="">Price</label>

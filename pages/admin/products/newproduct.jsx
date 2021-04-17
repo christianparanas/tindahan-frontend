@@ -29,6 +29,7 @@ export default function NewProductModal() {
 			// save the image name to db, so it can be used to retrive the image from cloudianry
 			image: data.image[0].name,
 			price: data.price,
+			description: data.description,
 			quantity: data.quantity,
 		}).then(res => {
 				const formData = new FormData()
@@ -103,6 +104,10 @@ export default function NewProductModal() {
 					<label htmlFor="">Image</label>
 					<input name="image" type="file" onChange={previewImage} accept='image/*' ref={register({ required: true })} />
 					{previewImg && ( <img className="previewImg" src={previewImg} /> )}
+				</div>
+				<div className="input_wrapper">
+					<label htmlFor="">Description</label>
+					<textarea name="description" type="text" ref={register({ required: true })} />
 				</div>
 				<div className="input_wrapper">
 					<label htmlFor="">Price</label>

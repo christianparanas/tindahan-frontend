@@ -70,30 +70,33 @@ export default function products() {
 	const addToCart = () => {
 		// check if login or not, if not you will not be able to add to cart item
 		if(cookies.user) {
-			// access endpoint and send customer id, item qty and product id
-			axios.post(process.env.BACKEND_BASEURL + '/addtocart', {
-	      customer_id: cookies.user.result.id,
-	      qty: quan,
-	     	item_id: product
-	    })
-	    .then(res => {
-	    	// res if item not in the cart and successfully added in the cart
-	      if(res.status == 200) {
-	      	toast.success("Item added to cart", { autoClose: 2000 });
-	      	setTimeout(function(){ window.location.reload(false); }, 1800);
+			// check if quantity not equals to zero
+			if(quan != 0) {
+				// access endpoint and send customer id, item qty and product id
+				axios.post(process.env.BACKEND_BASEURL + '/addtocart', {
+		      customer_id: cookies.user.result.id,
+		      qty: quan,
+		     	item_id: product
+		    })
+		    .then(res => {
+		    	// res if item not in the cart and successfully added in the cart
+		      if(res.status == 200) {
+		      	toast.success("Item added to cart", { autoClose: 2000 });
+		      	setTimeout(function(){ window.location.reload(false); }, 1800);
 
-	      	// res if item already in the cart
-	      } else if(res.status == 204) {
-	      	toast.success("Item already in the cart", { autoClose: 2000 });
-	      }
-	      
-	    }).catch((error) => {
-				if(!error.status) {
-					toast.error("Network Error!", { autoClose: 2000 });
-					setStateDB("Network error, Please check your internet connection.")
-				} 
-	      console.log(error)
-	    })
+		      	// res if item already in the cart
+		      } else if(res.status == 204) {
+		      	toast.success("Item already in the cart", { autoClose: 2000 });
+		      }
+		      
+		    }).catch((error) => {
+					if(!error.status) {
+						toast.error("Network Error!", { autoClose: 2000 });
+						setStateDB("Network error, Please check your internet connection.")
+					} 
+		      console.log(error)
+		    })
+			} 
 
 
 		} else {
@@ -118,13 +121,14 @@ export default function products() {
 									<div className="product_price">₱{ productArr[0].product_price }</div>
 									<div className="stock">STOCK: { productArr[0].product_quantity }</div>
 								</div>
+								<div className="description">{productArr[0].product_description}</div>
 								<div className="operate">
 									<div className="quanlabel">QUANTITY</div>
 									<div className="changequan">
 										<div onClick={() => changeQuan(2)} >
 											<svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 12H4"></path></svg>
 										</div>
-										<div>{ quan }</div>
+										<div className="numQuan">{ quan }</div>
 										<div onClick={() => changeQuan(1)}>
 											<svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
 										</div>
