@@ -44,6 +44,10 @@ export default function cart() {
   }
 
 
+  const [successOrderModal, setSuccessOrderModal] = useState('success_order_modal')
+  const [placedOrderDetails, setPlacedOrderDetails] = useState({})
+
+
 
   useEffect(() => {
 
@@ -142,10 +146,33 @@ export default function cart() {
   	
   }
 
+
   const placeOrder = () => {
-  	console.log(shippingOp)
-  	console.log(paymentMethod)
+    console.log(cartItems)
+
+    axios.post(process.env.BACKEND_BASEURL + '/placeorder', {
+      user_id: cookies.user.result.id,
+      shippingOp: shippingOp,
+      paymentMethod: paymentMethod,
+      subtotal: subtotal,
+      date: new Date().toISOString().slice(0, 10),
+      cartItems: cartItems,
+      
+
+    }).then(res => {
+      console.log(res.data)
+      if(res.status == 200) {
+      	setPlacedOrderDetails(res.data)
+      	closePlaceOrderModal()
+      	setSuccessOrderModal('success_order_modal show_success_order_modal')
+      }
+    })
   }
+
+  const returnHome = () => {
+  	window.location.href = "/"
+  }
+
 
 
 	return (
@@ -153,6 +180,36 @@ export default function cart() {
 			<div className="review_cart">
 				<ToastContainer />
 				<Nav />
+
+				<div className={successOrderModal}>
+					<h2>Thank You</h2>
+
+					<div className="order_details">
+						<div className="check_head">
+							<svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle className="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path className="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
+							<p>Order Successful</p>
+						</div>
+						<div className="details">
+							<div className="de">
+								<div className="d">Date</div>
+								<div className="e">{placedOrderDetails.date}</div>
+							</div>
+							<div className="de">
+								<div className="d">Order Id</div>
+								<div className="e">{placedOrderDetails.order_id}</div>
+							</div>
+							<div className="de">
+								<div className="d">Payment</div>
+								<div className="e">{placedOrderDetails.payment}</div>
+							</div>
+							<div className="de">
+								<div className="d">Total Price</div>
+								<div className="e">{placedOrderDetails.total}</div>
+							</div>
+						</div>
+					</div>
+					<div className="return" onClick={returnHome}>Return home</div>
+				</div>
 
 
 				<div onClick={closePlaceOrderModal} className={placeOrderOverlay}></div>
@@ -180,7 +237,7 @@ export default function cart() {
 	            <option value="Entrego">Entrego</option>
 	          </select>
 	          <div className="aa">Payment Method</div>
-	          <select>
+	          <select onChange={(e) => setPaymentMethod(e.target.value)}>
 	            <option value="Cash on Delivery">Cash on Delivery</option>
 	            <option value="Credit Card">Credit Card</option>
 	          </select>
