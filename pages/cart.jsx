@@ -174,10 +174,6 @@ export default function cart() {
     })
   }
 
-  const returnHome = () => {
-  	window.location.href = "/"
-  }
-
 
 
 	return (
@@ -215,7 +211,7 @@ export default function cart() {
 							</div>
 						</div>
 					</div>
-					<div className="return" onClick={returnHome}>Return home</div>
+					<Link href="/"><div className="return">Return home</div></Link>
 				</div>
 
 
