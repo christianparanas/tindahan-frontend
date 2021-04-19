@@ -284,7 +284,7 @@ export default function cart() {
                     <img src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.cart_p_image}`} alt="product image" /> 
                     <div className="itemCart_details">
                       <div className="aa">{ val.cart_p_name }</div>
-                      <div className="bb">₱{ val.cart_p_price }</div>
+                      <div className="bb">₱{ val.cart_p_price.toLocaleString() }</div>
 
                       <div className="changeRemove">
                       	<div className="changequan">
