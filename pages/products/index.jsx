@@ -90,7 +90,7 @@ export default function products() {
 											</Link>
 											<div className="qq">
 												<h3>{val.product_name}</h3>
-												<p>₱{val.product_price}</p>
+												<p>₱{val.product_price.toLocaleString()}</p>
 											</div>
 										</motion.div>
 									)
