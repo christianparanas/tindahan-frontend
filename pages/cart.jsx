@@ -46,6 +46,7 @@ export default function cart() {
 
   const [successOrderModal, setSuccessOrderModal] = useState('success_order_modal')
   const [placedOrderDetails, setPlacedOrderDetails] = useState({})
+  const [rerenderNav, setRerenderNav] = useState(1)
 
 
 
@@ -162,6 +163,9 @@ export default function cart() {
     }).then(res => {
       console.log(res.data)
       if(res.status == 200) {
+      	// this will trigger re render on the nav component
+      	setRerenderNav(prev => prev + 1)
+
       	setPlacedOrderDetails(res.data)
       	closePlaceOrderModal()
       	setSuccessOrderModal('success_order_modal show_success_order_modal')
@@ -179,7 +183,9 @@ export default function cart() {
 		<>
 			<div className="review_cart">
 				<ToastContainer />
-				<Nav />
+
+				{/* passing data to cause a rerender if has changes  */}
+				<Nav re={rerenderNav} />
 
 				<div className={successOrderModal}>
 					<h2>Thank You</h2>

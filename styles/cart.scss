@@ -31,11 +31,12 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
 	}
 
 	.success_order_modal {
+		position: fixed;
 		display: none;
 		width: 100%;
 		background: white;
-		height: 100vh;
-		z-index: 30;
+		height: 100%;
+		z-index: 3;
 		padding: 20px;
 
 		.return {

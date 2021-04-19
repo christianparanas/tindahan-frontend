@@ -17,7 +17,7 @@ import { motion } from 'framer-motion'
 
 // components
 
-export default function Nav() {
+export default function Nav(props) {
   const { register, handleSubmit, watch, errors } = useForm();
 
   const [cookies, setCookie, removeCookie] = useCookies(['user']);
@@ -118,7 +118,13 @@ export default function Nav() {
     }
 
     // dependents, re render useEffect if there's no cart item in db
-  }, [incOrDec, hascartItems])
+    // rerender if some changes in props
+  }, [incOrDec, hascartItems, props])
+
+  // open cart overlay if new item
+  // if(props >= 2) {
+  //   openCartOverlay()
+  // }
 
 
   const changeQuan = (qty, id, cart_qty, stock) => {

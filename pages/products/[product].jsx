@@ -27,6 +27,7 @@ export default function products() {
 	const [hasProductInDB, setHasProductInDB] = useState(false)
 	const [noUser, setNoUser] = useState(false)
 	const [quan, setQuan] = useState(1)
+	const [rerenderNav, setRerenderNav] = useState(1)
 
 	useEffect(() => {
 		axios.post(process.env.BACKEND_BASEURL + '/specificproduct',  
@@ -81,8 +82,9 @@ export default function products() {
 		    .then(res => {
 		    	// res if item not in the cart and successfully added in the cart
 		      if(res.status == 200) {
-		      	toast.success("Item added to cart", { autoClose: 2000 });
-		      	setTimeout(function(){ window.location.reload(false); }, 1800);
+		      	toast.success("Item added to cart", { autoClose: 1000 });
+		      	// rerender nav
+		      	setRerenderNav(prev => prev + 1)
 
 		      	// res if item already in the cart
 		      } else if(res.status == 204) {
@@ -110,7 +112,7 @@ export default function products() {
 		<>
 			<div className="product">
 				<ToastContainer />
-				<Nav />
+				<Nav re={rerenderNav} />
 
 				{ hasProductInDB ? (
 						<div className="product_contents">
