@@ -120,7 +120,7 @@ export default function products() {
 							<div className="product_details">
 								<h2>{ productArr[0].product_name }</h2>
 								<div className="sp">
-									<div className="product_price">₱{ productArr[0].product_price }</div>
+									<div className="product_price">₱{ productArr[0].product_price.toLocaleString() }</div>
 									<div className="stock">STOCK: { productArr[0].product_quantity }</div>
 								</div>
 								<div className="description">{productArr[0].product_description}</div>

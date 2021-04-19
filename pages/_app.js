@@ -13,6 +13,7 @@ import '../styles/adminProducts.scss'
 import '../styles/adminCustomer.scss'
 import '../styles/cart.scss'
 import '../styles/search.scss'
+import '../styles/orders.scss'
 
 import { AuthContext } from '../Context/AuthContext'
 import { useState } from 'react'

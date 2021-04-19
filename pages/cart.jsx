@@ -46,6 +46,7 @@ export default function cart() {
 
   const [successOrderModal, setSuccessOrderModal] = useState('success_order_modal')
   const [placedOrderDetails, setPlacedOrderDetails] = useState({})
+  const [placedOrderDetailsbool, setPlacedOrderDetailsbool] = useState(false)
   const [rerenderNav, setRerenderNav] = useState(1)
 
 
@@ -165,8 +166,8 @@ export default function cart() {
       if(res.status == 200) {
       	// this will trigger re render on the nav component
       	setRerenderNav(prev => prev + 1)
-
       	setPlacedOrderDetails(res.data)
+      	setPlacedOrderDetailsbool(true)
       	closePlaceOrderModal()
       	setSuccessOrderModal('success_order_modal show_success_order_modal')
       }
@@ -209,8 +210,8 @@ export default function cart() {
 								<div className="e">{placedOrderDetails.payment}</div>
 							</div>
 							<div className="de">
-								<div className="d">Total Price</div>
-								<div className="e">{placedOrderDetails.total}</div>
+								<div className="d">Total</div>
+								<div className="e">₱{placedOrderDetailsbool && (placedOrderDetails.total.toLocaleString())}</div>
 							</div>
 						</div>
 					</div>
@@ -261,7 +262,7 @@ export default function cart() {
 	          <div className="total_payment">
 	          	<div>
 	          		<div className="total_lbl">Total Payment</div>
-	          		<div className="total_lbl_money">₱{subtotal}</div>
+	          		<div className="total_lbl_money">₱{subtotal.toLocaleString()}</div>
 	          	</div>
 	          	<div onClick={placeOrder} className="placeOrder_modal_content_placeBtn">
 	          		Place Order
@@ -308,7 +309,7 @@ export default function cart() {
             </div>
             	<div className="total">
             		<div className="tot">TOTAL: </div>
-            		<div>₱{subtotal}</div>
+            		<div>₱{subtotal.toLocaleString()}</div>
             	</div>
             	<div className="placeOrder">
             		<div className="place_address">

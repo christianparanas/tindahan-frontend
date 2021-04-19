@@ -268,7 +268,7 @@ export default function Nav(props) {
                     <img src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.cart_p_image}`} alt="product image" /> 
                     <div className="itemCart_details">
                       <div className="ab">{ val.cart_p_name }</div>
-                      <div className="aa">₱{ val.cart_p_price }</div>
+                      <div className="aa">₱{ val.cart_p_price.toLocaleString() }</div>
 
                       <div className="changequan">
                         <div className="bb" onClick={() => changeQuan(2, val.cart_id, val.cart_qty, val.cart_p_stock)} >
@@ -287,7 +287,7 @@ export default function Nav(props) {
               <div className="review_cart">
                 <div className="review_cart_head">
                   <div>TOTAL</div>
-                  <div>₱{subtotal}</div>
+                  <div>₱{subtotal.toLocaleString()}</div>
                   
                 </div>
                 <Link href="/cart">

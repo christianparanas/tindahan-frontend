@@ -25,7 +25,7 @@ export default function products() {
 	useEffect( async () => {
 		await checkAuth()
 
-		axios.get(process.env.BACKEND_BASEURL + '/adminproducts')
+		axios.get(process.env.BACKEND_BASEURL + '/products')
 			.then(res => {
 					console.log(res.data.result)
 					setProducts(res.data.result)

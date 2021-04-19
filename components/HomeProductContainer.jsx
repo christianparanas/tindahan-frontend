@@ -11,7 +11,7 @@ export default function HomeProductContainer({ val }) {
 				<img src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.product_image}`} alt="product image" />				
 				<div className="aa">
 					<h3 className="itemDescription">{ val.product_name }</h3>
-					<p className="itemPrice">₱{ val.product_price }</p>
+					<p className="itemPrice">₱{ val.product_price.toLocaleString() }</p>
 				</div>
 			</div>
 		</Link>

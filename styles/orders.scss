@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+.admin_orders {
+	font-family: 'Montserrat', sans-serif;
+
+	.admin_orders_content {
+		padding: 40px 20px;
+
+		// .nav_btn_wrapper {
+
+		// 	.nav_btn {
+		// 		border: 5px solid #6b21a8;
+		// 		color: white;
+		// 		background: rgba(107, 33, 168, 0.8);
+		// 		padding: 15px 20px;
+		// 		margin-bottom: 10px;
+		// 		border-radius: 8px;
+		// 		display: flex;
+		// 		justify-content: center;
+		// 	}
+
+		// 	.warn {
+		// 		border: 5px solid #FFCC00;
+		// 		background: rgba(255, 204, 0, 0.8);
+		// 	}}
+
+
+
+			.orders_wrapper {
+				display: grid;
+				grid-gap: 8px;
+				
+				.order {
+					display: grid;
+					grid-template-columns: 80px 1fr 100px;
+					font-size: 15px;
+
+					div {
+						padding: 5px;
+						font-size: 13px;
+						text-align: center;
+					}
+
+					.status {
+						width: 80%;
+						border-radius: 5px;
+						place-self: center;
+						background: #FFCC00;
+						color: white;
+					}
+				}
+
+				.head {
+					background: white;
+					border: 1px solid #e3e3e3;
+
+					div {
+						font-size: 14px;
+						padding: 5px;
+						border-left: 1px solid #e3e3e3;
+						border-right: 1px solid #e3e3e3;
+					}
+				}
+			}
+		}
+}
