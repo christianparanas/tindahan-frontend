@@ -7,6 +7,7 @@ import Footer from '../../components/Footer'
 import { useCookies } from 'react-cookie';
 import { isExpired, decodeToken } from "react-jwt";
 import { motion } from "framer-motion"
+import axios from 'axios' 
 
 
 
@@ -15,6 +16,9 @@ function account() {
 	const [ user, setUser ] = useState(cookies.user)
 	const router = useRouter()
 	const [loading, setLoading] = useState(false)
+
+	// user vars
+	const [userorders, setUserOrders] = useState([])
 
 	
 	useEffect( async () => {
@@ -32,6 +36,7 @@ function account() {
 				logout()
 			} else {
 				setLoading(true)
+				loadUserOrders()
 			}
 		}
 	}, [cookies])
@@ -40,6 +45,21 @@ function account() {
 	const logout = () => {
 		removeCookie('user')
 		window.location.href = "/account/login"
+	}
+
+
+	const loadUserOrders = () => {
+		axios.post(process.env.BACKEND_BASEURL + "/userorderhistory", {
+			id: cookies.user.result.id
+
+		}).then(res => {
+			console.log(new Date(res.data.result[0].created_at).toLocaleString())
+			setUserOrders(res.data.result)
+			console.log(res.data.result)
+
+		}).catch(err => {
+			console.log(err)
+		})
 	}
 
 	return (
@@ -69,8 +89,19 @@ function account() {
 				</div>
 				
 				<div className="orderDetails">
-					<h3>Order History</h3>
-					<div className="order_his_wrapper">You haven't placed any orders yet.</div>
+					<h3>Order History <i className="fal fa-dolly"></i></h3>
+					<div className="order_his_wrapper">
+						{userorders.map((val, key) => {
+							return (
+								<div className="order_specific" key={key}>
+									<i className="fal fa-shopping-bag"></i>
+									<div>Order Id:  {val.id}</div>
+									<div>Total:  ₱{val.total.toLocaleString()}</div>
+									<div>Date: {new Date(val.created_at).toLocaleString()}</div>
+								</div>
+							)
+						})}
+					</div>
 				</div>
 			</div>
 			<Footer />

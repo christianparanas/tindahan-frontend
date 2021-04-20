@@ -37,7 +37,7 @@
 
   .accountWrapper {
   	padding: 100px 20px;
-  	height: 500px;
+  	height: fit-content;
   	display: grid;
   	grid-gap: 20px;
 
@@ -85,15 +85,32 @@
 
   	.orderDetails {
   	  border: 1px solid #e3e3e3;
-  		padding: 10px 10px 40px;
+  		padding: 10px 10px;
   		position: relative;
   		border-radius: 0;
   		border-radius: 8px;
+  		height: fit-content;
   		border-color: transparent;
     	box-shadow: 0 1px 3px rgba(50,50,93,0.15),0 1px 0 rgba(0,0,0,0.02);	
     
     	.order_his_wrapper {
     		font-size: 14px;
+    		display: grid;
+    		grid-gap: 15px;
+
+    		.order_specific {
+    			position: relative;
+    			border-radius: 5px;
+    			padding: 10px;
+    			box-shadow: 0 1px 3px rgba(50,50,93,0.15),0 1px 0 rgba(0,0,0,0.02);	
+    		
+    			i {
+    				position: absolute;
+    				right: 10px;
+    			}
+
+
+    		}
     	}
     }
   }

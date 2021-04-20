@@ -157,7 +157,7 @@ export default function cart() {
       shippingOp: shippingOp,
       paymentMethod: paymentMethod,
       subtotal: subtotal,
-      date: new Date().toISOString().slice(0, 10),
+      date: new Date().toLocaleDateString()
       cartItems: cartItems,
       
 
