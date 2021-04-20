@@ -15,7 +15,7 @@
 
 		.upper_nav {
 			border-color: transparent;
-  			box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
+  			box-shadow: 0 1px 3px rgba(50,50,93,0.15),0 1px 0 rgba(0,0,0,0.02);
   			background: white;
 
 			.logo {
@@ -51,15 +51,16 @@
   		position: relative;
   		border-radius: 8px;
   		border-color: transparent;
-    	box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
-	
+    	box-shadow: 0 1px 3px rgba(50,50,93,0.15),0 1px 0 rgba(0,0,0,0.02);
 
   		.ww {
   			position: relative;
+  			font-size: 14px;
 
   			svg {
   				position: relative;
-  				top: 4px; 
+  				top: 5px; 
+  				margin-right: 5px;
   			}
   		}
 
@@ -70,10 +71,15 @@
   			right: 10px;
   			bottom: 10px;
   			color: white;
-  			padding: 8px 10px;
+  			padding: 8px 15px;
   			font-size: 12px;
   			outline: none;
-  			border-radius: 8px;
+  			border-radius:48px;
+
+  			i {
+  				margin-right: 5px;
+  				font-size: 15px;
+  			}
   		}
   	}
 
@@ -84,8 +90,12 @@
   		border-radius: 0;
   		border-radius: 8px;
   		border-color: transparent;
-    	box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
-  	}
+    	box-shadow: 0 1px 3px rgba(50,50,93,0.15),0 1px 0 rgba(0,0,0,0.02);	
+    
+    	.order_his_wrapper {
+    		font-size: 14px;
+    	}
+    }
   }
 }
 
