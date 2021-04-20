@@ -205,7 +205,7 @@ export default function Products() {
 
 			 				<div>ID: {val.product_id}</div>
 				 			<div>Name: {val.product_name}</div>
-				 			<div>Price: ₱{val.product_price}</div>
+				 			<div>Price: ₱{val.product_price.toLocaleString()}</div>
 				 			<div>Quantity: {val.product_quantity}</div>
 				 			<div className="p_details_op">
 				 				<div>
