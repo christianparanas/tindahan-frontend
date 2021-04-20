@@ -157,10 +157,9 @@ export default function cart() {
       shippingOp: shippingOp,
       paymentMethod: paymentMethod,
       subtotal: subtotal,
-      date: new Date().toLocaleDateString()
-      cartItems: cartItems,
+      date: new Date().toLocaleDateString(),
+      cartItems: cartItems
       
-
     }).then(res => {
       console.log(res.data)
       if(res.status == 200) {
