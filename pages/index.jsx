@@ -145,7 +145,7 @@ export default function Home() {
            </div>
          </div>
          <div className="contentSales">
-          Banners 
+          Banner
          </div>
         </div>
 
