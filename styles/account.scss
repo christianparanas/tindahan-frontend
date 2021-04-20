@@ -74,7 +74,10 @@
   			padding: 8px 15px;
   			font-size: 12px;
   			outline: none;
-  			border-radius:48px;
+  			border-radius:12px;
+  			cursor: pointer;
+  			box-shadow: 0 1px 3px rgba(50,50,93,0.15),0 1px 0 rgba(0,0,0,0.02);
+
 
   			i {
   				margin-right: 5px;
@@ -99,9 +102,11 @@
     		grid-gap: 15px;
 
     		.order_specific {
+    			border: 2px solid transparent;
     			position: relative;
     			border-radius: 5px;
     			padding: 10px;
+    			cursor: pointer;
     			box-shadow: 0 1px 3px rgba(50,50,93,0.15),0 1px 0 rgba(0,0,0,0.02);	
     		
     			i {
@@ -127,6 +132,10 @@
     			.ab {
     				margin-bottom: 0;
     			}
+    		}
+
+    		.order_specific:hover {
+    			border-color: #6b21a8;
     		}
     	}
     }
@@ -168,7 +177,7 @@
 
 	  .accountWrapper {
 	  	padding: 90px 20px;
-	  	height: 500px;
+	  	height: fit-content;
 	  	display: grid;
 	  	grid-template-columns: 1fr 1fr;
 
@@ -185,18 +194,6 @@
 	  		position: relative;
 	  		border-radius: 6px;
 	  		height: fit-content;
-
-	  		button {
-	  			border: 1px solid #fafbfc;
-	  			background: #d73a49;
-	  			position: absolute;
-	  			right: 20px;
-	  			bottom: 20px;
-	  			color: white;
-	  			padding: 5px 16px;
-	  			border-radius: inherit;
-	  			font-size: 14px;
-	  		}
 	  	}
 
 	  	.orderDetails {

@@ -22,6 +22,7 @@ export default function Products() {
 	const [products, setProducts] = useState([])
 	const [stateDB, setStateDB] = useState('Loading..')
 	const [hasProductInDB, setHasProductInDB] = useState(false)
+	const [stockWarn, setStockWarn] = useState('outStock')
 
 	// responsible for opening and closing the update modal
 	const [updateModal, setUpdateModal] = useState('update_product_modal')
@@ -36,6 +37,10 @@ export default function Products() {
 	const [p_description, setP_description] = useState('')
 	const [p_price, setP_price] = useState('')
 	const [p_quantity, setP_quantity] = useState('')
+
+
+	// for rerendering
+	const [rerender, setrerender] = useState(null)
 
 	useEffect(async () => {
 		// check auth
@@ -61,7 +66,7 @@ export default function Products() {
 				} 
 	      console.log(error.response)
 	    })
-	}, [cookies])
+	}, [cookies, rerender])
 
 
 	const checkAuth = async () => {
@@ -115,10 +120,12 @@ export default function Products() {
 			price: data.price,
 			quantity: data.quantity,
 		}).then(res => {
-			// show toast and reload page to view changes
-			toast.success("Item successfully updated!", { autoClose: 2000 })
+			// rerender
+			setrerender(state => ({...rerender}))
+			// show toast and close modal
+			toast.success("Item updated!", { autoClose: 2000 })
 			closeUpdateModal()
-			setTimeout(function(){ window.location.reload(false); }, 2000);
+
 			
 		}).catch((error) => {
       if(!error.status) {
@@ -202,7 +209,7 @@ export default function Products() {
 				   <div className="admin_product" key={key}>
 			 			<img src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.product_image}`} alt="" />
 			 			<div className="p_details">
-
+			 				<div className={`${val.product_quantity > 0 ? "outStock" : "outStock show_outStock"}`}>Out of Stock</div>
 			 				<div>ID: {val.product_id}</div>
 				 			<div>Name: {val.product_name}</div>
 				 			<div>Price: ₱{val.product_price.toLocaleString()}</div>
