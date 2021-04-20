@@ -60,7 +60,7 @@
   			svg {
   				position: relative;
   				top: 5px; 
-  				margin-right: 5px;
+  				margin-right: 3px;
   			}
   		}
 
@@ -94,7 +94,7 @@
     	box-shadow: 0 1px 3px rgba(50,50,93,0.15),0 1px 0 rgba(0,0,0,0.02);	
     
     	.order_his_wrapper {
-    		font-size: 14px;
+    		font-size: 13px;
     		display: grid;
     		grid-gap: 15px;
 
@@ -109,7 +109,24 @@
     				right: 10px;
     			}
 
+    			.stat {
+    				span {
+    					border: 1px solid #FFBB38;
+    					background: #FFF5D9;
+    					color: #FFBB38;
+    					padding: 1px 3px;
+    					border-radius: 4px;
+    					font-size: 12px;
+    				}
+    			}
 
+    			.aa {
+    				margin-bottom: 5px;
+    			}
+
+    			.ab {
+    				margin-bottom: 0;
+    			}
     		}
     	}
     }

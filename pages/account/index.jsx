@@ -94,10 +94,11 @@ function account() {
 						{userorders.map((val, key) => {
 							return (
 								<div className="order_specific" key={key}>
-									<i className="fal fa-shopping-bag"></i>
-									<div>Order Id:  {val.id}</div>
-									<div>Total:  ₱{val.total.toLocaleString()}</div>
-									<div>Date: {new Date(val.created_at).toLocaleString()}</div>
+									<i className="aa fal fa-shopping-bag"></i>
+									<div className="aa">Order Ref#:  {val.id}</div>
+									<div className="aa">Total:  ₱{val.total.toLocaleString()}</div>
+									<div className="stat aa">Status: <span>{val.status}</span></div>
+									<div className="aa ab">Date: {new Date(val.created_at).toLocaleString()}</div>
 								</div>
 							)
 						})}
