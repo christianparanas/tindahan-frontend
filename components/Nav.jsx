@@ -247,7 +247,6 @@ export default function Nav(props) {
           <div className="navOp men">Categories</div>
           <div className="navOp women">Women</div>
           <div className="navOp innerwear">Men</div>
-          <div className="navOp sale">Sale</div>
         </div>
       </motion.div>
 
