@@ -16,6 +16,8 @@ export default function orders() {
 	const [stateDB, setStateDB] = useState('Loading..')
 	const [hasordersInDB, setHasOrdersInDB] = useState(false)
 
+	const [rerender, setRerender] = useState('')
+
 	useEffect(async () => {
 		// // check auth
 		// await checkAuth()
@@ -40,7 +42,22 @@ export default function orders() {
 				} 
 	      console.log(error.response)
 	    })
-	}, [cookies])
+	}, [cookies, rerender])
+
+
+	const changeOrderStatus = (id, status) => {
+		if(status != "Delivered") {
+			axios.post(process.env.BACKEND_BASEURL + "/updateorderstatus", {
+				id: id
+
+			}).then(res => {
+				console.log(res.data)
+				setRerender(state => ({...rerender}))
+			}).catch(err => {
+				console.log(err)
+			})
+		}
+	}
 
 	return (
 		<>
@@ -65,7 +82,7 @@ export default function orders() {
 									<div className="order" key={key}>
 										<div>{val.orderId}</div>
 										<div>{val.userEmail}</div>
-										<div className={`${val.status == "Pending" ? "status" : "status delivered"}`}>{val.status}</div>
+										<div onClick={() => changeOrderStatus(val.orderId, val.status)} className={`${val.status == "Pending" ? "status" : "status delivered"}`}>{val.status}</div>
 									</div>
 								)
 							})}
