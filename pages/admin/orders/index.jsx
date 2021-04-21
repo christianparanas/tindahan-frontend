@@ -81,7 +81,7 @@ export default function orders() {
 								return (
 									<div className="order" key={key}>
 										<div>{val.orderId}</div>
-										<div>{val.userEmail}</div>
+										<div className="orderEmail">{val.userEmail}</div>
 										<div onClick={() => changeOrderStatus(val.orderId, val.status)} className={`${val.status == "Pending" ? "status" : "status delivered"}`}>{val.status}</div>
 									</div>
 								)

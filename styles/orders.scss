@@ -15,6 +15,7 @@
 					display: grid;
 					grid-template-columns: 80px 1fr 80px;
 					font-size: 15px;
+					
 
 					div {
 						padding: 4px 5px;
@@ -27,14 +28,19 @@
 						border-radius: 4px;
 						place-self: center;
 						border: 1px solid #FFBB38;
-    					background: #FFF5D9;
-    					color: #FFBB38;
+
+  					color: #FFBB38;
 					}
 
 					.delivered {
 						background: #6b21a8;
 						border: 1px solid #6b21a8;
 						color: white;
+					}
+
+					.orderEmail {
+						place-self: start;
+						margin-left: 5px;
 					}
 				}
 
