@@ -237,7 +237,7 @@
 
 
 		.products_grid {
-			padding: 20px 40px 80px;
+			padding: 40px 40px 80px;
 
 			h3 {
 				color: #000;
@@ -248,6 +248,7 @@
 				border-radius: 5px;
 				border-color: transparent;
 			box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
+			transition: all .2s;
 			
 			img {
 				border-top-left-radius: 5px;
@@ -269,6 +270,18 @@
 					font-size: 14px;
 				}
 			}
+			}
+
+			.p_con:hover {
+
+				.qq {
+					color: white;
+					background: #6b21a8;
+
+					h3 {
+						color: white;
+					}
+				}
 			}
 		}
 	}

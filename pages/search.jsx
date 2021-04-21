@@ -34,21 +34,21 @@ export default function Search() {
 				console.log(res.data)
 
 				if(res.status == 202) {
-          setStateDB('No Item(s) found')
-          setHasProductInDB(false)
-        } else {
-          // if there's a product, show the product map function
-          setHasProductInDB(true)
-          setProductArr(res.data.result)
-        }
+		  setStateDB('No Item(s) found')
+		  setHasProductInDB(false)
+		} else {
+		  // if there's a product, show the product map function
+		  setHasProductInDB(true)
+		  setProductArr(res.data.result)
+		}
 
 			}).catch((error) => {
-        if(!error.status) {
-          toast.error("Network Error!", { autoClose: 2000 });
-          setStateDB("Network error, Please check your internet connection.")
-        } 
-        console.log(error)
-      })
+		if(!error.status) {
+		  toast.error("Network Error!", { autoClose: 2000 });
+		  setStateDB("Network error, Please check your internet connection.")
+		} 
+		console.log(error)
+	  })
 		}
 	}
 
@@ -56,9 +56,9 @@ export default function Search() {
 	const log = () => {
 		if(query != "") {
 			Router.push({
-	        pathname: '/search',
-	        query: { search: `${query}`},
-	    })
+			pathname: '/search',
+			query: { search: `${query}`},
+		})
 			sendQuery()
 		}
 	}
@@ -92,14 +92,14 @@ export default function Search() {
 					{hasProductInDB && (<h3 className="resultCount">{productArr.length} {productArr.length > 1 ? "Results" : "Result"}</h3>)}
 					<div className="search_results">
 						{hasProductInDB ? (<>
-            {productArr.map((val, key) => {
-              return (
-                <div key={key}>
-                  <HomeProductContainer val={val} />
-                </div>
-              )
-            })}
-            </>) : ( <div className="state">{stateDB}</div> )}
+			{productArr.map((val, key) => {
+			  return (
+				<div key={key}>
+				  <HomeProductContainer val={val} />
+				</div>
+			  )
+			})}
+			</>) : ( <div className="state">{stateDB}</div> )}
 					</div>
 				</div>
 			</div>
