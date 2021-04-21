@@ -65,7 +65,7 @@ export default function orders() {
 									<div className="order" key={key}>
 										<div>{val.orderId}</div>
 										<div>{val.userEmail}</div>
-										<div className="status">{val.status}</div>
+										<div className={`${val.status == "Pending" ? "status" : "status delivered"}`}>{val.status}</div>
 									</div>
 								)
 							})}

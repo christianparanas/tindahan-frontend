@@ -13,9 +13,12 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
 	.nav {	
 
 		.upper_nav {
+			position: fixed;
+			top: 0;
+			width: 100%;
 			border-color: transparent;
-  			box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
-				background: white;
+  			box-shadow: 0 1px 3px rgba(50,50,93,0.15),0 1px 0 rgba(0,0,0,0.02);
+  			background: white;
 
 			.upper_nav_svgs {
 
@@ -274,7 +277,7 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
 
 	.review_cartItems {
 		width: 100%;
-		padding: 10px 10px 100px;
+		padding: 60px 10px 100px;
 		margin-top: 50px;
 
 		.empty_lbl {
@@ -299,7 +302,7 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
 				.place_address {
 					font-size: 12px;
 					width: fit-content;
-					margin: 10px auto;
+					margin: 5px auto;
 
 					svg {
 						position: relative;
@@ -320,7 +323,7 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
 			    outline: 0;
 			    font-weight: 700;
 	    		letter-spacing: 0.025em;
-	    		margin: 20px auto;
+	    		margin: 10px auto 20px;
 	    		padding: 13px;
 			    height: 56px;
 			    border: 2px solid #f3f4f5;
@@ -415,6 +418,21 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
 
 
 @media only screen and (min-width: 452px) {
+
+	.review_cart {
+		.success_order_modal {
+			position: fixed;
+			display: none;
+			width: 450px;
+			margin: 40px auto;
+			background: white;
+			height: 100%;
+			z-index: 3;
+			padding: 20px;
+			left: 0;
+right: 0;
+		}
+	}
 
 
 	.review_cart {
@@ -559,7 +577,7 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
 
 		.review_cartItems {
 			width: 100%;
-			padding: 10px 30px 100px;
+			padding: 60px 30px 100px;
 
 			.empty_lbl {
 				width: fit-content;

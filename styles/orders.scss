@@ -23,12 +23,18 @@
 					}
 
 					.status {
-						width: 80%;
-						border-radius: 5px;
+						width: 90%;
+						border-radius: 4px;
 						place-self: center;
-						border: 1px solid #EA532A;
-						background: #fff;
-						color: #EA532A;
+						border: 1px solid #FFBB38;
+    					background: #FFF5D9;
+    					color: #FFBB38;
+					}
+
+					.delivered {
+						background: #6b21a8;
+						border: 1px solid #6b21a8;
+						color: white;
 					}
 				}
 

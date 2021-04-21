@@ -14,18 +14,18 @@
 	  justify-content: space-between;
 	  padding: 20px;
 	  background-color: white;
-	border-bottom: 1px solid #e8e8e1;
-	    background: white;
+		border-bottom: 1px solid #e8e8e1;
+		background: white;
 
-    .upper_nav_svgs {
+	.upper_nav_svgs {
 
-      .icon .cls-1, circle {
-        fill:none;
-        stroke:#000;
-        stroke-miterlimit:10;
-        stroke-width: 4px
-      }
-    }
+	  .icon .cls-1, circle {
+		fill:none;
+		stroke:#000;
+		stroke-miterlimit:10;
+		stroke-width: 4px
+	  }
+	}
 
 
 	}
@@ -63,6 +63,18 @@
 				font-size: 13px;
 			}
 		}
+		}
+
+		.p_con:hover {
+
+			.qq {
+				color: white;
+				background: #6b21a8;
+
+				h3 {
+					color: white;
+				}
+			}
 		}
 	}
 }
@@ -110,13 +122,13 @@
 
 	.upper_nav_svgs {
 
-      .icon .cls-1, circle {
-        fill:none;
-        stroke:#000;
-        stroke-miterlimit:10;
-        stroke-width: 4px
-      }
-    }
+	  .icon .cls-1, circle {
+		fill:none;
+		stroke:#000;
+		stroke-miterlimit:10;
+		stroke-width: 4px
+	  }
+	}
 		}
 
 	.product_contents {
@@ -204,7 +216,7 @@
 					display: grid;
 					grid-template-columns: 30px 1fr 30px;
 					place-items: center;
-		  		align-items: center;
+				align-items: center;
 					font-size: 14px;
 
 					div {

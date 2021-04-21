@@ -19,12 +19,18 @@
 				max-width: 400px;
 				background: #0C2E4E;
 				border-radius: 8px;
+				border: 2px solid transparent;
+				cursor: pointer;
 
 				span {
 					position: relative;
 					top: -5px;
 					left: 10px;
 				}
+			}
+
+			.wrapper:hover {
+				border: 2px solid #6b21a8;
 			}
 		}
 	}

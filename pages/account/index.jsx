@@ -97,7 +97,7 @@ function account() {
 									<i className="aa fal fa-shopping-bag"></i>
 									<div className="aa">Order Ref#:  {val.id}</div>
 									<div className="aa">Total:  ₱{val.total.toLocaleString()}</div>
-									<div className="stat aa">Status: <span>{val.status}</span></div>
+									<div className="stat aa">Status: <span className={`${val.status == "Pending" ? "abc" : "abc delivered"}`}>{val.status}</span></div>
 									<div className="aa ab">Date: {new Date(val.created_at).toLocaleString()}</div>
 								</div>
 							)
