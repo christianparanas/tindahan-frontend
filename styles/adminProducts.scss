@@ -329,3 +329,20 @@
 			}
 		}
 	}
+
+
+
+@media only screen and (min-width: 452px) {
+	.admin_products {
+		.admin_products_wrapper {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-gap: 10px;
+
+  			.admin_product {
+  				box-shadow: 0 1px 3px rgba(50,50,93,0.15),0 1px 0 rgba(0,0,0,0.02);
+
+  			}
+		}
+	}
+}

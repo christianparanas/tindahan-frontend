@@ -422,15 +422,24 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
 	.review_cart {
 		.success_order_modal {
 			position: fixed;
-			display: none;
-			width: 450px;
+			width: 100%;
 			margin: 40px auto;
 			background: white;
 			height: 100%;
 			z-index: 3;
 			padding: 20px;
 			left: 0;
-right: 0;
+			right: 0;
+
+			.order_details {
+				width: 400px;
+				margin: 0 auto;
+			}
+
+			.return {
+				width: 400px;
+				margin: 0 auto;
+			}
 		}
 	}
 
