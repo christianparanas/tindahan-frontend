@@ -1,51 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 .account {
-	position: relative;
-	padding-bottom: 45px;
-	font-family: 'Montserrat', sans-serif;
+  position: relative;
+  padding-bottom: 45px;
+  font-family: "Montserrat", sans-serif;
 
-	.nav {
-		position: fixed;
-		width: 100%;
-		background-color: white;
-		z-index: 5;
+  .nav {
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 5;
 
-		.upper_nav {
-			border-color: transparent;
-  			box-shadow: 0 1px 3px rgba(50,50,93,0.15),0 1px 0 rgba(0,0,0,0.02);
-  			background: white;
+    .upper_nav {
+      border-color: transparent;
+      box-shadow: 0 1px 3px rgba(50, 50, 93, 0.15), 0 1px 0 rgba(0, 0, 0, 0.02);
+      background: white;
 
-			.logo {
-				font-weight: 700;
-			  color: #000;
-			}
+      .logo {
+        font-weight: 700;
+        color: #000;
+      }
 
-			.upper_nav_svgs {
-
-		    .icon .cls-1, circle {
-		      fill:none;
-		      stroke:#000;
-		      stroke-miterlimit:10;
-		      stroke-width: 4px
-		    }
-		  }
-		}
+      .upper_nav_svgs {
+        .icon .cls-1,
+        circle {
+          fill: none;
+          stroke: #000;
+          stroke-miterlimit: 10;
+          stroke-width: 4px;
+        }
+      }
+    }
   }
 
-
-
   .accountWrapper {
-  	padding: 100px 20px;
-  	height: fit-content;
-  	display: grid;
-  	grid-gap: 20px;
+    padding: 100px 20px;
+    height: fit-content;
+    display: grid;
+    grid-gap: 20px;
 
-  	h3 {
-  		margin: 0 0 20px 0;
-  	}
+    h3 {
+      margin: 0 0 20px 0;
+    }
 
     .clickoutsideModal {
       position: fixed;
@@ -54,7 +50,7 @@
       right: 0;
       height: 100vh;
       width: 0;
-      opacity: .5;
+      opacity: 0.5;
       background-color: #000;
       padding-top: 100px;
     }
@@ -78,14 +74,15 @@
 
         h4 {
           margin: 0;
-          padding: 4px 0 0
+          padding: 4px 0 0;
         }
 
-        .icon .cls-1, circle {
-          fill:none;
-          stroke:#000;
-          stroke-miterlimit:10;
-          stroke-width: 4px
+        .icon .cls-1,
+        circle {
+          fill: none;
+          stroke: #000;
+          stroke-miterlimit: 10;
+          stroke-width: 4px;
         }
       }
 
@@ -95,7 +92,7 @@
 
         .item {
           display: flex;
-        justify-content: space-between;
+          justify-content: space-between;
         }
       }
 
@@ -106,12 +103,11 @@
 
         .imgs {
           display: grid;
-            place-items: center;
+          place-items: center;
 
           .img_wrapper {
             width: 50px;
             height: 50px;
-            
 
             img {
               width: 100%;
@@ -119,7 +115,7 @@
             }
           }
 
-          .names_wrapper {          
+          .names_wrapper {
             display: grid;
             place-items: center;
             height: 50px;
@@ -134,156 +130,153 @@
           }
         }
       }
-
     }
 
     .showorder_review_modal {
       display: block;
     }
 
-  	.accountDetails {
-  		border: 1px solid #e3e3e3;
-  		padding: 10px 10px 60px;
-  		position: relative;
-  		border-radius: 8px;
-  		border-color: transparent;
-    	box-shadow: 0 1px 3px rgba(50,50,93,0.15),0 1px 0 rgba(0,0,0,0.02);
+    .accountDetails {
+      border: 1px solid #e3e3e3;
+      padding: 10px 10px 60px;
+      position: relative;
+      border-radius: 8px;
+      border-color: transparent;
+      box-shadow: 0 1px 3px rgba(50, 50, 93, 0.15), 0 1px 0 rgba(0, 0, 0, 0.02);
 
-  		.ww {
-  			position: relative;
-  			font-size: 14px;
+      .ww {
+        position: relative;
+        font-size: 14px;
 
-  			svg {
-  				position: relative;
-  				top: 5px; 
-  				margin-right: 3px;
-  			}
-  		}
+        svg {
+          position: relative;
+          top: 5px;
+          margin-right: 3px;
+        }
+      }
 
-  		button {
-  			border: 1px solid #fafbfc;
-  			background: #d73a49;
-  			position: absolute;
-  			right: 10px;
-  			bottom: 10px;
-  			color: white;
-  			padding: 8px 15px;
-  			font-size: 12px;
-  			outline: none;
-  			border-radius:12px;
-  			cursor: pointer;
+      button {
+        border: 1px solid #fafbfc;
+        background: #d73a49;
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        color: white;
+        padding: 8px 15px;
+        font-size: 12px;
+        outline: none;
+        border-radius: 12px;
+        cursor: pointer;
 
+        i {
+          margin-right: 5px;
+          font-size: 15px;
+        }
+      }
+    }
 
-  			i {
-  				margin-right: 5px;
-  				font-size: 15px;
-  			}
-  		}
-  	}
+    .orderDetails {
+      border: 1px solid #e3e3e3;
+      padding: 10px 10px;
+      position: relative;
+      border-radius: 0;
+      border-radius: 8px;
+      height: fit-content;
+      border-color: transparent;
+      box-shadow: 0 1px 3px rgba(50, 50, 93, 0.15), 0 1px 0 rgba(0, 0, 0, 0.02);
 
-  	.orderDetails {
-  	  border: 1px solid #e3e3e3;
-  		padding: 10px 10px;
-  		position: relative;
-  		border-radius: 0;
-  		border-radius: 8px;
-  		height: fit-content;
-  		border-color: transparent;
-    	box-shadow: 0 1px 3px rgba(50,50,93,0.15),0 1px 0 rgba(0,0,0,0.02);	
-    
-    	.order_his_wrapper {
-    		font-size: 13px;
-    		display: grid;
-    		grid-gap: 15px;
+      .order_his_wrapper {
+        font-size: 13px;
+        display: grid;
+        grid-gap: 15px;
 
-    		.order_specific {
-    			border: 2px solid transparent;
-    			position: relative;
-    			border-radius: 5px;
-    			padding: 10px;
-    			cursor: pointer;
-    			box-shadow: 0 1px 3px rgba(50,50,93,0.15),0 1px 0 rgba(0,0,0,0.02);	
-    		
-    			i {
-    				position: absolute;
-    				right: 10px;
-    			}
+        .order_specific {
+          border: 2px solid transparent;
+          position: relative;
+          border-radius: 5px;
+          padding: 10px;
+          cursor: pointer;
+          box-shadow: 0 1px 3px rgba(50, 50, 93, 0.15),
+            0 1px 0 rgba(0, 0, 0, 0.02);
 
-    			.stat {
-    				.abc {
-    					border: 1px solid #FFBB38;
-    					color: #FFBB38;
-    					padding: 1px 3px;
-    					border-radius: 4px;
-    					font-size: 12px;
-    				}
+          i {
+            position: absolute;
+            right: 10px;
+          }
+
+          .stat {
+            .abc {
+              border: 1px solid #ffbb38;
+              color: #ffbb38;
+              padding: 1px 3px;
+              border-radius: 4px;
+              font-size: 12px;
+            }
 
             .delivered {
               background: #6b21a8;
               border: 1px solid #6b21a8;
               color: white;
             }
-    			}
+          }
 
-    			.aa {
-    				margin-bottom: 5px;
-    			}
+          .aa {
+            margin-bottom: 5px;
+          }
 
-    			.ab {
-    				margin-bottom: 0;
-    			}
-    		}
+          .ab {
+            margin-bottom: 0;
+          }
+        }
 
-    		.order_specific:hover {
-    			border-color: #6b21a8;
-    		}
-    	}
+        .order_specific:hover {
+          border-color: #6b21a8;
+        }
+      }
     }
   }
 }
 
-
-
 @media only screen and (min-width: 452px) {
-	.account {
-		position: relative;
-		padding-bottom: 0;
+  .account {
+    position: relative;
+    padding-bottom: 0;
 
-		.nav {
-			position: fixed;
-			width: 100%;
-			background-color: white;
-			z-index: 5;
+    .nav {
+      position: fixed;
+      width: 100%;
+      background-color: white;
+      z-index: 5;
 
-			.upper_nav {
-				border-bottom: 1px solid #e8e8e1;
+      .upper_nav {
+        border-bottom: 1px solid #e8e8e1;
 
-				.logo {
-					font-weight: 700;
-				  color: #000;
-				}
+        .logo {
+          font-weight: 700;
+          color: #000;
+        }
 
-				.upper_nav_svgs {
+        .upper_nav_svgs {
+          .cls-1,
+          circle {
+            fill: none;
+            stroke: #000;
+            stroke-miterlimit: 10;
+            stroke-width: 2px;
+          }
+        }
+      }
+    }
 
-			    .cls-1, circle {
-			      fill:none;
-			      stroke:#000;
-			      stroke-miterlimit:10;
-			      stroke-width:2px
-			    }
-			  }
-			}
-	  }
+    .accountWrapper {
+      padding: 90px 20px;
+      height: fit-content;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
 
-	  .accountWrapper {
-	  	padding: 90px 20px;
-	  	height: fit-content;
-	  	display: grid;
-	  	grid-template-columns: 1fr 1fr;
-
-	  	h2 {
-	  		margin: 0 0 20px 0;
-	  	}
+      h2 {
+        margin: 0 0 20px 0;
+      }
 
       .order_review_modal {
         display: none;
@@ -297,31 +290,29 @@
       }
 
       .showorder_review_modal {
-      display: block;
+        display: block;
+      }
+
+      .accountDetails {
+        width: 100%;
+        height: 100%;
+        grid-column-start: 2;
+        border: 1px solid #e3e3e3;
+        padding: 20px 20px 80px;
+        position: relative;
+        border-radius: 6px;
+        height: fit-content;
+      }
+
+      .orderDetails {
+        max-width: 500px;
+        grid-column-start: 1;
+        grid-row-start: 1;
+        border: 1px solid #e3e3e3;
+        padding: 20px 20px 40px;
+        position: relative;
+        border-radius: 6px;
+      }
     }
-
-
-	  	.accountDetails {
-	  		width: 100%;
-	  		height: 100%;
-	  		grid-column-start: 2;
-	  		border: 1px solid #e3e3e3;
-	  		padding: 20px 20px 80px;
-	  		position: relative;
-	  		border-radius: 6px;
-	  		height: fit-content;
-	  	}
-
-	  	.orderDetails {
-	  		
-	  		max-width: 500px;
-	  		grid-column-start: 1;
-	  		grid-row-start: 1;
-	  		border: 1px solid #e3e3e3;
-	  		padding: 20px 20px 40px;
-	  		position: relative;
-	  		border-radius: 6px;
-	  	}
-	  }
-	}
+  }
 }

@@ -9,6 +9,7 @@ import Link from 'next/link'
 
 import Nav from '../../components/Nav'
 
+
 export async function getServerSideProps(context) {
   return {
     props: {}, // will be passed to the page component as props
@@ -85,6 +86,7 @@ export default function products() {
 		      	toast.success("Item added to cart", { autoClose: 1000 });
 		      	// rerender nav
 		      	setRerenderNav(prev => prev + 1)
+		      	setTimeout(() => { router.push("/products") }, 1100)
 
 		      	// res if item already in the cart
 		      } else if(res.status == 204) {
