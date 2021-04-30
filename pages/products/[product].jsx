@@ -86,7 +86,7 @@ export default function products() {
 		      	toast.success("Item added to cart", { autoClose: 1000 });
 		      	// rerender nav
 		      	setRerenderNav(prev => prev + 1)
-		      	setTimeout(() => { router.push("/products") }, 1100)
+		      	setTimeout(() => { router.push("/products") }, 1500)
 
 		      	// res if item already in the cart
 		      } else if(res.status == 204) {

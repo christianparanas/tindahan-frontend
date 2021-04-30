@@ -197,7 +197,7 @@ export default function cart() {
 								<div className="e">{placedOrderDetails.date}</div>
 							</div>
 							<div className="de">
-								<div className="d">Order Id</div>
+								<div className="d">Order Ref#</div>
 								<div className="e">{placedOrderDetails.order_id}</div>
 							</div>
 							<div className="de">
