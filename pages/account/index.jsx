@@ -32,6 +32,7 @@ function account() {
   // modal
   const [openClickOut, setOpenClickOut] = useState("clickoutsideModal");
   const [openModal, setOpenmodal] = useState("order_review_modal");
+  const [openUpdateModal, setOpenUpdateModal] = useState("updateInfo_wrapper")
 
   useEffect(async () => {
     // check if have a user cookie
@@ -84,6 +85,7 @@ function account() {
     names,
     qty
   ) => {
+    setOpenUpdateModal("updateInfo_wrapper")
     setOpenClickOut("clickoutsideModal showclickoutsideModal");
     setOpenmodal("order_review_modal showorder_review_modal");
 
@@ -101,7 +103,14 @@ function account() {
   const closeOrderModal = () => {
     setOpenClickOut("clickoutsideModal");
     setOpenmodal("order_review_modal");
+    setOpenUpdateModal("updateInfo_wrapper")
   };
+
+  const open_UpdateModal = () => {
+    setOpenmodal("order_review_modal");
+    setOpenClickOut("clickoutsideModal showclickoutsideModal");
+    setOpenUpdateModal("updateInfo_wrapper show_updateInfo_wrapper")
+  }
 
   return (
     <>
@@ -173,16 +182,16 @@ function account() {
                     </svg>
                     {user.result.address}
                   </div>
-                  <div className="update_info">Update Details</div>
+                  <div onClick={open_UpdateModal} className="update_info">Update Details</div>
                   <div className="logout" onClick={logout}>Logout</div>
                 </>
               )}
             </div>
 
             <div className={openClickOut} onClick={closeOrderModal}></div>
-            <div className={openModal}>
+            <div className={openUpdateModal}>
               <div className="top">
-                <h4>Order Information</h4>
+                <h4>Update Information</h4>
                 <svg
                   onClick={closeOrderModal}
                   aria-hidden="true"
@@ -194,6 +203,32 @@ function account() {
                   viewBox="0 0 64 64"
                 >
                   <defs></defs>
+                  <path
+                    className="cls-1"
+                    d="M19 17.61l27.12 27.13m0-27.12L19 44.74"
+                  ></path>
+                </svg>
+              </div>
+              <form action="">
+                <div className="updateInput">
+                  <label htmlFor="password">Name</label>
+                  <input type="text" />
+                </div>
+                <div className="updateInput">
+                  <label htmlFor="password">Email</label>
+                  <input type="email" />
+                </div>
+                <div className="updateInput">
+                  <label htmlFor="password">Address</label>
+                  <input type="text" />
+                </div>
+                <input className="update_btn" type="submit" value="UPDATE" />
+              </form>
+            </div>
+            <div className={openModal}>
+              <div className="top">
+                <h4>Order Information</h4>
+                <svg onClick={closeOrderModal} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-close" viewBox="0 0 64 64"><defs></defs>
                   <path
                     className="cls-1"
                     d="M19 17.61l27.12 27.13m0-27.12L19 44.74"

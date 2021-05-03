@@ -59,6 +59,89 @@
       width: 100%;
     }
 
+    .updateInfo_wrapper {
+      display: none;
+      position: fixed;
+      width: 90%;
+      padding: 20px;
+      background: white;
+      z-index: 10;
+      border-radius: 8px;
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+
+        h4 {
+          margin: 0;
+          padding: 4px 0 0;
+        }
+
+        .icon .cls-1,
+        circle {
+          fill: none;
+          stroke: #000;
+          stroke-miterlimit: 10;
+          stroke-width: 4px;
+        }
+      }
+
+      form {
+        margin-top: 10px;
+
+        .update_btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          width: 100%;
+          color: #fff;
+          background: #6b21a8;
+          padding: 11px 20px;
+          font-size: 1em;
+          outline: 0;
+          font-weight: 700;
+          letter-spacing: 0.025em;
+          padding: 13px;
+          height: 56px;
+          border: 2px solid #f3f4f5;
+          box-sizing: border-box;
+          border-radius: 8px;
+          font-family: 'Montserrat', sans-serif;
+        }
+
+        .updateInput {
+          label {
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 20px;
+            color: #000;
+            clear: both;
+            margin-bottom: .25em;
+          }
+
+          input {
+            width: 100%;
+            outline: 0;
+            margin-bottom: 15px;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 20px;
+            padding: 13px;
+            height: 56px;
+            border: 2px solid #f3f4f5;
+            box-sizing: border-box;
+            border-radius: 8px;
+          }
+        }
+      }
+    }
+
+    .show_updateInfo_wrapper {
+      display: block;
+    }
+
     .order_review_modal {
       display: none;
       position: fixed;
