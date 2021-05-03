@@ -155,8 +155,20 @@
         }
       }
 
+      .update_info {
+        cursor: pointer;
+        border: 2px solid #6b21a8;
+        position: absolute;
+        color: #6b21a8;
+        right: 90px;
+        bottom: 10px;
+        font-size: 12px;
+        padding: 8px 15px;
+        border-radius: 12px;
+      }
+
       button {
-        border: 1px solid #fafbfc;
+        border: 2px solid #d73a49;
         background: #d73a49;
         position: absolute;
         right: 10px;

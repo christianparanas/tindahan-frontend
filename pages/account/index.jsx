@@ -173,6 +173,7 @@ function account() {
                     </svg>
                     {user.result.address}
                   </div>
+                  <div className="update_info">Update Details</div>
                   <button onClick={logout}>Logout</button>
                 </>
               )}

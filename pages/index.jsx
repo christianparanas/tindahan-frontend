@@ -144,9 +144,6 @@ export default function Home() {
             </>) : ( <div>{stateDB}</div> )}
            </div>
          </div>
-         <div className="contentSales">
-          Banner
-         </div>
         </div>
 
         <Footer />
