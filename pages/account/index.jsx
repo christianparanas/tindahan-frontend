@@ -174,7 +174,7 @@ function account() {
                     {user.result.address}
                   </div>
                   <div className="update_info">Update Details</div>
-                  <button onClick={logout}>Logout</button>
+                  <div className="logout" onClick={logout}>Logout</div>
                 </>
               )}
             </div>

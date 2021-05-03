@@ -165,9 +165,11 @@
         font-size: 12px;
         padding: 8px 15px;
         border-radius: 12px;
+        font-weight: 700;
       }
 
-      button {
+      .logout {
+        font-weight: 700;
         border: 2px solid #d73a49;
         background: #d73a49;
         position: absolute;
