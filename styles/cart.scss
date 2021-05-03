@@ -16,7 +16,11 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
 		z-index: 30;
 	}
 
-	.navOverlay-sidebar {
+	.searchWrapper, .navOverlay-sidebar {
+		z-index: 31;
+	}
+
+	.cartOverlay {
 		z-index: 31;
 	}
 
