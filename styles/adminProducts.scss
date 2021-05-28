@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-
-
-
 .admin_products {
 	position: relative;
 	width: 100%;
@@ -112,7 +109,6 @@
 		    outline: 0;
 		    font-weight: 700;
     		letter-spacing: 0.025em;
-    		margin-bottom: 10px;
     		padding: 13px;
 		    height: 56px;
 		    border: 2px solid #f3f4f5;
@@ -344,5 +340,89 @@
 
   			}
 		}
+
+		.update_product_modal {
+			display: none;
+			z-index: 21;
+			position: fixed;
+			width: 500px;
+			margin:0 auto;
+			top: 40px;
+			left: 0;
+			right: 0;
+			height: fit-content;
+			background: white;
+			padding: 20px;
+			border-radius: 20px;
+
+			.update_head {
+				font-size: 15px;
+
+				svg {
+					cursor: pointer;
+				}
+			}
+
+			form {
+				.input_wrapper {
+					label {
+						font-size: 14px;
+					}
+
+					input, textarea {
+				    font-size: 14px;
+				    outline: 0;
+				    font-size: 14px;
+				    font-weight: 300;
+				    line-height: 20px;
+				    padding: 10px;
+				    border: 2px solid #f3f4f5;
+				    box-sizing: border-box;
+				    border-radius: 8px;
+				    font-family: 'Montserrat', sans-serif;
+					}
+				}
+			}
+		}
+
+		.updateModalOpen {
+			display: block;
+		}
 	}
+
+
+	.admin_addproduct_modal {
+		width: 500px;
+		margin: 20px auto;
+		background: white;
+		height: fit-content;
+		padding: 20px;
+		border-radius: 11px;
+		border-color: transparent;
+
+		h3 {
+			font-size: 15px;
+		}
+
+		form {
+			.input_wrapper {
+				label {
+					font-size: 14px;
+				}
+
+				input, textarea {
+			    font-size: 14px;
+			    outline: 0;
+			    font-size: 14px;
+			    font-weight: 300;
+			    line-height: 20px;
+			    padding: 10px;
+			    border: 2px solid #f3f4f5;
+			    box-sizing: border-box;
+			    border-radius: 8px;
+			    font-family: 'Montserrat', sans-serif;
+				}
+			}
+		}
+  }
 }

@@ -77,6 +77,10 @@
           padding: 4px 0 0;
         }
 
+        svg {
+          cursor: pointer;
+        }
+
         .icon .cls-1,
         circle {
           fill: none;
@@ -375,6 +379,23 @@
         margin: 0 0 20px 0;
       }
 
+
+      .updateInfo_wrapper {
+        display: none;
+        position: fixed;
+        width: 500px;
+        padding: 20px;
+        background: white;
+        z-index: 10;
+        border-radius: 8px;
+        left: 50%;
+        margin-left: -250px;
+      }
+
+      .show_updateInfo_wrapper {
+        display: block;
+      }
+
       .order_review_modal {
         display: none;
         position: fixed;
@@ -384,6 +405,16 @@
         background: white;
         z-index: 10;
         border-radius: 8px;
+                left: 50%;
+        margin-left: -250px;
+
+        .top {
+          svg {
+            cursor: pointer;
+          }
+        }
+
+
       }
 
       .showorder_review_modal {
@@ -409,6 +440,7 @@
         padding: 20px 20px 40px;
         position: relative;
         border-radius: 6px;
+
       }
     }
   }

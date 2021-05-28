@@ -1,4 +1,5 @@
 import Nav from '../../components/Nav'
+import Image from 'next/image'
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
@@ -65,9 +66,6 @@ export default function products() {
   const logout = () => {
     removeCookie('user')
   }
-
-
-
 
 	return (
 		<>

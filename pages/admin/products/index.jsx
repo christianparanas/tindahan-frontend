@@ -1,3 +1,4 @@
+import Image from 'next/image'
 
 import Adminnav from '../../../components/Adminnav'
 
@@ -207,7 +208,7 @@ export default function Products() {
 					(<>{products.map((val, key) => {
 				  return (
 				   <div className="admin_product" key={key}>
-			 			<img src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.product_image}`} alt="" />
+			 			<Image width={120} height={120} src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.product_image}`} alt="" />
 			 			<div className="p_details">
 			 				<div className={`${val.product_quantity > 0 ? "outStock" : "outStock show_outStock"}`}>Out of Stock</div>
 			 				<div>ID: {val.product_id}</div>

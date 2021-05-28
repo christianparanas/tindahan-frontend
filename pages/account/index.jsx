@@ -74,17 +74,7 @@ function account() {
       });
   };
 
-  const orderModal = (
-    id,
-    status,
-    total,
-    payment,
-    shipping,
-    date,
-    imgs,
-    names,
-    qty
-  ) => {
+  const orderModal = (id, status, total, payment, shipping, date, imgs, names, qty) => {
     setOpenUpdateModal("updateInfo_wrapper")
     setOpenClickOut("clickoutsideModal showclickoutsideModal");
     setOpenmodal("order_review_modal showorder_review_modal");
@@ -123,21 +113,7 @@ function account() {
                 <>
                   <h3>Account</h3>
                   <div className="ww">
-                    <svg
-                      width="20"
-                      height="20"
-                      fill="none"
-                      stroke="grey"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                      ></path>
-                    </svg>
+                    <svg width="20" height="20" fill="none" stroke="grey" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                     {user.result.name.replace(/^\w/, (c) => c.toUpperCase())}
                   </div>
                   <div className="ww">
@@ -192,7 +168,7 @@ function account() {
             <div className={openUpdateModal}>
               <div className="top">
                 <h4>Update Information</h4>
-                <svg
+                <svg 
                   onClick={closeOrderModal}
                   aria-hidden="true"
                   width="28"
