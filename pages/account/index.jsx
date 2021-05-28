@@ -8,6 +8,8 @@ import { useCookies } from "react-cookie";
 import { isExpired, decodeToken } from "react-jwt";
 import { motion } from "framer-motion";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function account() {
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
@@ -34,6 +36,21 @@ function account() {
   const [openModal, setOpenmodal] = useState("order_review_modal");
   const [openUpdateModal, setOpenUpdateModal] = useState("updateInfo_wrapper")
 
+    // update user info
+  const [user__id, setUser__id] = useState("");
+  const [user__name, setUser__name] = useState("");
+  const [user__email, setUser__email] = useState("")
+  const [user__address, setUser__address] = useState("");
+
+  const [user__nameModal, setUser__nameModal] = useState("");
+  const [user__emailModal, setUser__emailModal] = useState("")
+  const [user__addressModal, setUser__addressModal] = useState("");
+
+
+  // for rerender
+  const [rerender, setRerender] = useState(1)
+
+
   useEffect(async () => {
     // check if have a user cookie
     if (!cookies.user) {
@@ -49,10 +66,10 @@ function account() {
         logout();
       } else {
         setLoading(true);
-        loadUserOrders();
+         loadUserOrders();
       }
     }
-  }, [cookies]);
+  }, [cookies, rerender]);
 
   const logout = () => {
     removeCookie("user");
@@ -65,9 +82,13 @@ function account() {
         id: cookies.user.result.id,
       })
       .then((res) => {
-        console.log(new Date(res.data.result[0].created_at).toLocaleString());
         setUserOrders(res.data.result);
         console.log(res.data.result);
+
+        setUser__id(res.data.result[0].customerId)
+        setUser__name(res.data.result[0].name)
+        setUser__email(res.data.result[0].email)
+        setUser__address(res.data.result[0].address)
       })
       .catch((err) => {
         console.log(err);
@@ -96,25 +117,57 @@ function account() {
     setOpenUpdateModal("updateInfo_wrapper")
   };
 
+
+
+  const user_info_update = () => {
+    axios
+      .post(process.env.BACKEND_BASEURL + "/updateuserinfo", {
+        id: user__id,
+        name: user__nameModal,
+        email: user__emailModal,
+        address: user__addressModal
+      })
+      .then((res) => {
+        if(res.status == 200) {
+          toast.success("Information Updated", { autoClose: 2000 });
+          setRerender(state => ({...rerender}))
+          closeOrderModal()
+        } else if(res.status == 202) {
+          toast.error("Something went wrong", { autoClose: 2000 });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   const open_UpdateModal = () => {
     setOpenmodal("order_review_modal");
     setOpenClickOut("clickoutsideModal showclickoutsideModal");
     setOpenUpdateModal("updateInfo_wrapper show_updateInfo_wrapper")
+
+    setUser__nameModal(user__name)
+    setUser__emailModal(user__email)
+    setUser__addressModal(user__address)
   }
+  
+
 
   return (
     <>
       {loading && (
         <div className="account">
+          <ToastContainer />
+
           <Nav />
           <div className="accountWrapper">
             <div className="accountDetails">
-              {user && (
+              { userorders && (
                 <>
                   <h3>Account</h3>
                   <div className="ww">
                     <svg width="20" height="20" fill="none" stroke="grey" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                    {user.result.name.replace(/^\w/, (c) => c.toUpperCase())}
+                    {user__name.replace(/^\w/, (c) => c.toUpperCase())}
                   </div>
                   <div className="ww">
                     <svg
@@ -132,7 +185,7 @@ function account() {
                         d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
                       ></path>
                     </svg>
-                    {user.result.email}
+                    {user__email}
                   </div>
                   <div className="ww">
                     <svg
@@ -156,7 +209,7 @@ function account() {
                         d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                       ></path>
                     </svg>
-                    {user.result.address}
+                    {user__address}
                   </div>
                   <div onClick={open_UpdateModal} className="update_info">Update Details</div>
                   <div className="logout" onClick={logout}>Logout</div>
@@ -168,12 +221,7 @@ function account() {
             <div className={openUpdateModal}>
               <div className="top">
                 <h4>Update Information</h4>
-                <svg 
-                  onClick={closeOrderModal}
-                  aria-hidden="true"
-                  width="28"
-                  height="28"
-                  focusable="false"
+                <svg onClick={closeOrderModal} aria-hidden="true" width="28" height="28" focusable="false"
                   role="presentation"
                   className="icon icon-close"
                   viewBox="0 0 64 64"
@@ -185,21 +233,21 @@ function account() {
                   ></path>
                 </svg>
               </div>
-              <form action="">
+              <div className="form">
                 <div className="updateInput">
                   <label htmlFor="password">Name</label>
-                  <input type="text" />
+                  <input type="text" onChange={e => setUser__nameModal(e.target.value)} value={user__nameModal} />
                 </div>
                 <div className="updateInput">
                   <label htmlFor="password">Email</label>
-                  <input type="email" />
+                  <input type="email" onChange={e => setUser__emailModal(e.target.value)} value={user__emailModal} />
                 </div>
                 <div className="updateInput">
                   <label htmlFor="password">Address</label>
-                  <input type="text" />
+                  <input type="text" onChange={e => setUser__addressModal(e.target.value)} value={user__addressModal}/>
                 </div>
-                <input className="update_btn" type="submit" value="UPDATE" />
-              </form>
+                <input onClick={user_info_update} className="update_btn" type="submit" value="UPDATE" />
+              </div>
             </div>
             <div className={openModal}>
               <div className="top">
