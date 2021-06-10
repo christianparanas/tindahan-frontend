@@ -269,7 +269,7 @@ export default function cart() {
 
 
 				<div className="review_cartItems">
-					{hascartItems ? (
+					{hascartItems ? ( <>
 						<div className="bucketWrapper">
             <div className="bucket">
               {cartItems.map((val, key) => {
@@ -302,19 +302,18 @@ export default function cart() {
                 )
               })}
             </div>
-            	<div className="total">
-            		<div className="tot">TOTAL: </div>
-            		<div>₱{subtotal.toLocaleString()}</div>
-            	</div>
-            	<div className="placeOrder">
-            		<div className="place_address">
-            			<svg width="18" height="18" fill="none" stroke="grey" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-            			<span>{address}</span>
-            		</div>
-            		<div onClick={openPlaceOrderModal} className="checkout_btn">Check out</div>
-            	</div>
 
             </div>
+            	<div className="total">
+            		<div className="total_info">
+            			<div className="tot">TOTAL: </div>
+            			<div>₱{subtotal.toLocaleString()}</div>
+            		</div>
+            		 <div className="placeOrder">
+            		<div onClick={openPlaceOrderModal} className="checkout_btn">Check out</div>
+            	</div>
+            	</div>
+            </>
             ) : (<div className="empty_lbl">{dbinfo}</div>)}
 
 				</div>
