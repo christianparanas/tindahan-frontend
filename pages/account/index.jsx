@@ -273,7 +273,7 @@ function account() {
                   <label htmlFor="password">Address</label>
                   <input type="text" onChange={e => setUser__addressModal(e.target.value)} value={user__addressModal}/>
                 </div>
-                <input onClick={user_info_update} className="update_btn" type="submit" value="UPDATE" />
+                <div onClick={user_info_update} className="update_btn"><i className="fad fa-file-edit"></i> UPDATE</div>
               </div>
             </div>
             <div className={openModal}>

@@ -136,6 +136,10 @@
           box-sizing: border-box;
           border-radius: 8px;
           font-family: 'Montserrat', sans-serif;
+
+          i {
+            margin-right: 5px;
+          }
         }
 
         .updateInput {
@@ -282,6 +286,13 @@
             padding: 12px 15px;
             border-radius: 12px;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            i {
+              margin-right: 5px;
+            }
           }
 
           .logout {
@@ -295,10 +306,13 @@
             outline: none;
             border-radius: 12px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             i {
               margin-right: 5px;
-              font-size: 15px;
+          ;
             }
           }
         }
