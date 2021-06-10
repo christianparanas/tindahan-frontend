@@ -57,9 +57,11 @@
 		padding: 90px 20px 80px;
 		height: fit-content;
 
-		h1 {
-			font-size: 1.3em;
-			margin: 0 0 30px;
+		img {
+			width: 80%;
+			display: flex;
+			justify-content: center;
+			margin: 0 auto 20px;
 		}
 
 		.loginWithGoogle {
