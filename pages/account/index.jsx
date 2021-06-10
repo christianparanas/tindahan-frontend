@@ -350,9 +350,12 @@ function account() {
             </div>
 
             <div className="orderDetails">
-              <h3>
-                Order History <i className="fal fa-dolly"></i>
-              </h3>
+              <div className="order_op">
+                <h3>
+                  Order History <i className="fal fa-dolly"></i>
+                </h3>
+                <p>{userorders.length} Orders</p>
+              </div>
               <div className="order_his_wrapper">
                 {userHasOrders ? (
                 userorders.map((val, key) => {
