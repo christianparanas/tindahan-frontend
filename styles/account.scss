@@ -391,7 +391,8 @@
 
       .order_his_wrapper {
           padding: 10px;
-          height: 65vh;
+          height: fit-content;
+          max-height: 65vh;
           overflow-y: scroll;
 
           &::-webkit-scrollbar {
@@ -544,7 +545,8 @@
 
       .orderDetails {
         max-width: 500px;
-        height: 80vh;
+        height: fit-content;
+        max-height: 80vh;
         
         grid-column-start: 1;
         grid-row-start: 1;
@@ -555,7 +557,8 @@
 
         .order_his_wrapper {
           padding: 10px;
-          height: 65vh;
+          height: fit-content;
+          max-height: 65vh;
           overflow-y: scroll;
 
           &::-webkit-scrollbar {
