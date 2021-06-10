@@ -7,19 +7,36 @@
 		padding: 40px 20px;
 		background: #0A2540;
 		color: white;
-		height: 100vh;
+		height: fit-content;
 
 		.info_containers {
 			display: grid;
 			grid-gap: 10px;
+			margin-top: 50px;
 
 			.wrapper {
-				padding: 20px;
+				padding: 80px 20px 20px;
 				max-width: 400px;
 				background: #0C2E4E;
-				border-radius: 8px;
+				border-radius: 12px;
 				border: 2px solid transparent;
 				cursor: pointer;
+				position: relative;
+				margin-bottom: 30px;
+
+				.wrap {
+					background: #5E17EB;
+					padding: 10px 20px;
+					border-radius: 12px;
+				}
+
+				.svgCompo {
+				 width: 100px;
+				 height: inherit;
+				 position: absolute;
+				 top: -30px;
+				 left: 40px;
+				}
 
 				span {
 					position: relative;
@@ -30,6 +47,43 @@
 
 			.wrapper:hover {
 				border: 2px solid #6b21a8;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 452px) {
+	.admin {
+
+		.admin_dashboard {
+			padding: 40px 20px;
+			background: #0A2540;
+			color: white;
+			height: 100vh;
+
+			.info_containers {
+				padding: 10px 20px;
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				grid-gap: 10px;
+
+				.wrapper {
+					max-width: 400px;
+					background: #0C2E4E;
+					border-radius: 8px;
+					border: 2px solid transparent;
+					cursor: pointer;
+
+					span {
+						position: relative;
+						top: -5px;
+						left: 10px;
+					}
+				}
+
+				.wrapper:hover {
+					border: 2px solid #6b21a8;
+				}
 			}
 		}
 	}

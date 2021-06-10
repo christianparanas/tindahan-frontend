@@ -31,7 +31,7 @@ export default function adminNav() {
 			<div className="icon_container">
 				<div className="logo">
           <Link href="/admin">
-            Administrator
+            <h3>Admin Panel</h3>
            </Link>
         </div>
         <svg onClick={openOverlay} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-hamburger" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M7 15h51M7 32h43M7 49h51"></path></svg>
