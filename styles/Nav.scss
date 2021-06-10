@@ -174,15 +174,24 @@
   }
 
   .admin_logout {
+    margin: 20px 5px 0;
+    font-weight: 700;
+    border: 2px solid #d73a49;
     background: #d73a49;
+    position: static;
     color: white;
-    padding: 8px 10px;
-    border-radius: 0;
-    outline: 0;
+    padding: 12px 15px;
     font-size: 12px;
-    width: fit-content;
-    margin: 50px 10px;
+    outline: none;
+    border-radius: 12px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      margin-right: 5px;
+    }
   }
 }
 

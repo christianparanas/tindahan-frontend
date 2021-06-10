@@ -73,7 +73,7 @@ function login() {
 		<ToastContainer />
 			<Nav />
 			<div className="loginContentWrapper">
-				<img src="/loginLogo.png" alt="user login logo" />
+				<img src="/login.png" alt="user login logo" />
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<div className="loginEmailWrapper">
 						<label htmlFor="email">Email</label>

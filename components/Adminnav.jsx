@@ -47,9 +47,9 @@ export default function adminNav() {
           <Link href="/admin/customers/"><div className="navOp">Customers</div></Link>
           <Link href="/admin/products/"><div className="navOp">Products</div></Link>
           <Link href="/admin/orders/"><div className="navOp">Transactions</div></Link>
-          <div className="navOp">Administrators</div>
+          <div className="navOp">Admin</div>
         </div>
-        <div onClick={logout} className="admin_logout">LOGOUT</div>
+        <div onClick={logout} className="admin_logout"><i className="fad fa-sign-out-alt"></i> Logout</div>
       </div>
 		</div>
 	)

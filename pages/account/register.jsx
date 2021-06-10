@@ -73,7 +73,7 @@ function register() {
 			 <ToastContainer />
 			<Nav />
 			<div className="loginContentWrapper">
-				<img src="/regLogo.png" alt="user reg logo" />
+				<img src="/reg.png" alt="user reg logo" />
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<div className="loginEmailWrapper">
 						<label htmlFor="regfirstname">Full name</label>
