@@ -195,7 +195,7 @@ export default function Nav(props) {
 			<div className={upperNav}>
 				<div className="logo">
           <Link href="/">
-            <img src="/logo.png" alt="" />
+            <img src="/tindahan.png" alt="logo ini dapat hahaha" />
            </Link>
         </div>
 				<div className="upper_nav_svgs">
