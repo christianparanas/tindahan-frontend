@@ -249,9 +249,9 @@
 
     .accountDetails {
       border: 1px solid #e3e3e3;
-      padding: 10px 10px 60px;
+      padding: 20px;
       position: relative;
-      border-radius: 8px;
+      border-radius: 12px;
       border-color: transparent;
       box-shadow: 0 1px 3px rgba(50, 50, 93, 0.15), 0 1px 0 rgba(0, 0, 0, 0.02);
 
@@ -266,46 +266,50 @@
         }
       }
 
-      .update_info {
-        cursor: pointer;
-        border: 2px solid #6b21a8;
-        position: absolute;
-        color: #6b21a8;
-        right: 90px;
-        bottom: 10px;
-        font-size: 12px;
-        padding: 8px 15px;
-        border-radius: 12px;
-        font-weight: 700;
-      }
+      .options {
+          margin-top: 30px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-gap: 10px;
+          text-align: center;
 
-      .logout {
-        font-weight: 700;
-        border: 2px solid #d73a49;
-        background: #d73a49;
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
-        color: white;
-        padding: 8px 15px;
-        font-size: 12px;
-        outline: none;
-        border-radius: 12px;
-        cursor: pointer;
+          .update_info {
+            cursor: pointer;
+            background: #6b21a8;
+            position: static;
+            color: #fff;
+            font-size: 12px;
+            padding: 12px 15px;
+            border-radius: 12px;
+            font-weight: 700;
+          }
 
-        i {
-          margin-right: 5px;
-          font-size: 15px;
+          .logout {
+            font-weight: 700;
+            border: 2px solid #d73a49;
+            background: #d73a49;
+            position: static;
+            color: white;
+            padding: 12px 15px;
+            font-size: 12px;
+            outline: none;
+            border-radius: 12px;
+            cursor: pointer;
+
+            i {
+              margin-right: 5px;
+              font-size: 15px;
+            }
+          }
         }
-      }
     }
 
     .orderDetails {
-      border: 1px solid #e3e3e3;
-      padding: 10px 10px;
+      
+      padding: 20px;
       position: relative;
       border-radius: 0;
-      border-radius: 8px;
+      border-radius: 12px;
       height: fit-content;
       border-color: transparent;
       box-shadow: 0 1px 3px rgba(50, 50, 93, 0.15), 0 1px 0 rgba(0, 0, 0, 0.02);
@@ -318,7 +322,7 @@
         .order_specific {
           border: 2px solid transparent;
           position: relative;
-          border-radius: 5px;
+          border-radius: 12px;
           padding: 10px;
           cursor: pointer;
           box-shadow: 0 1px 3px rgba(50, 50, 93, 0.15),
@@ -397,7 +401,7 @@
       padding: 90px 20px;
       height: fit-content;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 400px;
 
       h2 {
         margin: 0 0 20px 0;
@@ -450,10 +454,47 @@
         height: 100%;
         grid-column-start: 2;
         border: 1px solid #e3e3e3;
-        padding: 20px 20px 80px;
         position: relative;
-        border-radius: 6px;
+        padding: 20px;
+        border-radius: 12px;
         height: fit-content;
+
+        .options {
+          margin-top: 30px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-gap: 10px;
+          text-align: center;
+
+          .update_info {
+            cursor: pointer;
+            background: #6b21a8;
+            position: static;
+            color: #fff;
+            font-size: 12px;
+            padding: 12px 15px;
+            border-radius: 12px;
+            font-weight: 700;
+          }
+
+          .logout {
+            font-weight: 700;
+            border: 2px solid #d73a49;
+            background: #d73a49;
+            position: static;
+            color: white;
+            padding: 12px 15px;
+            font-size: 12px;
+            outline: none;
+            border-radius: 12px;
+            cursor: pointer;
+
+            i {
+              margin-right: 5px;
+              font-size: 15px;
+            }
+          }
+        }
       }
 
       .orderDetails {
@@ -461,9 +502,9 @@
         grid-column-start: 1;
         grid-row-start: 1;
         border: 1px solid #e3e3e3;
-        padding: 20px 20px 40px;
+        padding: 30px;
         position: relative;
-        border-radius: 6px;
+        border-radius: 12px;
 
       }
     }

@@ -236,8 +236,10 @@ function account() {
                     </svg>
                     {user__address}
                   </div>
-                  <div onClick={open_UpdateModal} className="update_info">Update Details</div>
-                  <div className="logout" onClick={logout}>Logout</div>
+                  <div className="options">
+                    <div onClick={open_UpdateModal} className="update_info"><i className="fad fa-file-edit"></i> Update</div>
+                    <div className="logout" onClick={logout}><i className="fad fa-sign-out-alt"></i> Logout</div>
+                  </div>
                 </>
               )}
             </div>
