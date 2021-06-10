@@ -46,6 +46,8 @@ function account() {
   const [user__emailModal, setUser__emailModal] = useState("")
   const [user__addressModal, setUser__addressModal] = useState("");
 
+  const [userHasOrders, setUserHasOrders] = useState(false)
+
 
   // for rerender
   const [rerender, setRerender] = useState(1)
@@ -66,6 +68,7 @@ function account() {
         logout();
       } else {
         setLoading(true);
+          loadUserInfo()
          loadUserOrders();
       }
     }
@@ -77,13 +80,33 @@ function account() {
   };
 
   const loadUserOrders = () => {
+    console.log(cookies.user.result.id)
+
     axios
       .post(process.env.BACKEND_BASEURL + "/userorderhistory", {
         id: cookies.user.result.id,
       })
       .then((res) => {
         setUserOrders(res.data.result);
-        console.log(res.data.result);
+        console.log(res.data.result)
+        if(res.data.result == []) {
+          setUserHasOrders(false)
+        } else {
+          setUserHasOrders(true)
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const loadUserInfo = () => {
+    axios
+      .post(process.env.BACKEND_BASEURL + "/loaduserinfo", {
+        id: cookies.user.result.id,
+      })
+      .then((res) => {
+        console.log(res.data);
 
         setUser__id(res.data.result[0].customerId)
         setUser__name(res.data.result[0].name)
@@ -118,11 +141,11 @@ function account() {
   };
 
 
-
   const user_info_update = () => {
-    axios
+    if(user__nameModal.length != 0 && user__emailModal != 0 && user__addressModal != 0) {
+      axios
       .post(process.env.BACKEND_BASEURL + "/updateuserinfo", {
-        id: user__id,
+        id: cookies.user.result.id,
         name: user__nameModal,
         email: user__emailModal,
         address: user__addressModal
@@ -139,6 +162,9 @@ function account() {
       .catch((err) => {
         console.log(err);
       });
+    } else {
+      console.log("filled all fields")
+    }
   }
 
   const open_UpdateModal = () => {
@@ -152,7 +178,6 @@ function account() {
   }
   
 
-
   return (
     <>
       {loading && (
@@ -162,7 +187,7 @@ function account() {
           <Nav />
           <div className="accountWrapper">
             <div className="accountDetails">
-              { userorders && (
+              {user__email && (
                 <>
                   <h3>Account</h3>
                   <div className="ww">
@@ -327,7 +352,8 @@ function account() {
                 Order History <i className="fal fa-dolly"></i>
               </h3>
               <div className="order_his_wrapper">
-                {userorders.map((val, key) => {
+                {userHasOrders ? (
+                userorders.map((val, key) => {
                   return (
                     <div
                       onClick={() => {
@@ -366,8 +392,8 @@ function account() {
                       </div>
                     </div>
                   );
-                })}
-              </div>
+                })) : (<div>No history</div>)}
+              </div> 
             </div>
           </div>
           <Footer />
