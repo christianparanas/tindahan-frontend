@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useCookies } from 'react-cookie';
 import { isExpired, decodeToken } from "react-jwt";
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 
 export default function NewProductModal() {
@@ -90,9 +91,13 @@ export default function NewProductModal() {
 		<>
 		{ loading && (
 			<>
-		<Adminnav />
+
 		<div className="admin_addproduct_modal">
 		<ToastContainer />
+		<Link href="/admin/products">
+					<svg className="back_btn" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+		</Link>
+
 
 			<h3>Add new product</h3>
 			<form onSubmit={handleSubmit(onSubmit)}>
@@ -103,7 +108,7 @@ export default function NewProductModal() {
 				<div className="input_wrapper">
 					<label htmlFor="">Image</label>
 					<input name="image" type="file" onChange={previewImage} accept='image/*' ref={register({ required: true })} />
-					{previewImg && ( <img className="previewImg" src={previewImg} /> )}
+					{previewImg && ( <><h3>Product Picture</h3><img className="previewImg" src={previewImg} /></> )}
 				</div>
 				<div className="input_wrapper">
 					<label htmlFor="">Description</label>

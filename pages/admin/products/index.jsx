@@ -174,7 +174,7 @@ export default function Products() {
 				<div onClick={closeUpdateModal} className={placeOrderOverlay}></div>
 				<div className={updateModal}>
 					<div className="update_head">
-						<div>Edit product</div>
+						<h3>Edit product</h3>
 						<div>
 							<svg onClick={closeUpdateModal} width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
 						</div>
