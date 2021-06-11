@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import Adminnav from '../../../components/Adminnav'
+import AdminSidebar from '../../../components/AdminSidebar'
 
 import { useForm } from "react-hook-form";
 import Link from 'next/link'
@@ -90,6 +91,8 @@ export default function Products() {
 
 	// delete item function
 	const handleItemDelete = (item_id) => {
+		console.log(item_id)
+
 		let ans = confirm('Are you sure you want to delete this item?')
 		if(ans) {
 			axios.post(process.env.BACKEND_BASEURL + "/delproduct", {
@@ -97,8 +100,14 @@ export default function Products() {
 
 			}).then(res => {
 				// show toast and reload page to view changes
-				toast.success("Item successfully deleted!", { autoClose: 2000 })
-				setTimeout(function(){ window.location.reload(false); }, 1800);
+				if(res.status == 200) {
+					toast.success("Product deleted!", { autoClose: 2000 })
+					setrerender(state => ({...rerender}))
+
+				} else if(res.status == 202) {
+					toast.error(`${res.data.message}`, { autoClose: 5000 })
+				}
+
 			}).catch((error) => {
 	      if(!error.status) {
 	      	// show this toast notif if user have network issue
@@ -191,7 +200,6 @@ export default function Products() {
 					</form>
 				</div>
 
-
 				<div className="admin_headers">
 					<h3>Products</h3>
 					<Link href="/admin/products/newproduct/"><div className="addNew">
@@ -200,35 +208,47 @@ export default function Products() {
 					</div>
 					</Link>
 				</div>
-				
-				<div className="admin_products_wrapper">
+					
+				<div className="content_wrap">
+					<AdminSidebar page={3} />	
+					<div className="admin_products_wrapper">
+						<div className="admin_add">
+							<h3>Products</h3>
+							<Link href="/admin/products/newproduct/">
+							<div className="addNew">
+							<i className="fal fa-plus-circle"></i>
+								<span>Add new product</span>
+							</div>
+							</Link>
+						</div>
 
-				{hasProductInDB ? 
-					// render this if there's an item in db
-					(<>{products.map((val, key) => {
-				  return (
-				   <div className="admin_product" key={key}>
-			 			<Image width={120} height={120} src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.product_image}`} alt="" />
-			 			<div className="p_details">
-			 				<div className={`${val.product_quantity > 0 ? "outStock" : "outStock show_outStock"}`}>Out of Stock</div>
-			 				<div>ID: {val.product_id}</div>
-				 			<div>Name: {val.product_name}</div>
-				 			<div>Price: ₱{val.product_price.toLocaleString()}</div>
-				 			<div>Quantity: {val.product_quantity}</div>
-				 			<div className="p_details_op">
-				 				<div>
-					 				<svg onClick={() => openUpdateModal(val)} width="20" height="20" fill="none" stroke="skyblue" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-					 			</div>
-					 			<div>
-					 				<svg onClick={() => handleItemDelete(val.product_id)} width="20" height="20" fill="none" stroke="red" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+					{hasProductInDB ? 
+						// render this if there's an item in db
+						(<>{products.map((val, key) => {
+					  return (
+					   <div className="admin_product" key={key}>
+				 			<Image width={120} height={120} src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.product_image}`} alt="" />
+				 			<div className="p_details">
+				 				<div className={`${val.product_quantity > 0 ? "outStock" : "outStock show_outStock"}`}>Out of Stock</div>
+				 				<div>ID: {val.product_id}</div>
+					 			<div>Name: {val.product_name}</div>
+					 			<div>Price: ₱{val.product_price.toLocaleString()}</div>
+					 			<div>Quantity: {val.product_quantity}</div>
+					 			<div className="p_details_op">
+					 				<div className="op update_op" onClick={() => openUpdateModal(val)}>
+						 				<i className="fal fa-file-edit"></i> Update
+						 			</div>
+						 			<div className="op del_op" onClick={() => handleItemDelete(val.product_id)}>
+						 				<i className="fal fa-trash-alt"></i> Delete
+						 			</div>
 					 			</div>
 				 			</div>
-			 			</div>
-			 		</div>
-				 	)
-				 	// if there's no item, render this msg
-				})}</>) : (<div className="stateDB_msg">{ stateDB }</div>)
-					}
+				 		</div>
+					 	)
+					 	// if there's no item, render this msg
+					})}</>) : (<div className="stateDB_msg">{ stateDB }</div>)
+						}
+					</div>
 				</div>
 
 			</div>

@@ -6,7 +6,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useCookies } from 'react-cookie';
 import { isExpired, decodeToken } from "react-jwt";
 import { useRouter } from 'next/router'
+
 import Adminnav from '../../../components/Adminnav'
+import AdminSidebar from '../../../components/AdminSidebar'
 
 export default function orders() {
 	const [cookies, setCookie, removeCookie] = useCookies(['admin']);
@@ -66,7 +68,7 @@ export default function orders() {
 
 
 				<div className="admin_orders_content">
-					<h3>Orders</h3>
+					
 
 					<div className="orders_wrapper">
 					 {hasordersInDB ? 
