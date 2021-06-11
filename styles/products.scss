@@ -3,6 +3,7 @@
 
 .products {
 	font-family: 'Montserrat', sans-serif;
+	background: #fff;
 
 
 	.nav {
@@ -16,6 +17,7 @@
 	  background-color: white;
 		border-bottom: 1px solid #e8e8e1;
 		background: white;
+		
 
 	.upper_nav_svgs {
 
@@ -31,25 +33,26 @@
 	}
 
 	.products_grid {
-		padding: 20px 10px 80px;
+		padding: 20px 20px 80px;
 
 		h3 {
 			color: #000;
 		}
 
 		.p_con {
-			border-radius: 5px;
-			border-color: transparent;
-		box-shadow: 0 1px 3px rgba(50,50,93,0.15),0 1px 0 rgba(0,0,0,0.02);
+			border-radius: 15px;
+			background: white;
+			box-shadow: 0 14px 30px 0 RGB(43 80 237 / 20%);
+
 		img {
-			border-top-left-radius: 5px;
-			border-top-right-radius: 5px;
+			border-top-left-radius: 15px;
+			border-top-right-radius: 15px;
 		}
 
 		.qq {
 			padding: 10px;
-			border-bottom-left-radius: 8px;
-			border-bottom-right-radius: 8px;
+			border-bottom-left-radius: 15px;
+			border-bottom-right-radius: 15px;
 
 			h3 {
 				margin: 0;
@@ -130,21 +133,21 @@
 		}
 
 	.product_contents {
-		width: 90%;
+		width: 85%;
 		height: fit-content;
 		padding: 0;
-		border-radius: 8px;
+		border-radius: 20px;
 		margin: 20px auto;
 	border-color: transparent;
-	box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
+	box-shadow: 0 14px 30px 0 RGB(43 80 237 / 20%);
 	
 
 
 		img {
 			width: 100%;
 			max-height: 320px;
-			border-top-left-radius: 4px;
-			border-top-right-radius: 4px;
+			border-top-left-radius: 20px;
+			border-top-right-radius: 20px;
 		}
 
 
@@ -197,7 +200,7 @@
 				height: 56px;
 				border: 2px solid #f3f4f5;
 				box-sizing: border-box;
-				border-radius: 8px;
+				border-radius: 20px;
 				}
 
 				.quanlabel {
@@ -242,7 +245,7 @@
 
 
 
-@media only screen and (min-width: 452px) {
+@media only screen and (min-width: 600px) {
 	.products {
 
 
@@ -255,14 +258,12 @@
 
 			.p_con {
 				transition: all .2s ease-in-out;
-				border-radius: 5px;
-				border-color: transparent;
-			box-shadow: 0 1px 3px 0 RGB(27 36 72 / 16%), 0 6px 12px 0 RGB(27 36 72 / 8%);
-			transition: all .2s;
+				border-radius: 15px;
+				transition: all .2s;
 			
 			img {
-				border-top-left-radius: 5px;
-				border-top-right-radius: 5px;
+				border-top-left-radius: 15px;
+				border-top-right-radius: 15px;
 				cursor: pointer;
 			}
 
@@ -343,15 +344,18 @@
 			height: fit-content;
 			display: grid;
 			grid-template-columns: 1fr 1fr;
-			border-radius: 8px;
+			border-radius: 20px;
 			margin: 80px auto;
 			padding: 0;
-			box-shadow: 0 1px 3px 0 RGB(27 36 72/16%), 0 6px 12px 0 RGB(27 36 72/8%);
+			box-shadow: 0 14px 30px 0 RGB(43 80 237 / 20%);
 
 			img {
 				width: 400px;
 				height: 100%;
 				margin: 0;
+				border-top-left-radius: 20px;
+				border-bottom-left-radius: 20px;
+				border-top-right-radius: 0;
 			}
 
 
@@ -398,7 +402,7 @@
 					height: 56px;
 					border: 2px solid #f3f4f5;
 					box-sizing: border-box;
-					border-radius: 8px;
+					border-radius: 20px;
 					}
 
 					.quanlabel {

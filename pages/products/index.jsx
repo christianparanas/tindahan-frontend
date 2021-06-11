@@ -77,9 +77,9 @@ export default function products() {
 						<div className="products_grid">
 							<h3>Products</h3>
 							<ResponsiveMasonry
-                columnsCountBreakPoints={{450: 2, 750: 3, 900: 4}}
+                columnsCountBreakPoints={{450: 2, 750: 4, 900: 6}}
             >
-							<Masonry columnsCount={2} gutter="10px">
+							<Masonry columnsCount={2} gutter="15px">
 								{products.map((val, key) => {
 									return (
 										<motion.div className="p_con" key={key}>
