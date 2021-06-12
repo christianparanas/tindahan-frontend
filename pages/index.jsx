@@ -13,9 +13,6 @@ import Link from 'next/link'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-
 
 // components
 import Nav from '../components/Nav'
@@ -84,16 +81,8 @@ export default function Home() {
     removeCookie('user')
   }
 
-
-  // fontawesome
-     // <i className="fad fa-users" style={{fontSize: "40px"}}></i>
-    // <i className="fad fa-chart-bar" style={{fontSize: "40px", '--fa-primary-color': "white", '--fa-secondary-color': ""}}></i>
-
   return (
-
-
     <div>
-
       <Head>
         <title>Tindahan</title>
         <link rel="icon" href="/favicon.ico" />
@@ -146,7 +135,6 @@ export default function Home() {
            </div>
          </div>
         </div>
-
         <Footer />
       </main>
     </div>

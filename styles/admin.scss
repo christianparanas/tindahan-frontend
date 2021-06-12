@@ -117,18 +117,20 @@
 
 				.go_store {
 					position: absolute;
-					bottom: 25px;
+					bottom: 85px;
 					width: calc(100% - 40px);
 					text-align: center;
 					background: #310F74;
 					color: white;
 					padding: 15px;
-					border-radius: 15px;
+					border-radius: 20px;
 					display: flex;
 					align-items: center;
 					justify-content: center;
 					cursor: pointer;
 					transition: all .3s ease;
+					box-shadow: 0 14px 30px 0 RGB(43 80 237 / 20%);
+					font-size: 12px;
 
 					i {
 						margin-right: 10px;
@@ -140,6 +142,15 @@
 
 					&:hover {
 						background: #5E17EB;
+					}
+				}
+
+				.logout_sidebar {
+					bottom: 25px;
+					background: #FF5757;
+
+					&:hover {
+						background: red;
 					}
 				}
 
@@ -159,7 +170,7 @@
 					
 
 					.s_op {
-						padding: 15px;
+						padding: 15px 20px;
 						margin-bottom: 5px;
 						border-radius: 18px;
 						transition: all .3s ease;
@@ -168,7 +179,8 @@
 							background: #5E17EB;
 							cursor: pointer;
 							color: white;
-							padding-left:  30px;
+							padding-left:  35px;
+							box-shadow: 0 14px 30px 0 RGB(43 80 237 / 20%);
 						}
 
 						i {
@@ -179,6 +191,7 @@
 					.cur_page {
 						background: #310F74;
 						color: white;
+						box-shadow: 0 14px 30px 0 RGB(43 80 237 / 20%);
 					}
 				}
 			}

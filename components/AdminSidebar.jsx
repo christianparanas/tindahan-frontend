@@ -16,8 +16,14 @@ export default function sidebar( props ) {
 						<img src="/tindahan.png" alt="sidebar logo" />
 					</div>
 					<Link href="/">
+						<div className="go_store logout_sidebar">
+							<i className="fad fa-sign-out"></i>
+							<h3>Logout</h3>
+						</div>
+					</Link>
+					<Link href="/">
 						<div className="go_store">
-							<i className="fal fa-store"></i>
+							<i className="fad fa-store"></i>
 							<h3>Store</h3>
 						</div>
 					</Link>

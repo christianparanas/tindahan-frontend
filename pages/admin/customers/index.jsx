@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useCookies } from 'react-cookie';
 import { isExpired, decodeToken } from "react-jwt";
 import { useRouter } from 'next/router'
+import AdminSidebar from '../../../components/AdminSidebar'
 
 
 export default function customers() {
@@ -75,20 +76,22 @@ export default function customers() {
 				<Adminnav />
 
 				<div className="admin_customers_mainWrapper">
-					<div className="admin_customers_header">
-						<h3>Customers</h3>
+					<AdminSidebar page={2} />
+					<div className="customer_head">
+						<div className="admin_customers_header">
+							<h3>Customers</h3>
+						</div>
+						<div className="admin_h">
+							<div>Id</div>
+							<div>Email</div>
+							<div>View</div>
+						</div>
 					</div>
 
 					<div className="admin_customers_items">
 
 						{hasCustomerInDB ? 
 							(<>
-								<div className="admin_customer admin_h">
-									<div>Id</div>
-									<div>Email</div>
-									<div>View</div>
-								</div>
-
 								{customers.map((val, key) => {
 								return (
 									<div className="admin_customer" key={key}>
