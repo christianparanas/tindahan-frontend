@@ -26,12 +26,13 @@ function login() {
 	const failLog = () => toast.error("Invalid Email or Password!", { autoClose: 2000 });
 
 	const onSubmit = (data, e) => {
-		axios.post(process.env.BACKEND_BASEURL + "/login", {
+		axios.post(process.env.BACKEND_BASEURL + "/auth/login", {
 			email: data.email,
 			password: data.password,
 		}).then(res => {
+			console.log(res)
+
 				if(res.status == 200) {
-					console.log(res)
 					// show success toast
 					succLog()	
 				
@@ -41,10 +42,8 @@ function login() {
 		  			// clear inputs after submit
 					e.target.reset();
 				} else if(res.status == 202) {
-					toast.error("Invalid Email or Password!", { autoClose: 2000 });
-				} else if(res.status == 204) {
-					toast.error("User didn't exist!", { autoClose: 2000 });
-				}			
+					toast.error(res.data.message, { autoClose: 2000 });
+				}		
 		}).catch((error) => {
 			if(!error.status) {
 		 		toast.error("Network Error!", { autoClose: 2000 });

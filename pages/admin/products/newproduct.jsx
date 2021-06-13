@@ -23,9 +23,8 @@ export default function NewProductModal() {
 		const failLog = () => toast.error("Something went wrong!", { autoClose: 2000 });
 
 	const onSubmit = async (data, e) => {
-		
-		console.log(data)
-		axios.post(process.env.BACKEND_BASEURL + "/newproduct", {
+
+		axios.post(process.env.BACKEND_BASEURL + "/admin/newproduct", {
 			name: data.name,
 			// save the image name to db, so it can be used to retrive the image from cloudianry
 			image: data.image[0].name,

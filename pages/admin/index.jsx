@@ -56,7 +56,7 @@ export default function admin() {
 
 
 	const countOverview = () => {
-		axios.get(process.env.BACKEND_BASEURL + "/adminoverview")
+		axios.get(process.env.BACKEND_BASEURL + "/admin/overview")
 			.then(res => {
 				console.log(res.data)
 				setTotalSales(res.data.totalSales.total)
@@ -71,8 +71,6 @@ export default function admin() {
 	      console.log(error.response)
 	    })
 	}
-
-
 
 
 	return (

@@ -17,31 +17,25 @@ function register() {
 		const router = useRouter()
 		const { register, handleSubmit, watch, errors } = useForm();
 		const [cookies, setCookie, removeCookie] = useCookies(['user']);
-
-
-		//  toast config
-		const notify = () => toast.success("Registered Successfully!", {
-			autoClose: 3000,
-		});
 		
 
   	const onSubmit = (data, e) => {
-  		axios.post(process.env.BACKEND_BASEURL + "/register", {
+  		axios.post(process.env.BACKEND_BASEURL + "/auth/register", {
 				name: data.name,
 				email: data.email,
 				password: data.password,
 				address: data.address
-			}).then(data => {
-				if(data.status == 200) {
+			}).then(res => {
+				if(res.status == 200) {
 						// show toast
-		  		notify()
+		  		toast.success(res.data.message, { autoClose: 3000 });
+
 		  		setTimeout(function(){ window.location.href = "/account/login" }, 2000);
 		  		// clear inputs after submit
 					e.target.reset();
-				} else if(data.status == 202) {
-					toast.error("Email already exists!", { autoClose: 2000 });
+				} else if(res.status == 202) {
+					toast.error(res.data.message, { autoClose: 2000 });
 				}
-
 			}).catch((error) => {
 					if(!error.status) {
 				 		toast.error("Network Error!", { autoClose: 2000 });
@@ -65,8 +59,6 @@ function register() {
 				} 
 			}
 	}, [cookies])
-
-
 
 		return (
 		<div className="loginFormWrapper">

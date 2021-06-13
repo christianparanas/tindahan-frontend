@@ -24,7 +24,7 @@ export default function orders() {
 		// // check auth
 		// await checkAuth()
 
-		axios.get(process.env.BACKEND_BASEURL + '/adminorders')
+		axios.get(process.env.BACKEND_BASEURL + '/admin/orders')
 			.then(res => {
 					console.log(res.data.result)
 					setOrders(res.data.result)
@@ -49,7 +49,7 @@ export default function orders() {
 
 	const changeOrderStatus = (id, status) => {
 		if(status != "Delivered") {
-			axios.post(process.env.BACKEND_BASEURL + "/updateorderstatus", {
+			axios.post(process.env.BACKEND_BASEURL + "/admin/updateorderstatus", {
 				id: id
 
 			}).then(res => {

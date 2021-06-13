@@ -31,19 +31,16 @@ export default function Customer() {
 		await checkAuth()
 		console.log(customerId)
 
-		axios.post(process.env.BACKEND_BASEURL + '/specificcustomer',  
-			{ id: customerId 
-
-			}).then(res => {
-					console.log(res.data.result)
-					setCustomer(res.data.result)
-					// check if there's a product in db, if none, set the message to no item
-					if(res.status == 202) {
-						setNoUser(true)
-					} else {
-						// if there's a product, show the product map function
-						setHasCustomerInDB(true)
-					}
+		axios.post(process.env.BACKEND_BASEURL + '/admin/customer/' + customerId)
+			.then(res => {
+				setCustomer(res.data.result)
+				// check if there's a product in db, if none, set the message to no item
+				if(res.status == 202) {
+					setNoUser(true)
+				} else {
+					// if there's a product, show the product map function
+					setHasCustomerInDB(true)
+				}
 			}).catch((error) => {
 				if(!error.status) {
 					toast.error("Network Error!", { autoClose: 2000 });

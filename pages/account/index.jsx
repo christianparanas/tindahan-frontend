@@ -83,7 +83,7 @@ function account() {
     console.log(cookies.user.result.id)
 
     axios
-      .post(process.env.BACKEND_BASEURL + "/userorderhistory", {
+      .post(process.env.BACKEND_BASEURL + "/user/orders", {
         id: cookies.user.result.id,
       })
       .then((res) => {
@@ -102,7 +102,7 @@ function account() {
 
   const loadUserInfo = () => {
     axios
-      .post(process.env.BACKEND_BASEURL + "/loaduserinfo", {
+      .post(process.env.BACKEND_BASEURL + "/user/credentials", {
         id: cookies.user.result.id,
       })
       .then((res) => {
@@ -144,7 +144,7 @@ function account() {
   const user_info_update = () => {
     if(user__nameModal.length != 0 && user__emailModal != 0 && user__addressModal != 0) {
       axios
-      .post(process.env.BACKEND_BASEURL + "/updateuserinfo", {
+      .post(process.env.BACKEND_BASEURL + "/user/updatecredentials", {
         id: cookies.user.result.id,
         name: user__nameModal,
         email: user__emailModal,

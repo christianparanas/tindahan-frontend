@@ -48,7 +48,7 @@ export default function Products() {
 		// check auth
 		await checkAuth()
 
-		axios.get(process.env.BACKEND_BASEURL + '/adminproducts')
+		axios.get(process.env.BACKEND_BASEURL + '/admin/products')
 			.then(res => {
 					console.log(res)
 					setProducts(res.data.result)
@@ -89,28 +89,26 @@ export default function Products() {
 	}
 
 
-	// delete item function
 	const handleItemDelete = (item_id) => {
-		console.log(item_id)
 
 		let ans = confirm('Are you sure you want to delete this item?')
-		if(ans) {
-			axios.post(process.env.BACKEND_BASEURL + "/delproduct", {
-				id: item_id
 
-			}).then(res => {
+		if(ans) {
+			axios.delete(process.env.BACKEND_BASEURL + "/admin/deleteproduct/" + item_id)
+			.then(res => {
+				console.log(res)
+
 				// show toast and reload page to view changes
 				if(res.status == 200) {
-					toast.success("Product deleted!", { autoClose: 2000 })
+					toast.success(res.data.message, { autoClose: 2000 })
 					setrerender(state => ({...rerender}))
 
 				} else if(res.status == 202) {
-					toast.error(`${res.data.message}`, { autoClose: 5000 })
+					toast.error(res.data.message, { autoClose: 5000 })
 				}
 
 			}).catch((error) => {
 	      if(!error.status) {
-	      	// show this toast notif if user have network issue
 	      	toast.error("Network Error!", { autoClose: 2000 });
 	      }
 	      console.log(error.response)
@@ -118,12 +116,8 @@ export default function Products() {
 		} 
 	}
 
-	// submitting data from update compoennt to update an item
-	const onSubmit = async (data, e) => {
-		console.log(data)
-		console.log(`id: ${p_id}`)
-
-		axios.post(process.env.BACKEND_BASEURL + "/updateproduct", {
+	const handleUpdateItem = (data) => {
+		axios.post(process.env.BACKEND_BASEURL + "/admin/updateproduct", {
 			id: p_id,
 			name: data.name,
 			description: data.description,
@@ -133,10 +127,9 @@ export default function Products() {
 			// rerender
 			setrerender(state => ({...rerender}))
 			// show toast and close modal
-			toast.success("Item updated!", { autoClose: 2000 })
+			toast.success(res.data.message, { autoClose: 2000 })
 			closeUpdateModal()
 
-			
 		}).catch((error) => {
       if(!error.status) {
       	// show this toast notif if user have network issue
@@ -146,6 +139,14 @@ export default function Products() {
     })
 	}
 
+	// submitting data from update compoennt to update an item
+	const onSubmit = async (data, e) => {
+		console.log(data)
+		console.log(`id: ${p_id}`)
+
+		// call update function
+		handleUpdateItem(data)
+	}
 
 
 	// update function, setting the specific item value to vaariable to put it in the inputs update

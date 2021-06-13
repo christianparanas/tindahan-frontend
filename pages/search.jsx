@@ -27,20 +27,18 @@ export default function Search() {
 		if(router.query.search != undefined) {
 			setQuery(router.query.search)
 
-			axios.post(process.env.BACKEND_BASEURL + "/searchitem", {
-				query: await router.query.search,
-
-			}).then(res => {
+			axios.post(process.env.BACKEND_BASEURL + "/search/" + router.query.search)
+			.then(res => {
 				console.log(res.data)
 
 				if(res.status == 202) {
-		  setStateDB('No Item(s) found')
-		  setHasProductInDB(false)
-		} else {
-		  // if there's a product, show the product map function
-		  setHasProductInDB(true)
-		  setProductArr(res.data.result)
-		}
+				  setStateDB('No Item(s) found')
+				  setHasProductInDB(false)
+				} else {
+				  // if there's a product, show the product map function
+				  setHasProductInDB(true)
+				  setProductArr(res.data.result)
+				}
 
 			}).catch((error) => {
 		if(!error.status) {

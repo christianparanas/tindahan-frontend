@@ -16,7 +16,7 @@ export default function auth() {
 
 
 	const onSubmit = (data, e) => {
-  	axios.post(process.env.BACKEND_BASEURL + "/adminlogin", {
+  	axios.post(process.env.BACKEND_BASEURL + "/auth/adminlogin", {
 			username: data.username,
 			password: data.password,
 		}).then(res => {
@@ -31,10 +31,8 @@ export default function auth() {
 		  		// clear inputs after submit
 					e.target.reset();	
 				} else if(res.status == 202) {
-					toast.error("Invalid Username or Password!", { autoClose: 2000 });
-				} else if(res.status == 204) {
-					toast.error("User didn't exist!", { autoClose: 2000 });
-				}		
+					toast.error(res.data.message, { autoClose: 2000 });
+				}
 		}).catch((error) => {
 		 	if(!error.status) {
 		 		toast.error("Network Error!", { autoClose: 2000 });

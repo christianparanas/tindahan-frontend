@@ -23,7 +23,7 @@ export default function customers() {
 		// check auth
 		await checkAuth()
 
-		axios.get(process.env.BACKEND_BASEURL + '/admincustomers')
+		axios.get(process.env.BACKEND_BASEURL + '/admin/customers')
 			.then(res => {
 					console.log(res.data.result)
 					setCustomers(res.data.result)

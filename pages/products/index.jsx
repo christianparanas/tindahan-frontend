@@ -28,7 +28,6 @@ export default function products() {
 
 		axios.get(process.env.BACKEND_BASEURL + '/products')
 			.then(res => {
-					console.log(res.data.result)
 					setProducts(res.data.result)
 
 					// check if there's a product in db, if none, set the message to no item

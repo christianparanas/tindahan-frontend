@@ -90,7 +90,7 @@ export default function Nav(props) {
     if(cookies.user) {
 
       // get all the cart item of the user
-      axios.post(process.env.BACKEND_BASEURL + '/cart', {
+      axios.post(process.env.BACKEND_BASEURL + '/user/cart', {
         id: cookies.user.result.id
       })
         .then( async res => {
@@ -132,7 +132,7 @@ export default function Nav(props) {
     if(qty == 1) {
       // check if the cart item qty exceed in the stock in the product
       if(cart_qty < stock) {
-          axios.post(process.env.BACKEND_BASEURL + '/updatecartqty', {
+          axios.post(process.env.BACKEND_BASEURL + '/user/updatecartqty', {
           order: "add",
           id: id
         })
@@ -150,7 +150,7 @@ export default function Nav(props) {
     } else {
       // check if cart qty greater than 0, else remove the item
       if(cart_qty <= 1) {
-        axios.post(process.env.BACKEND_BASEURL + '/delcartitem', {
+        axios.post(process.env.BACKEND_BASEURL + '/user/delcartitem', {
           id: id
         })
         .then( async res => {
@@ -162,7 +162,7 @@ export default function Nav(props) {
 
       } else {
         // if greater than or equal to 1, procced in changing the cart item qty
-        axios.post(process.env.BACKEND_BASEURL + '/updatecartqty', {
+        axios.post(process.env.BACKEND_BASEURL + '/user/updatecartqty', {
           order: "reduce",
           id: id
         })

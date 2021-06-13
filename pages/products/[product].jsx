@@ -31,10 +31,8 @@ export default function products() {
 	const [rerenderNav, setRerenderNav] = useState(1)
 
 	useEffect(() => {
-		axios.post(process.env.BACKEND_BASEURL + '/specificproduct',  
-			{ id: product 
-
-			}).then( async res => {
+		axios.post(process.env.BACKEND_BASEURL + '/products/' + product)
+			.then( async res => {
 					console.log(res.data.result)
 					setProductArr(res.data.result)
 					// check if there's a product in db, if none, set the message to no item
@@ -75,7 +73,7 @@ export default function products() {
 			// check if quantity not equals to zero
 			if(quan != 0) {
 				// access endpoint and send customer id, item qty and product id
-				axios.post(process.env.BACKEND_BASEURL + '/addtocart', {
+				axios.post(process.env.BACKEND_BASEURL + '/user/addtocart', {
 		      customer_id: cookies.user.result.id,
 		      qty: quan,
 		     	item_id: product

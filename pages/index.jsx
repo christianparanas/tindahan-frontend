@@ -38,7 +38,7 @@ export default function Home() {
   useEffect( async () => {
     checkAuth();
 
-    axios.get(process.env.BACKEND_BASEURL + '/homefourproducts')
+    axios.get(process.env.BACKEND_BASEURL + '/homeproducts')
       .then( async res => {
           console.log(res.data)
           setProductArr(res.data.resultfour)
