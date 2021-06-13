@@ -138,6 +138,8 @@
   background-color: white;
   transition: all .4s;
   padding: 20px 10px;
+  box-shadow: 0 14px 30px 0 RGB(43 80 237 / 20%);
+
 
   .closeNavBtn {
     width: 100%;
@@ -156,7 +158,7 @@
     margin-top: 30px;
 
     .navOp {
-      padding: 10px;
+      padding: 15px 15px;
       cursor: pointer;
       width: 100%;
       position: relative;
@@ -164,30 +166,40 @@
       color: #000;
       cursor: pointer;
       margin-right: 3px;
-      border-radius: 8px;
+      border-radius: 20px;
+      transition: all .3s ease;
+
+      i {
+        margin-right: 12px;
+      }
     }
 
     .navOp:hover {
       color: white;
       background: #6b21a8;
+      padding-left: 25px;
+      box-shadow: 0 14px 30px 0 RGB(43 80 237 / 20%);
     }
   }
 
   .admin_logout {
-    margin: 20px 5px 0;
+    margin: 20px 0 0;
     font-weight: 700;
     border: 2px solid #d73a49;
     background: #d73a49;
     position: static;
     color: white;
-    padding: 12px 15px;
-    font-size: 12px;
+    padding: 15px 15px;
     outline: none;
-    border-radius: 12px;
+    border-radius: 20px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    bottom: 30px;
+    width: calc(100% - 40px);
+    box-shadow: 0 14px 30px 0 RGB(43 80 237 / 20%);
 
     i {
       margin-right: 5px;
@@ -197,7 +209,7 @@
 
 .sidebarShow {
   right: 0;
-  padding: 20px 10px;
+  padding: 20px 20px;
 }
 
 

@@ -37,6 +37,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.3.1":
+  version "7.14.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.5.tgz#665450911c6031af38f81db530f387ec04cd9a98"
+  integrity sha512-121rumjddw9c3NCQ55KGkyE1h/nzWhU/owjhw0l4mQrkzz4x9SGS1X8gFLraHwX7td3Yo4QTL+qj0NcIzN87BA==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/types@7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.8.3.tgz#5a383dffa5416db1b73dedffd311ffd0788fb31c"
@@ -2344,6 +2351,13 @@ raw-body@2.4.1:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
+react-animated-numbers@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/react-animated-numbers/-/react-animated-numbers-0.3.1.tgz#f32c4963cb9ab61dfc1864cd2cf94ff1e7edc92f"
+  integrity sha512-r9YiB1OsmaPR5UBnIM9v7sKoJ90B6BXbbmAqa1/ZlZptxJq32O2AafUSYJ1mbViOuo3lrNp+NJZkIYjIIo6EVw==
+  dependencies:
+    react-spring "^8.0.27"
+
 react-chartjs-2@^2.11.1:
   version "2.11.1"
   resolved "https://registry.yarnpkg.com/react-chartjs-2/-/react-chartjs-2-2.11.1.tgz#a78d0df05fc8bc8ffcd4c4ab5b89a25dd2ca3278"
@@ -2428,6 +2442,14 @@ react-responsive-masonry@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/react-responsive-masonry/-/react-responsive-masonry-2.1.2.tgz#fdf0e71c1601bde73a32a5ae68b6c1b85250f87d"
   integrity sha512-Vd5XWx077VGL+Pnv4dxVA4rBl4Y5Y6snLqm29QFqHnEE8GNJtqUW96F6SgIcgWJoxfJC52Ifi5Oixz1PdeEpOA==
+
+react-spring@^8.0.27:
+  version "8.0.27"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.27.tgz#97d4dee677f41e0b2adcb696f3839680a3aa356a"
+  integrity sha512-nDpWBe3ZVezukNRandTeLSPcwwTMjNVu1IDq9qA/AMiUqHuRN4BeSWvKr3eIxxg1vtiYiOLy4FqdfCP5IoP77g==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    prop-types "^15.5.8"
 
 react-toastify@^7.0.3:
   version "7.0.3"

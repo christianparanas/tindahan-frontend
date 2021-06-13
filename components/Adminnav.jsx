@@ -43,11 +43,34 @@ export default function adminNav() {
           <svg aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-close" viewBox="0 0 64 64"><defs></defs><path className="cls-1" d="M19 17.61l27.12 27.13m0-27.12L19 44.74"></path></svg>
         </div>
         <div className="navOptions">
-          <Link href="/admin"><div className="navOp">Dashboard</div></Link>
-          <Link href="/admin/customers/"><div className="navOp">Customers</div></Link>
-          <Link href="/admin/products/"><div className="navOp">Products</div></Link>
-          <Link href="/admin/orders/"><div className="navOp">Transactions</div></Link>
-          <div className="navOp">Admin</div>
+          <Link href="/admin">
+            <div className="navOp">
+              <i className="fal fa-home-lg"></i>
+              Home
+            </div>
+          </Link>
+          <Link href="/admin/customers/">
+            <div className="navOp">
+              <i className="far fa-users"></i>
+              Customers
+            </div>
+          </Link>
+          <Link href="/admin/products/">
+            <div className="navOp">
+              <i className="far fa-tshirt"></i>
+              Products
+            </div>
+          </Link>
+          <Link href="/admin/orders/">
+            <div className="navOp">
+              <i className="far fa-credit-card-front"></i>
+              Orders
+            </div>
+          </Link>
+          <div className="navOp">
+            <i className="far fa-user-cog"></i>
+            Admin
+          </div>
         </div>
         <div onClick={logout} className="admin_logout"><i className="fad fa-sign-out-alt"></i> Logout</div>
       </div>
