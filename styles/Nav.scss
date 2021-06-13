@@ -167,7 +167,7 @@
       cursor: pointer;
       margin-right: 3px;
       border-radius: 20px;
-      transition: all .3s ease;
+      transition: all .2s ease;
 
       i {
         margin-right: 12px;
@@ -197,7 +197,7 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    bottom: 30px;
+    bottom: 15vh;
     width: calc(100% - 40px);
     box-shadow: 0 14px 30px 0 RGB(43 80 237 / 20%);
 

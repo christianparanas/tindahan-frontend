@@ -99,7 +99,7 @@ export default function admin() {
 				          includeComma={true}
 				          config={{ tension: 89, friction: 40 }}
 				          config={"stiff"}
-				          animationType={"calm"}
+				          animationType={"random"}
 				        />
 							</div>
 						</div>
@@ -119,7 +119,7 @@ export default function admin() {
 					          includeComma={true}
 					          config={{ tension: 89, friction: 40 }}
 					          config={"stiff"}
-					          animationType={"calm"}
+					          animationType={"random"}
 					        />
 								</div>
 							</div>
@@ -140,7 +140,7 @@ export default function admin() {
 					          includeComma={true}
 					          config={{ tension: 89, friction: 40 }}
 					          config={"stiff"}
-					          animationType={"calm"}
+					          animationType={"random"}
 					        />
 								</div>
 							</div>
@@ -161,7 +161,7 @@ export default function admin() {
 					          includeComma={true}
 					          config={{ tension: 89, friction: 40 }}
 					          config={"stiff"}
-					          animationType={"calm"}
+					          animationType={"random"}
 					        />
 								</div>
 							</div>
