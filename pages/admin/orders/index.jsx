@@ -68,7 +68,7 @@ export default function orders() {
 
 
 				<div className="admin_orders_content">
-					
+					<AdminSidebar page={4} />
 
 					<div className="orders_wrapper">
 					 {hasordersInDB ? 
@@ -97,9 +97,3 @@ export default function orders() {
 		</>
 	)
 }
-
-
-// <div className="nav_btn_wrapper">
-// 	<div className="nav_btn warn"> <i style={{fontSize: "20px", marginRight: "10px"}} className="fal fa-exclamation-circle"></i> Pending Orders</div>
-// 	<div className="nav_btn"><i style={{fontSize: "20px", marginRight: "10px"}} className="far fa-truck"></i> Delivered Orders</div>
-// </div>

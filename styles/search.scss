@@ -126,7 +126,9 @@
 	.search_page {
 
 		.search_main_wrapper {
-			padding: 40px 20px;
+			padding: 40px 60px;
+			width: 1400px;
+			margin: 0 auto;
 
 
 			.searchInput {
@@ -192,8 +194,8 @@
 				margin: 0 0 20px;
 				padding: 0 0 50px;
 				display: grid;
-				grid-template-columns: repeat(5, 1fr);
-				grid-gap: 10px;
+				grid-template-columns: repeat(6, 1fr);
+				grid-gap: 20px;
 
 				.state {
 					margin-top: 50px;
