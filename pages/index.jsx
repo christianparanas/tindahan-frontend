@@ -13,7 +13,6 @@ import Link from 'next/link'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
-
 // components
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
