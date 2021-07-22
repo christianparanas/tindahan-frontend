@@ -83,7 +83,7 @@ export default function products() {
 									return (
 										<motion.div className="p_con" key={key}>
 											<Link href={{ pathname: "/products/" + `${val.product_id}`}} as={`/products/${val.product_id}`}>
-												<img  style={{ width: "100%", display: "block" }} src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.product_image}`} alt="product image" />
+												<Image width="100" height="100" layout="responsive" src={`https://res.cloudinary.com/christianparanas/image/upload/v1617305941/Ecommerce/Products/${val.product_image}`} alt="product image" />
 											</Link>
 											<div className="qq">
 												<h3>{val.product_name}</h3>
