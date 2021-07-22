@@ -39,7 +39,6 @@ export default function Home() {
 
     axios.get(process.env.BACKEND_BASEURL + '/homeproducts')
       .then( async res => {
-          console.log(res.data)
           setProductArr(res.data.resultfour)
           setRemainingproductcount(res.data.resultlength)
           // check if there's a product in db, if none, set the message to no item
