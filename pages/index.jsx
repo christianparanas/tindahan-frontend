@@ -52,7 +52,7 @@ export default function Home() {
           }
       }).catch((error) => {
         if(!error.status) {
-          toast.error("Network Error!", { autoClose: 2000 });
+          toast.error("Something went wrong!", { autoClose: 2000 });
           setStateDB("Network error, Please check your internet connection.")
         } 
         console.log(error)
