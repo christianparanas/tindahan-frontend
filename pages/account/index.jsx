@@ -8,8 +8,8 @@ import { useCookies } from "react-cookie";
 import { isExpired, decodeToken } from "react-jwt";
 import { motion } from "framer-motion";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function account() {
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
@@ -34,24 +34,22 @@ function account() {
   // modal
   const [openClickOut, setOpenClickOut] = useState("clickoutsideModal");
   const [openModal, setOpenmodal] = useState("order_review_modal");
-  const [openUpdateModal, setOpenUpdateModal] = useState("updateInfo_wrapper")
+  const [openUpdateModal, setOpenUpdateModal] = useState("updateInfo_wrapper");
 
-    // update user info
+  // update user info
   const [user__id, setUser__id] = useState("");
   const [user__name, setUser__name] = useState("");
-  const [user__email, setUser__email] = useState("")
+  const [user__email, setUser__email] = useState("");
   const [user__address, setUser__address] = useState("");
 
   const [user__nameModal, setUser__nameModal] = useState("");
-  const [user__emailModal, setUser__emailModal] = useState("")
+  const [user__emailModal, setUser__emailModal] = useState("");
   const [user__addressModal, setUser__addressModal] = useState("");
 
-  const [userHasOrders, setUserHasOrders] = useState(false)
-
+  const [userHasOrders, setUserHasOrders] = useState(false);
 
   // for rerender
-  const [rerender, setRerender] = useState(1)
-
+  const [rerender, setRerender] = useState(1);
 
   useEffect(async () => {
     // check if have a user cookie
@@ -68,8 +66,8 @@ function account() {
         logout();
       } else {
         setLoading(true);
-          loadUserInfo()
-         loadUserOrders();
+        loadUserInfo();
+        loadUserOrders();
       }
     }
   }, [cookies, rerender]);
@@ -80,7 +78,7 @@ function account() {
   };
 
   const loadUserOrders = () => {
-    console.log(cookies.user.result.id)
+    console.log(cookies.user.result.id);
 
     axios
       .post(process.env.BACKEND_BASEURL + "/user/orders", {
@@ -88,11 +86,11 @@ function account() {
       })
       .then((res) => {
         setUserOrders(res.data.result);
-        console.log(res.data.result)
-        if(res.data.result == []) {
-          setUserHasOrders(false)
+        console.log(res.data.result);
+        if (res.data.result == []) {
+          setUserHasOrders(false);
         } else {
-          setUserHasOrders(true)
+          setUserHasOrders(true);
         }
       })
       .catch((err) => {
@@ -108,18 +106,28 @@ function account() {
       .then((res) => {
         console.log(res.data);
 
-        setUser__id(res.data.result[0].customerId)
-        setUser__name(res.data.result[0].name)
-        setUser__email(res.data.result[0].email)
-        setUser__address(res.data.result[0].address)
+        setUser__id(res.data.result[0].customerId);
+        setUser__name(res.data.result[0].name);
+        setUser__email(res.data.result[0].email);
+        setUser__address(res.data.result[0].address);
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  const orderModal = (id, status, total, payment, shipping, date, imgs, names, qty) => {
-    setOpenUpdateModal("updateInfo_wrapper")
+  const orderModal = (
+    id,
+    status,
+    total,
+    payment,
+    shipping,
+    date,
+    imgs,
+    names,
+    qty
+  ) => {
+    setOpenUpdateModal("updateInfo_wrapper");
     setOpenClickOut("clickoutsideModal showclickoutsideModal");
     setOpenmodal("order_review_modal showorder_review_modal");
 
@@ -137,46 +145,48 @@ function account() {
   const closeOrderModal = () => {
     setOpenClickOut("clickoutsideModal");
     setOpenmodal("order_review_modal");
-    setOpenUpdateModal("updateInfo_wrapper")
+    setOpenUpdateModal("updateInfo_wrapper");
   };
 
-
   const user_info_update = () => {
-    if(user__nameModal.length != 0 && user__emailModal != 0 && user__addressModal != 0) {
+    if (
+      user__nameModal.length != 0 &&
+      user__emailModal != 0 &&
+      user__addressModal != 0
+    ) {
       axios
-      .post(process.env.BACKEND_BASEURL + "/user/updatecredentials", {
-        id: cookies.user.result.id,
-        name: user__nameModal,
-        email: user__emailModal,
-        address: user__addressModal
-      })
-      .then((res) => {
-        if(res.status == 200) {
-          toast.success("Information Updated", { autoClose: 2000 });
-          setRerender(state => ({...rerender}))
-          closeOrderModal()
-        } else if(res.status == 202) {
-          toast.error("Something went wrong", { autoClose: 2000 });
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .post(process.env.BACKEND_BASEURL + "/user/updatecredentials", {
+          id: cookies.user.result.id,
+          name: user__nameModal,
+          email: user__emailModal,
+          address: user__addressModal,
+        })
+        .then((res) => {
+          if (res.status == 200) {
+            toast.success("Information Updated", { autoClose: 2000 });
+            setRerender((state) => ({ ...rerender }));
+            closeOrderModal();
+          } else if (res.status == 202) {
+            toast.error("Something went wrong", { autoClose: 2000 });
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else {
-      console.log("filled all fields")
+      console.log("filled all fields");
     }
-  }
+  };
 
   const open_UpdateModal = () => {
     setOpenmodal("order_review_modal");
     setOpenClickOut("clickoutsideModal showclickoutsideModal");
-    setOpenUpdateModal("updateInfo_wrapper show_updateInfo_wrapper")
+    setOpenUpdateModal("updateInfo_wrapper show_updateInfo_wrapper");
 
-    setUser__nameModal(user__name)
-    setUser__emailModal(user__email)
-    setUser__addressModal(user__address)
-  }
-  
+    setUser__nameModal(user__name);
+    setUser__emailModal(user__email);
+    setUser__addressModal(user__address);
+  };
 
   return (
     <>
@@ -191,7 +201,21 @@ function account() {
                 <>
                   <h3>Account</h3>
                   <div className="ww">
-                    <svg width="20" height="20" fill="none" stroke="grey" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    <svg
+                      width="20"
+                      height="20"
+                      fill="none"
+                      stroke="grey"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                      ></path>
+                    </svg>
                     {user__name.replace(/^\w/, (c) => c.toUpperCase())}
                   </div>
                   <div className="ww">
@@ -237,8 +261,12 @@ function account() {
                     {user__address}
                   </div>
                   <div className="options">
-                    <div onClick={open_UpdateModal} className="update_info"><i className="fad fa-file-edit"></i> Update</div>
-                    <div className="logout" onClick={logout}><i className="fad fa-sign-out-alt"></i> Logout</div>
+                    <div onClick={open_UpdateModal} className="update_info">
+                      <i className="fad fa-file-edit"></i> Update
+                    </div>
+                    <div className="logout" onClick={logout}>
+                      <i className="fad fa-sign-out-alt"></i> Logout
+                    </div>
                   </div>
                 </>
               )}
@@ -248,7 +276,12 @@ function account() {
             <div className={openUpdateModal}>
               <div className="top">
                 <h4>Update Information</h4>
-                <svg onClick={closeOrderModal} aria-hidden="true" width="28" height="28" focusable="false"
+                <svg
+                  onClick={closeOrderModal}
+                  aria-hidden="true"
+                  width="28"
+                  height="28"
+                  focusable="false"
                   role="presentation"
                   className="icon icon-close"
                   viewBox="0 0 64 64"
@@ -263,23 +296,47 @@ function account() {
               <div className="form">
                 <div className="updateInput">
                   <label htmlFor="password">Name</label>
-                  <input type="text" onChange={e => setUser__nameModal(e.target.value)} value={user__nameModal} />
+                  <input
+                    type="text"
+                    onChange={(e) => setUser__nameModal(e.target.value)}
+                    value={user__nameModal}
+                  />
                 </div>
                 <div className="updateInput">
                   <label htmlFor="password">Email</label>
-                  <input type="email" onChange={e => setUser__emailModal(e.target.value)} value={user__emailModal} />
+                  <input
+                    type="email"
+                    onChange={(e) => setUser__emailModal(e.target.value)}
+                    value={user__emailModal}
+                  />
                 </div>
                 <div className="updateInput">
                   <label htmlFor="password">Address</label>
-                  <input type="text" onChange={e => setUser__addressModal(e.target.value)} value={user__addressModal}/>
+                  <input
+                    type="text"
+                    onChange={(e) => setUser__addressModal(e.target.value)}
+                    value={user__addressModal}
+                  />
                 </div>
-                <div onClick={user_info_update} className="update_btn"><i className="fad fa-file-edit"></i> UPDATE</div>
+                <div onClick={user_info_update} className="update_btn">
+                  <i className="fad fa-file-edit"></i> UPDATE
+                </div>
               </div>
             </div>
             <div className={openModal}>
               <div className="top">
                 <h4>Order Information</h4>
-                <svg onClick={closeOrderModal} aria-hidden="true" width="28" height="28" focusable="false" role="presentation" className="icon icon-close" viewBox="0 0 64 64"><defs></defs>
+                <svg
+                  onClick={closeOrderModal}
+                  aria-hidden="true"
+                  width="28"
+                  height="28"
+                  focusable="false"
+                  role="presentation"
+                  className="icon icon-close"
+                  viewBox="0 0 64 64"
+                >
+                  <defs></defs>
                   <path
                     className="cls-1"
                     d="M19 17.61l27.12 27.13m0-27.12L19 44.74"
@@ -333,7 +390,7 @@ function account() {
                 <div className="item">
                   <span>Payment mode</span>
                   <span>{orderPay}</span>
-                </ div>
+                </div>
                 <div className="item">
                   <span>Shipping option</span>
                   <span>{orderShip}</span>
@@ -358,47 +415,50 @@ function account() {
               </div>
               <div className="order_his_wrapper">
                 {userHasOrders ? (
-                userorders.map((val, key) => {
-                  return (
-                    <div
-                      onClick={() => {
-                        orderModal(
-                          val.id,
-                          val.status,
-                          val.total,
-                          val.payment_mode,
-                          val.shipping_option,
-                          val.created_at,
-                          val.product_images,
-                          val.product_names,
-                          val.product_quantities
-                        );
-                      }}
-                      className="order_specific"
-                      key={key}
-                    >
-                      <i className="aa fal fa-shopping-bag"></i>
-                      <div className="aa">Order Ref#: {val.id}</div>
-                      <div className="aa">
-                        Total: ₱{val.total.toLocaleString()}
+                  userorders.map((val, key) => {
+                    return (
+                      <div
+                        onClick={() => {
+                          orderModal(
+                            val.id,
+                            val.status,
+                            val.total,
+                            val.payment_mode,
+                            val.shipping_option,
+                            val.created_at,
+                            val.product_images,
+                            val.product_names,
+                            val.product_quantities
+                          );
+                        }}
+                        className="order_specific"
+                        key={key}
+                      >
+                        <i className="aa fal fa-shopping-bag"></i>
+                        <div className="aa">Order Ref#: {val.id}</div>
+                        <div className="aa">
+                          Total: ₱{val.total.toLocaleString()}
+                        </div>
+                        <div className="stat aa">
+                          Status:{" "}
+                          <span
+                            className={`${
+                              val.status == "Pending" ? "abc" : "abc delivered"
+                            }`}
+                          >
+                            {val.status}
+                          </span>
+                        </div>
+                        <div className="aa ab">
+                          Date: {new Date(val.created_at).toLocaleString()}
+                        </div>
                       </div>
-                      <div className="stat aa">
-                        Status:{" "}
-                        <span
-                          className={`${
-                            val.status == "Pending" ? "abc" : "abc delivered"
-                          }`}
-                        >
-                          {val.status}
-                        </span>
-                      </div>
-                      <div className="aa ab">
-                        Date: {new Date(val.created_at).toLocaleString()}
-                      </div>
-                    </div>
-                  );
-                })) : (<div>No history</div>)}
-              </div> 
+                    );
+                  })
+                ) : (
+                  <div>No history</div>
+                )}
+              </div>
             </div>
           </div>
           <Footer />
